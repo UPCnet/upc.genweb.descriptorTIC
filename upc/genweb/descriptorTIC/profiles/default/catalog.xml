@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<object name="portal_catalog" meta_type="Plone Catalog Tool">
+ <property name="title">Indexes all content in the site</property>
+ <property name="unwrapobjects" type="boolean">True</property>
+ <object name="htmltext_lexicon" meta_type="ZCTextIndex Lexicon">
+  <element name="HTML aware splitter" group="Word Splitter"/>
+  <element name="Case Normalizer" group="Case Normalizer"/>
+  <element name="Remove listed stop words only" group="Stop Words"/>
+ </object>
+ <object name="plaintext_lexicon" meta_type="ZCTextIndex Lexicon">
+  <element name="Whitespace splitter" group="Word Splitter"/>
+  <element name="Case Normalizer" group="Case Normalizer"/>
+  <element name="Remove listed stop words only" group="Stop Words"/>
+ </object>
+ <object name="plone_lexicon" meta_type="ZCTextIndex Lexicon">
+  <element name="Unicode Whitespace splitter" group="Word Splitter"/>
+  <element name="Unicode Case Normalizer" group="Case Normalizer"/>
+ </object>
+
+ <index name="getNormativa" meta_type="KeywordIndex"> 
+ <indexed_attr value="getNormativa"/>
+ </index>
+ <column value="getNormativa"/>
+
+ <index name="getManuales_documentacio" meta_type="KeywordIndex"> 
+ <indexed_attr value="getManuales_documentacio"/>
+ </index>
+ <column value="getManuales_documentacio"/>
+
+</object>
+

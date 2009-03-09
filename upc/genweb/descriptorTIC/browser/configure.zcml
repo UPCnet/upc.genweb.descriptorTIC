@@ -1,0 +1,24 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="upc.genweb.descriptorTIC"> 
+    
+    <include package="plone.app.contentmenu" /> 
+
+    <browser:page
+        for="..interfaces.IServeiTIC"
+        name="view"
+        class=".serveitic.ServeiTICView"
+        permission="zope2.View"
+        />
+
+    <browser:menuItem
+        for="..interfaces.IServeiTIC"
+        menu="plone_displayviews"
+        title="Servei TIC view"
+        action="@@view"
+        description="Default representation of a Servei TIC."
+        />
+
+</configure>
+

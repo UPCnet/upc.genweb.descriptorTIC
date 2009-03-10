@@ -162,11 +162,5 @@ class ServeiTIC(ATDocument):
     def getColectius(self):
         return [("est","EST"),("pas","PAS"),("pdi","PDI")]
 
-    def getTICFamily(self): 
-        return self.getParentNode()
-
-    def getTICUnitat(self): 
-        return self.getParentNode().getParentNode()
-
 atapi.registerType(ServeiTIC, PROJECTNAME)
 

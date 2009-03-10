@@ -26,6 +26,19 @@
           <div tal:replace="structure provider:plone.belowcontenttitle" />
         </metal:header_macro>
 
+        <label class="formQuestion">
+            <span>Unitat:</span>
+        </label>
+        <span tal:content="view/getTICUnitat"></span>
+
+        <br>
+
+        <label class="formQuestion">
+            <span>Familia:</span>
+        </label>
+        <span tal:content="view/getTICFamily"></span>
+
+        <br><br>
         <metal:body_macro metal:define-macro="body">
           <div tal:replace="structure provider:plone.abovecontentbody" />
 
@@ -49,6 +62,30 @@
             </tal:if_folderlisting>
         </metal:folderlisting_macro>
 
+		<!-- NORMATIVA -->
+        <label class="formQuestion">
+            <span>Normativa:</span>
+        </label>
+
+        <tal:block tal:repeat="obj here/getNormativa">
+        <a tal:attributes="href python: portal_url + '/' + obj._getURL()">
+            <span tal:content="obj/title_or_id">Comment title</span>,
+        </a>
+        </tal:block>
+
+        <br><br>
+
+        <!-- MANUALS Y DOCUMENTACIO -->
+        <label class="formQuestion">
+            <span>Manuales y documentació:</span>
+        </label>
+
+        <tal:block tal:repeat="obj here/getManuales_documentacio">
+        <a tal:attributes="href python: portal_url + '/' + obj._getURL()">
+            <span tal:content="obj/title_or_id">Comment title</span>,
+        </a>
+        </tal:block>
+		
         <metal:footer_macro define-macro="footer">
             <div metal:use-macro="here/document_relateditems/macros/relatedItems">
                 show related items if they exist
@@ -56,12 +93,6 @@
 
             <div tal:replace="structure provider:plone.belowcontentbody" />
         </metal:footer_macro>
-
-<!--
-        <div tal:content="python: dir(view.getNormativa)"/>
-
-        <div tal:content="python: view.getManuales_documentacio"/>
--->
 
 
       </metal:main_macro>

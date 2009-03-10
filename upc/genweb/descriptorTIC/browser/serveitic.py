@@ -18,3 +18,9 @@ class ServeiTICView(BrowserView):
 
     __call__ = ViewPageTemplateFile('serveiTIC-view.pt')
 
+    def getTICFamily(self):
+        return self.aq_parent.aq_parent.Title()
+
+    def getTICUnitat(self):
+        return self.aq_parent.aq_parent.aq_parent.Title()
+

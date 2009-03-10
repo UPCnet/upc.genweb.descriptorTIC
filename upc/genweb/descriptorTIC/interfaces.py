@@ -12,3 +12,6 @@ class IServeiTIC(Interface):
     """A Servei Content Type
     """
 
+class IFaq(Interface):
+    """A faq Content Type
+    """

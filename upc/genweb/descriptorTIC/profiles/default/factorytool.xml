@@ -10,5 +10,6 @@
 <object name="portal_factory" meta_type="Plone Factory Tool">
   <factorytypes>
     <type portal_type="ServeiTIC"/>
+    <type portal_type="Faq"/>
   </factorytypes>
 </object>

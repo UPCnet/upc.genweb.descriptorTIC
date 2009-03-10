@@ -20,5 +20,22 @@
         description="Default representation of a Servei TIC."
         />
 
+
+    <browser:page
+        for="..interfaces.IFaq"
+        name="view"
+        class=".faq.FaqView"
+        permission="zope2.View"
+        />
+
+    <browser:menuItem
+        for="..interfaces.IFaq"
+        menu="plone_displayviews"
+        title="FAQ TIC view"
+        action="@@view"
+        description="Default representation of a FAQ TIC."
+        />
+
+
 </configure>
 

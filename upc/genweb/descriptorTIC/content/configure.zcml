@@ -19,5 +19,22 @@
             />
 
     </class>
+
+
+    <class class=".faq.Faq">
+
+        <require
+            permission="zope2.View"
+            interface="..interfaces.IFaq"
+            />
+
+        <require
+            permission="cmf.ModifyPortalContent"
+            set_schema="..interfaces.IFaq"
+            />
+
+    </class>
+
+
 </configure>
 

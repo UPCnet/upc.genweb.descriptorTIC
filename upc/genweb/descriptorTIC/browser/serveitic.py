@@ -24,3 +24,12 @@ class ServeiTICView(BrowserView):
     def getTICUnitat(self):
         return self.aq_parent.aq_parent.aq_parent.Title()
 
+    def eliminaUltimo(self, cad):
+        new_cad = []
+        lon = len(cad)
+
+        for ii in cad[:len(cad)-1]:
+            new_cad.append(ii)
+
+        return new_cad
+

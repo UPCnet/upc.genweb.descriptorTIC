@@ -36,9 +36,8 @@
         <!-- Col·lectiu:    -->
         <h4 class="formQuestion">Col·lectiu:</h4>
 
-        <tal:block tal:repeat="obj here/getColectiu">
-            <span tal:content="obj">Comment title</span>,
-        </tal:block>
+        <span tal:repeat="obj python: view.eliminaUltimo(here.getColectiu())" tal:content="python: obj+',  '"></span>
+        <span tal:define="obj python: here.getColectiu()[-1]" tal:content="python: obj + '.'"></span>
 
         <!-- Descripció curta: -->
         <h4 class="formQuestion">Descripció curta:</h4>
@@ -59,19 +58,27 @@
 		<!-- NORMATIVA -->
         <h4 class="formQuestion">Normativa:</h4>
 
-        <tal:block tal:repeat="obj here/getNormativa">
-        <a tal:attributes="href python: portal_url + '/' + obj._getURL()">
-            <span tal:content="obj/title_or_id">Comment title</span>
+        <tal:block tal:repeat="obj python: view.eliminaUltimo(here.getNormativa())">
+        <a tal:attributes="href python: portal_url + '/' + obj._getURL()" tal:content="obj/title_or_id">
         </a>,
+        </tal:block>
+
+        <tal:block tal:define="obj python: here.getNormativa()[-1]">
+        <a tal:attributes="href python: portal_url + '/' + obj._getURL()" tal:content="obj/title_or_id">
+        </a>.
         </tal:block>
 
         <!-- MANUALS Y DOCUMENTACIO -->
         <h4 class="formQuestion">Manuales y documentació:</h4>
         
-        <tal:block tal:repeat="obj here/getManuales_documentacio">
-        <a tal:attributes="href python: portal_url + '/' + obj._getURL()">
-            <span tal:content="obj/title_or_id">Comment title</span>
+        <tal:block tal:repeat="obj  python: view.eliminaUltimo(here.getManuales_documentacio())">
+        <a tal:attributes="href python: portal_url + '/' + obj._getURL()" tal:content="obj/title_or_id">
         </a>,
+        </tal:block>        
+
+        <tal:block tal:define="obj  python: here.getManuales_documentacio()[-1]">
+        <a tal:attributes="href python: portal_url + '/' + obj._getURL()" tal:content="obj/title_or_id">
+        </a>.
         </tal:block>        
 
       </metal:main_macro>

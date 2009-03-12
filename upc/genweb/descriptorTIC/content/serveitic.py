@@ -46,7 +46,7 @@ servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
         widget = atapi.RichWidget(
             label = _(u"A qui s'adreça"),
             label_msgid = _(u"label_directedto_description"), 
-            rows  = 15,
+            rows  = 10,
             i18n_domain = "upc.genweb.descriptorTIC"), 
         schemata="default",
     ),
@@ -71,7 +71,7 @@ servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
         widget = atapi.RichWidget(
             label = _(u"Descripció curta"),
             label_msgid = _(u"label_description_curta"),
-            rows  = 15,
+            rows  = 10,
             i18n_domain = "upc.genweb.descriptorTIC"),
         schemata="default",
     ),
@@ -83,7 +83,7 @@ servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
         widget = atapi.RichWidget(
             label = _(u"Descripció llarga"),
             label_msgid = _(u"label_description_llarga"),
-            rows  = 15,
+            rows  = 10,
             i18n_domain = "upc.genweb.descriptorTIC"),
         schemata="default",
     ),
@@ -95,7 +95,7 @@ servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
         widget = atapi.RichWidget(
             label = _(u"Suport"),
             label_msgid = _(u"label_suport"),
-            rows  = 15,
+            rows  = 10,
             i18n_domain = "upc.genweb.descriptorTIC"),
         schemata="default",
     ),
@@ -107,7 +107,7 @@ servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
         widget = atapi.RichWidget(
             label = _(u"Indicadors"),
             label_msgid = _(u"label_indicadors"),
-            rows  = 15,
+            rows  = 10,
             i18n_domain = "upc.genweb.descriptorTIC"),
         schemata="default",
     ),
@@ -160,7 +160,7 @@ class ServeiTIC(ATDocument):
     implements(IServeiTIC)
 
     def getColectius(self):
-        return [("est","EST"),("pas","PAS"),("pdi","PDI")]
+        return ['EST','PAS','PDI']
 
 atapi.registerType(ServeiTIC, PROJECTNAME)
 

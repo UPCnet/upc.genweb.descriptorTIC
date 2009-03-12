@@ -5,7 +5,7 @@
 
  <property name="title">Servei FAQ</property>
  <property name="description"></property>
- <property name="content_icon">++resource++Banner.gif</property>
+ <property name="content_icon">++resource++logosfooter_icon.gif</property>
  <property name="content_meta_type">Faq</property>
  <property name="product">upc.genweb.descriptorTIC</property>
  <property name="factory">addFaq</property>

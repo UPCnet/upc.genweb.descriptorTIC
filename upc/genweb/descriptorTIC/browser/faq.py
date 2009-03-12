@@ -18,3 +18,12 @@ class FaqView(BrowserView):
 
     __call__ = ViewPageTemplateFile('faq-view.pt')
 
+    def eliminaUltimo(self, cad):
+        new_cad = []
+        lon = len(cad)
+
+        for ii in cad[:len(cad)-1]:
+            new_cad.append(ii)
+
+        return new_cad
+

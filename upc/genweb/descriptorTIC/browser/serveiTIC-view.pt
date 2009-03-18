@@ -54,9 +54,12 @@
         <!-- Indicadors:   -->
         <h4 class="formQuestion">Indicadors:</h4>
         <span tal:content="structure here/getIndicadors">Comment</span>
+
         
+        <tal:n tal:condition="python: here.getNormativa()">
 		<!-- NORMATIVA -->
         <h4 class="formQuestion">Normativa:</h4>
+
 
         <tal:block tal:repeat="obj python: view.eliminaUltimo(here.getNormativa())">
         <a tal:attributes="href python: portal_url + '/' + obj._getURL()" tal:content="obj/title_or_id">
@@ -67,7 +70,9 @@
         <a tal:attributes="href python: portal_url + '/' + obj._getURL()" tal:content="obj/title_or_id">
         </a>.
         </tal:block>
+        </tal:n>
 
+        <tal:m tal:condition="python: here.getManuales_documentacio()">
         <!-- MANUALS Y DOCUMENTACIO -->
         <h4 class="formQuestion">Manuales y documentació:</h4>
         
@@ -80,7 +85,7 @@
         <a tal:attributes="href python: portal_url + '/' + obj._getURL()" tal:content="obj/title_or_id">
         </a>.
         </tal:block>        
-
+        </tal:m>
       </metal:main_macro>
 
     </div>

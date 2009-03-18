@@ -36,6 +36,14 @@
         description="Default representation of a FAQ TIC."
         />
 
+    <browser:page
+        for="*"
+        name="vista-general"
+        class=".serveitic.vistaGeneral"
+        template="vista-general.pt"
+        permission="zope2.View"
+        />
+
 
 </configure>
 

@@ -33,3 +33,6 @@ class ServeiTICView(BrowserView):
 
         return new_cad
 
+class vistaGeneral(BrowserView):
+    __call__ = ViewPageTemplateFile('vista-general.pt')
+

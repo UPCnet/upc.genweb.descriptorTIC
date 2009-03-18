@@ -35,14 +35,12 @@ faq_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
                 vocabulary='listaServicios',
                 enforceVocabulary=True,
                 widget=atapi.InAndOutWidget(
-                    label="Lista de Servicios",
-                    label_msgid="label_custom_view_fields",
-                    description="Select which fields to display when ",
-                    description_msgid="help_custom_view_fields",
+                    label="Serveis Relacionats",
+                    label_msgid="lista_servicios_faq",
+                    description="Aquí es llisten el serveis de la Unitat. Seleccioneu de quins serveis és aquesta FAQ. Es mostraran quan estigui marcat 'Mostra com a taula'.",
+                    description_msgid="lista_servicios_faq_description",
                     i18n_domain = "plone"),
          ),
-
-# Aquí es llisten el serveis de la Unitat. Seleccioneu de quins serveis és aquesta FAQ. Es mostraran quan estigui marcat 'Mostra com a taula'."
 
 ))
 
@@ -63,7 +61,10 @@ class Faq(ATDocument):
         """Return a list of metadata fields from portal_catalog.
         """
         portal_catalog = getToolByName(self, 'portal_catalog')
-        mt = portal_catalog.searchResults(portal_type = 'ServeiTIC',path={"query":'/' + self.getPhysicalPath()[1] + '/' + self.getParentNode()._getURL(), "depth":2},sort_on='Date',review_state='published')
+        mt = portal_catalog.searchResults(portal_type = 'ServeiTIC',
+                                          path={"query": '/'.join(self.getPhysicalPath()[:2]) + '/' + self.getParentNode().getParentNode()._getURL(), "depth":2},
+                                          sort_on='Date',
+                                          review_state='published')
         new_list=[]
         for f in mt:
             new_list.append(f.Title)

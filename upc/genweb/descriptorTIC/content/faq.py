@@ -42,11 +42,11 @@ faq_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
                     i18n_domain = "plone"),
          ),
 
+# Aquí es llisten el serveis de la Unitat. Seleccioneu de quins serveis és aquesta FAQ. Es mostraran quan estigui marcat 'Mostra com a taula'."
+
 ))
 
 schemata.finalizeATCTSchema(faq_tic_Schema, moveDiscussion=False)
-
-faq_tic_Schema['text'].widget.visible = {'edit': 'invisible', 'view': 'invisible'}
 
 class Faq(ATDocument):
     """Servei Descriptor TIC"""

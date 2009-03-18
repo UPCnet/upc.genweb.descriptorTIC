@@ -14,4 +14,12 @@
  <object name="Faq"
          meta_type="Factory-based Type Information with dynamic views"/>
          
+ <object name="UnitatTIC"
+         meta_type="Factory-based Type Information with dynamic views"/>
+
+ <object name="FamiliaTIC"
+         meta_type="Factory-based Type Information with dynamic views"/>
+
+ <object name="FaqContainertic"
+         meta_type="Factory-based Type Information with dynamic views"/>
 </object>

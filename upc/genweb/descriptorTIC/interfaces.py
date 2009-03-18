@@ -15,3 +15,15 @@ class IServeiTIC(Interface):
 class IFaq(Interface):
     """A faq Content Type
     """
+
+class IUnitatTIC(Interface):
+    """A faq Content Type
+    """
+
+class IFamiliaTIC(Interface):
+    """A faq Content Type
+    """
+
+class IFaqContainerTIC(Interface):
+    """A faq Content Type
+    """

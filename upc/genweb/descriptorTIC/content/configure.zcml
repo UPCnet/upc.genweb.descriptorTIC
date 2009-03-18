@@ -35,6 +35,49 @@
 
     </class>
 
+    <class class=".unitattic.UnitatTIC">
+
+        <require
+            permission="zope2.View"
+            interface="..interfaces.IUnitatTIC"
+            />
+
+        <require
+            permission="cmf.ModifyPortalContent"
+            set_schema="..interfaces.IUnitatTIC"
+            />
+
+    </class>
+
+    <class class=".familiatic.FamiliaTIC">
+
+        <require
+            permission="zope2.View"
+            interface="..interfaces.IFamiliaTIC"
+            />
+
+        <require
+            permission="cmf.ModifyPortalContent"
+            set_schema="..interfaces.IFamiliaTIC"
+            />
+
+    </class>
+
+    <class class=".faqContainertic.FaqContainertic">
+
+        <require
+            permission="zope2.View"
+            interface="..interfaces.IFaqContainerTIC"
+            />
+
+        <require
+            permission="cmf.ModifyPortalContent"
+            set_schema="..interfaces.IFaqContainerTIC"
+            />
+
+    </class>
+
+
 
 </configure>
 

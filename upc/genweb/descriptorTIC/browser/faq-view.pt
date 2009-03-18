@@ -27,14 +27,13 @@
         <!-- SERVEIS RELACIONATS --> 
         <h4 class="formQuestion">Serveis Relacionats:</h4>
 
-        <tal:block tal:repeat="obj  python: view.eliminaUltimo(here.getListaservei())">
-        <a tal:attributes="href obj[1]" tal:content="obj[0]"></a>,
+        <tal:block tal:repeat="obj python: view.eliminaUltimo(here.serviciosEnlace())">
+        <a tal:attributes="href python: obj.getURL()" tal:content="obj/Title"></a>,
         </tal:block>
 
-        <tal:block tal:define="obj  python: here.getListaservei()[-1]">
-        <a tal:attributes="href obj[1]" tal:content="obj[0]"></a>.
+        <tal:block tal:define="obj  python: here.serviciosEnlace()[-1]">
+        <a tal:attributes="href python: obj.getURL()" tal:content="obj/Title"></a>.
         </tal:block>
-
 
 
       </metal:main_macro>

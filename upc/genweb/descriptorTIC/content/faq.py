@@ -71,6 +71,18 @@ class Faq(ATDocument):
         new_list.sort()
         return new_list
 
+    def serviciosEnlace(self):
+        serveis = self.listaServicios()
+        new = []
+        portal_catalog = getToolByName(self, 'portal_catalog')
+        mt = portal_catalog.searchResults(portal_type = 'ServeiTIC',review_state='published')
+
+        for i in serveis:
+            for j in mt:
+                if i==j.Title:
+                    new.append(j)
+        return new
+
 atapi.registerType(Faq, PROJECTNAME)
 
 

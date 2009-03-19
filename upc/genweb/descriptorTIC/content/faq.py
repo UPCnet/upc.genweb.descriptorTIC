@@ -63,7 +63,6 @@ class Faq(ATDocument):
         """Return a list of metadata fields from portal_catalog.
         """
         portal_catalog = getToolByName(self, 'portal_catalog')
-        import pdb; pdb.set_trace()
         mt = portal_catalog.searchResults(portal_type = 'ServeiTIC',
                                           path={"query": '/'.join(self.getPhysicalPath()[:2]) + '/' + self.getParentNode().getParentNode()._getURL(), "depth":2},
                                           sort_on='Date',

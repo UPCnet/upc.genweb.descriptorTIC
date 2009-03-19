@@ -11,6 +11,8 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.permissions import View
 from Products.CMFCore.permissions import ModifyPortalContent
 
+from zope.component import getMultiAdapter, getUtility
+
 from Products.Archetypes import atapi
 from Products.Archetypes.public import DisplayList
 from Products.ATContentTypes.content import base
@@ -61,6 +63,7 @@ class Faq(ATDocument):
         """Return a list of metadata fields from portal_catalog.
         """
         portal_catalog = getToolByName(self, 'portal_catalog')
+        import pdb; pdb.set_trace()
         mt = portal_catalog.searchResults(portal_type = 'ServeiTIC',
                                           path={"query": '/'.join(self.getPhysicalPath()[:2]) + '/' + self.getParentNode().getParentNode()._getURL(), "depth":2},
                                           sort_on='Date',

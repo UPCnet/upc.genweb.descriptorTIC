@@ -64,7 +64,7 @@ class Faq(ATDocument):
         """
         portal_catalog = getToolByName(self, 'portal_catalog')
         mt = portal_catalog.searchResults(portal_type = 'ServeiTIC',
-                                          path={"query": '/'.join(self.getPhysicalPath()[:2]) + '/' + self.getParentNode().getParentNode()._getURL(), "depth":2},
+                                          path={"query": '/'.join(self.getPhysicalPath()[:4]),"depth":2},
                                           sort_on='Date',
                                           review_state='published')
         new_list=[]

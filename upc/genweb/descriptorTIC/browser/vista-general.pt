@@ -5,13 +5,28 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       metal:use-macro="here/main_template/macros/master">
 
-  <head><title></title></head>
+  <head><title></title>
+
+  </head>
 
   <body>
 
     <div metal:fill-slot="main">
 
       <metal:main_macro define-macro="main">
+
+	<script type="text/javascript">
+
+	function dobusqueda(){
+		new Ajax.Request($('searchajax').action,{
+			method:$('searchajax').method,
+			parameters: $('searchajax').serialize(true),
+			onSuccess: 	function(transport){ 
+	  						$('ajaxresults').innerHTML = transport.responseText;
+  						}
+    	});
+    }    
+	</script>
 
       <div tal:replace="structure provider:plone.abovecontenttitle" />
 
@@ -25,6 +40,7 @@
           class="enableAutoFocus"
           method="get"
           name="search"
+          id="searchajax"
           tal:define="DateTime python:modules['DateTime'].DateTime">
 
         <div class="container">
@@ -36,12 +52,12 @@
                 Return items created by a particular person.
                 </div>
 
-                <tal:unidades tal:define="creators python:portal.portal_catalog(portal_type = 'ServeiTIC')">
-                    <select name="Unidades"
+                <tal:unidades tal:define="creators python:portal.portal_catalog(portal_type = 'UnitatTIC')">
+                    <select name="portal_type:list" onchange="dobusqueda();"
                             id="getUnidades"
                             tal:condition="python: len(creators) &lt;= 30">
                         <metal:block tal:repeat="creator creators">
-                            <option value="" tal:attributes="value creator/UID" tal:content="creator/Title"> username </option>
+                            <option value="" tal:attributes="value creator/portal_type" tal:content="creator/Title"> username </option>
                         </metal:block>
                     </select>
 
@@ -53,7 +69,7 @@
             <br><br>
             <div style="float: right">
                 <input class="experts_search_button"
-                       type="submit"
+                       type="submit" 
                        name="submit"
                        value="Search"
                        tal:attributes="tabindex tabindex/next;"
@@ -64,6 +80,9 @@
 
     </form>
 
+    <div id="ajaxresults">
+    
+    </div>
 
 
       </metal:main_macro>

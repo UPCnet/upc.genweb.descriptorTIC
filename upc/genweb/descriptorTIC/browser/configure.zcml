@@ -44,6 +44,14 @@
         permission="zope2.View"
         />
 
+    <browser:page
+        for="*"
+        name="searching"
+        class=".serveitic.buscadorView"
+        template="searching.pt"
+        permission="zope2.View"
+    	/>
+
 
 </configure>
 

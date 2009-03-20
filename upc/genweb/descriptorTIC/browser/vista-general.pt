@@ -5,92 +5,79 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       metal:use-macro="here/main_template/macros/master">
 
-  <head><title></title>
-
-  </head>
-
-  <body>
-
-    <div metal:fill-slot="main">
+<head><title></title>
+</head>
+<body>
+  <div metal:fill-slot="main">
 
       <metal:main_macro define-macro="main">
 
-	<script type="text/javascript">
+		<script type="text/javascript">
 
-	function dobusqueda(){
-		new Ajax.Request($('searchajax').action,{
-			method:$('searchajax').method,
-			parameters: $('searchajax').serialize(true),
-			onSuccess: 	function(transport){ 
-	  						$('ajaxresults').innerHTML = transport.responseText;
-  						}
-    	});
-    }    
-	</script>
+		function dobusqueda(){
+			new Ajax.Request($('searchajax').action,{
+				method:$('searchajax').method,
+				parameters: $('searchajax').serialize(true),
+				onSuccess: 	function(transport){ 
+		  						$('ajaxresults').innerHTML = transport.responseText;
+	  						}
+			});
+		}    
+
+		</script>
 
       <div tal:replace="structure provider:plone.abovecontenttitle" />
-
-
       <div class="agendaContingut contacte" style="padding: 5px;">
 
       <h5 style="font-family: Arial,Helvetica,Verdana,sans-serif; font-size: 14px;">Vista General de los Servicios...</h5>
       </div>
 
-    <form action="searching"
-          class="enableAutoFocus"
-          method="get"
-          name="search"
-          id="searchajax"
-          tal:define="DateTime python:modules['DateTime'].DateTime">
+		<form action="searching"
+		      class="enableAutoFocus"
+		      method="get"
+		      name="search"
+		      id="searchajax"
+		      tal:define="DateTime python:modules['DateTime'].DateTime">
 
-        <div class="container">
+		    <div class="container">
 
-            <div class="field">
-                <label for="Unidades" i18n:translate="label_unidades">Lista de Unidades</label>
+		        <div class="field">
+		            <label for="Unidades" i18n:translate="label_unidades">Lista de Unidades</label>
 
-                <div class="formHelp" i18n:translate="help_search_author">
-                Return items created by a particular person.
-                </div>
+		            <div class="formHelp" i18n:translate="help_search_author">
+		            Return items created by a particular person.
+		            </div>
 
-                <tal:unidades tal:define="creators python:portal.portal_catalog(portal_type = 'UnitatTIC')">
-                    <select name="portal_type:list" onchange="dobusqueda();"
-                            id="getUnidades"
-                            tal:condition="python: len(creators) &lt;= 30">
-                        <metal:block tal:repeat="creator creators">
-                            <option value="" tal:attributes="value creator/portal_type" tal:content="creator/Title"> username </option>
-                        </metal:block>
-                    </select>
+		            <tal:unidades tal:define="unitats python:portal.portal_catalog(portal_type = 'UnitatTIC')">
+		                <select name="unitat_url" onchange="dobusqueda();"
+		                        id="unitat_url"
+		                        tal:condition="python: len(unitats) &lt;= 30">
+		                    <metal:block tal:repeat="u unitats">
+		                        <option value="" tal:attributes="value python: u.getURL()" tal:content="u/Title"></option>
+		                    </metal:block>
+		                </select>
+		            </tal:unidades>
 
-                    <input name="Creator"
-                           tal:condition="python: len(creators) &gt; 30 " />
-                </tal:unidades>
-            </div>
+		        </div>
 
-            <br><br>
-            <div style="float: right">
-                <input class="experts_search_button"
-                       type="submit" 
-                       name="submit"
-                       value="Search"
-                       tal:attributes="tabindex tabindex/next;"
-                       i18n:attributes="value label_search;"
-                       />
-            </div>
-         </div>
+		        <div style="float: right">
+		            <input class="experts_search_button"
+		                   type="submit" 
+		                   name="submit"
+		                   value="Search"
+		                   tal:attributes="tabindex tabindex/next;"
+		                   i18n:attributes="value label_search;"
+		                   />
+		        </div>
+		     </div>
 
-    </form>
+		</form>
 
-    <div id="ajaxresults">
+    <div id="ajaxresults"></div>
     
-    </div>
-
-
-      </metal:main_macro>
-
-    </div>
-
-  </body>
-
+  </metal:main_macro>
+ </div>
+</body>
 </html>
 
 

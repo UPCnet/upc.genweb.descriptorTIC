@@ -40,7 +40,7 @@ servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
     ),
 
     atapi.TextField('directedto',
-        required=True,
+        required = False,
         validators = ('isTidyHtmlWithCleanup',),
         default_output_type = 'text/x-html-safe',
         widget = atapi.RichWidget(
@@ -53,7 +53,7 @@ servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
 
     atapi.StringField(
         name='colectiu',
-        required = True,
+        required = False,
         widget=atapi.MultiSelectionWidget(
             label = _(u'servei_tic_collectiu', default=u'Col·lectiu'),
             format = 'checkbox',
@@ -65,7 +65,7 @@ servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
     ),
 
     atapi.TextField('descripcion_corta',
-        required=True,
+        required = False,
         validators = ('isTidyHtmlWithCleanup',),
         default_output_type = 'text/x-html-safe',
         widget = atapi.RichWidget(
@@ -77,7 +77,7 @@ servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
     ),
 
     atapi.TextField('descripcion_larga',
-        required=True,
+        required = False,
         validators = ('isTidyHtmlWithCleanup',),
         default_output_type = 'text/x-html-safe',
         widget = atapi.RichWidget(
@@ -89,7 +89,7 @@ servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
     ),
 
     atapi.TextField('suport',
-        required=True,
+        required = False,
         validators = ('isTidyHtmlWithCleanup',),
         default_output_type = 'text/x-html-safe',
         widget = atapi.RichWidget(
@@ -101,7 +101,7 @@ servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
     ),
 
     atapi.TextField('indicadors',
-        required=True,
+        required = False,
         validators = ('isTidyHtmlWithCleanup',),
         default_output_type = 'text/x-html-safe',
         widget = atapi.RichWidget(

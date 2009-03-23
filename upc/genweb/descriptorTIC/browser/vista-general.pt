@@ -49,9 +49,10 @@
 		            </div>
 
 		            <tal:unidades tal:define="unitats python:portal.portal_catalog(portal_type = 'UnitatTIC')">
-		                <select name="unitat_url" onchange="dobusqueda();"
+		                <select name="unitat_url" onclick="dobusqueda();" onchange="dobusqueda();"
 		                        id="unitat_url"
 		                        tal:condition="python: len(unitats) &lt;= 30">
+                            <option value="" tal:content="string: --"></option>
 		                    <metal:block tal:repeat="u unitats">
 		                        <option value="" tal:attributes="value python: u.getURL()" tal:content="u/Title"></option>
 		                    </metal:block>
@@ -59,22 +60,23 @@
 		            </tal:unidades>
 
 		        </div>
-
+<!--
 		        <div style="float: right">
 		            <input class="experts_search_button"
 		                   type="submit" 
-		                   name="submit"
+		                   name="submit" onclick="dobusquedav1();"
 		                   value="Search"
 		                   tal:attributes="tabindex tabindex/next;"
 		                   i18n:attributes="value label_search;"
-		                   />
+		                   />		                   
 		        </div>
+-->
 		     </div>
-
+             <div id="ajaxresults"></div> 
 		</form>
 
-    <div id="ajaxresults"></div>
-    
+<div id="resultados"></div>
+
   </metal:main_macro>
  </div>
 </body>

@@ -27,3 +27,4 @@ class FaqView(BrowserView):
 
         return new_cad
 
+        

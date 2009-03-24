@@ -3,7 +3,8 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      metal:use-macro="here/main_template/macros/master">
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
 
 <head><title></title>
 </head>
@@ -41,26 +42,122 @@
 
 		    <div class="container">
 
-		        <div class="field">
-		            <label for="Unidades" i18n:translate="label_unidades">Lista de Unidades</label>
+<!-- BUSQUEDA DE SERVEIS -->
 
-		            <div class="formHelp" i18n:translate="help_search_author">
-		            Return items created by a particular person.
-		            </div>
+            <div>
+                    <label for="Title" i18n:translate="search_title" class="experts_titulars_caixa">Name</label>
 
-		            <tal:unidades tal:define="unitats python:portal.portal_catalog(portal_type = 'UnitatTIC')">
-		                <select name="unitat_url" onclick="dobusqueda();" onchange="dobusqueda();"
-		                        id="unitat_url"
-		                        tal:condition="python: len(unitats) &lt;= 30">
-                            <option value="" tal:content="string: --"></option>
-		                    <metal:block tal:repeat="u unitats">
-		                        <option value="" tal:attributes="value python: u.getURL()" tal:content="u/Title"></option>
-		                    </metal:block>
-		                </select>
-		            </tal:unidades>
+                    <div class="formHelp" i18n:translate="help_search_title">
+                    Return items matching this title.
+                    </div>
 
-		        </div>
+                    <input type="text"
+                           id="Title"
+                           name="Title"
+                           size="25"
+                           tal:attributes="value request/SearchableText|nothing"
+                           />
+            </div>
+
+
 <!--
+
+	        <div class="field">
+	            <label for="Unidades" i18n:translate="label_unidades">Lista de Unidades</label>
+
+	            <div class="formHelp" i18n:translate="help_search_author">
+	            Return items created by a particular person.
+	            </div>
+
+	            <tal:unidades tal:define="unitats python:portal.portal_catalog(portal_type = 'UnitatTIC')">
+	                <select name="unitat_url" onclick="dobusqueda();" onchange="dobusqueda();"
+	                        id="unitat_url"
+	                        tal:condition="python: len(unitats) &lt;= 30">
+                        <option value="" tal:content="string: --"></option>
+	                    <metal:block tal:repeat="u unitats">
+	                        <option value="" tal:attributes="value python: u.getURL()" tal:content="u/Title"></option>
+	                    </metal:block>
+	                </select>
+	            </tal:unidades>
+	            
+	        </div>
+			<br />
+			
+
+
+<!-- BUSQUEDA DE CATEGORIAS -->
+
+            <div class="field">
+                <label for="Subject" i18n:translate="label_categories">Categories</label>
+
+                <div class="formHelp" i18n:translate="help_search_categories">
+                Return items matching some or all of these Categories.
+                Multiple words may be found by pressing <strong>Ctrl</strong>
+                (or <strong>Apple</strong> key on Mac) while clicking the
+                keywords.
+                </div>
+
+                <select name="Subject:list" onchange="dobusqueda();" onclick="dobusqueda();"
+                        id="Subject"
+                        size="7"
+                        multiple="multiple"
+                        tal:define="contentSubjects here/Subject;
+                                    usedSubjects python:here.portal_catalog.uniqueValuesFor('Subject');"
+                        >
+                    <option value="#"
+                            tal:repeat="subject usedSubjects"
+                            tal:content="subject"
+                            tal:attributes="value subject"
+                            i18n:domain="plone-metadata"
+                            i18n:translate=""
+                            >dummy</option>
+                </select>
+                <br />
+
+                <input type="radio"
+                       name="Subject_usage:ignore_empty"
+                       id="Subject_or"
+                       value=""
+                       class="noborder"
+                       tal:attributes="checked python:1"/>
+                    <label for="Subject_or" i18n:translate="description_subject_or">
+                        Match any
+                    </label>
+                    <br />
+
+                <input type="radio"
+                        name="Subject_usage:ignore_empty"
+                        id="Subject_and"
+                        value="operator:and"
+                        class="noborder"
+                        tal:attributes="checked python:0"/>
+                <label for="Subject_and" i18n:translate="description_subject_and">
+                    Match all
+                </label>
+            </div>
+
+            <div class="field">
+                <input
+                   type="hidden"
+                   name="portal_type:list"
+                   value="ServeiTIC"
+                />
+            </div>
+
+
+
+            <div class="visualClear" id="clear-space-before-submit"><!-- --></div>
+<!--
+            <div class="formControls">
+                <input class="context"
+                       type="submit"
+                       name="submit"  
+                       value="Search"
+                       i18n:attributes="value label_search;"
+                       />
+            </div>
+
+
 		        <div style="float: right">
 		            <input class="experts_search_button"
 		                   type="submit" 
@@ -71,6 +168,7 @@
 		                   />		                   
 		        </div>
 -->
+
 		     </div>
              <div id="ajaxresults"></div> 
 		</form>

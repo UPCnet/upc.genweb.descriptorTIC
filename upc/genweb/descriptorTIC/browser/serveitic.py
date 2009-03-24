@@ -37,6 +37,7 @@ class ServeiTICView(BrowserView):
 class vistaGeneral(BrowserView):
     __call__ = ViewPageTemplateFile('vista-general.pt')
 
+
 class buscadorView(BrowserView):
     __call__ = ViewPageTemplateFile('searching.pt')
 

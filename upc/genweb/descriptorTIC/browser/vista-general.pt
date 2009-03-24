@@ -114,19 +114,21 @@
                 </select>
                 <br />
 
-                <input type="radio"
-                       name="Subject_usage:ignore_empty"
+            <div class="formControls">
+                <input type="hidden"
+                       name="Subject_usage:ignore_empty" onclick="dobusqueda();"
                        id="Subject_or"
                        value=""
-                       class="noborder"
-                       tal:attributes="checked python:1"/>
-                    <label for="Subject_or" i18n:translate="description_subject_or">
-                        Match any
+                       class="noborder"/>
+                    <label for="Subject_or" i18n:translate="description_subject_or1">
+                        Busca
                     </label>
                     <br />
+            </div>
 
+<!--
                 <input type="radio"
-                        name="Subject_usage:ignore_empty"
+                        name="Subject_usage:ignore_empty" onclick="dobusqueda();"
                         id="Subject_and"
                         value="operator:and"
                         class="noborder"
@@ -134,6 +136,7 @@
                 <label for="Subject_and" i18n:translate="description_subject_and">
                     Match all
                 </label>
+-->        
             </div>
 
             <div class="field">
@@ -167,8 +170,19 @@
 		                   i18n:attributes="value label_search;"
 		                   />		                   
 		        </div>
--->
 
+
+		        <div class="formControls">
+		            <input type="button"
+		                   class="context"
+		                   name="Subject_usage:ignore_empty" onclick="dobusqueda();"
+		                   id="Subject_or"
+		                   value=""
+		                   class="noborder"
+		                   i18n:attributes="value label_search;"
+		                   />
+		        </div>
+-->
 		     </div>
              <div id="ajaxresults"></div> 
 		</form>

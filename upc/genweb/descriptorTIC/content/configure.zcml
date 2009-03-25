@@ -63,6 +63,22 @@
 
     </class>
 
+
+    <class class=".carpetatic.CarpetaTIC">
+
+        <require
+            permission="zope2.View"
+            interface="..interfaces.ICarpetaTIC"
+            />
+
+        <require
+            permission="cmf.ModifyPortalContent"
+            set_schema="..interfaces.ICarpetaTIC"
+            />
+
+    </class>
+
+
     <class class=".faqContainertic.FaqContainertic">
 
         <require

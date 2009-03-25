@@ -27,3 +27,7 @@ class IFamiliaTIC(Interface):
 class IFaqContainerTIC(Interface):
     """A faq Content Type
     """
+
+class ICarpetaTIC(Interface):
+    """A faq Content Type
+    """

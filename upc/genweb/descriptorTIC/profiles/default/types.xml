@@ -20,6 +20,9 @@
  <object name="FamiliaTIC"
          meta_type="Factory-based Type Information with dynamic views"/>
 
+ <object name="CarpetaTIC"
+         meta_type="Factory-based Type Information with dynamic views"/>
+
  <object name="FaqContainertic"
          meta_type="Factory-based Type Information with dynamic views"/>
 </object>

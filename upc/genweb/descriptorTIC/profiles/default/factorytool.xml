@@ -13,6 +13,7 @@
     <type portal_type="Faq"/>
     <type portal_type="UnitatTIC"/>
     <type portal_type="FamiliaTIC"/>
+    <type portal_type="CarpetaTIC"/>
     <type portal_type="FaqContainertic"/>
   </factorytypes>
 </object>

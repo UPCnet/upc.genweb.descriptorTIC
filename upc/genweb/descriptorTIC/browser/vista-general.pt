@@ -115,8 +115,9 @@
                 <br />
 
             <div class="formControls">
-                <input type="hidden"
-                       name="Subject_usage:ignore_empty" onclick="dobusqueda();"
+                <input type="button"
+                       name="Subject_usage:ignore_empty" 
+                       onclick="window.dobusqueda()"
                        id="Subject_or"
                        value=""
                        class="noborder"/>

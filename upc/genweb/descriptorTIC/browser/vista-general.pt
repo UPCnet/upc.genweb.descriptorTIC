@@ -30,7 +30,7 @@
       <div tal:replace="structure provider:plone.abovecontenttitle" />
       <div class="agendaContingut contacte" style="padding: 5px;">
 
-      <h5 style="font-family: Arial,Helvetica,Verdana,sans-serif; font-size: 14px;">Vista General de los Servicios...</h5>
+      <h5 style="font-family: Arial,Helvetica,Verdana,sans-serif; font-size: 14px;">Cerca de Serveis per Categories</h5>
       </div>
 
 		<form action="searching"
@@ -42,53 +42,12 @@
 
 		    <div class="container">
 
-<!-- BUSQUEDA DE SERVEIS -->
-
-            <div>
-                    <label for="Title" i18n:translate="search_title" class="experts_titulars_caixa">Name</label>
-
-                    <div class="formHelp" i18n:translate="help_search_title">
-                    Return items matching this title.
-                    </div>
-
-                    <input type="text"
-                           id="Title"
-                           name="Title"
-                           size="25"
-                           tal:attributes="value request/SearchableText|nothing"
-                           />
-            </div>
-
-
-<!--
-
-	        <div class="field">
-	            <label for="Unidades" i18n:translate="label_unidades">Lista de Unidades</label>
-
-	            <div class="formHelp" i18n:translate="help_search_author">
-	            Return items created by a particular person.
-	            </div>
-
-	            <tal:unidades tal:define="unitats python:portal.portal_catalog(portal_type = 'UnitatTIC')">
-	                <select name="unitat_url" onclick="dobusqueda();" onchange="dobusqueda();"
-	                        id="unitat_url"
-	                        tal:condition="python: len(unitats) &lt;= 30">
-                        <option value="" tal:content="string: --"></option>
-	                    <metal:block tal:repeat="u unitats">
-	                        <option value="" tal:attributes="value python: u.getURL()" tal:content="u/Title"></option>
-	                    </metal:block>
-	                </select>
-	            </tal:unidades>
-	            
-	        </div>
-			<br />
-			
 
 
 <!-- BUSQUEDA DE CATEGORIAS -->
 
             <div class="field">
-                <label for="Subject" i18n:translate="label_categories">Categories</label>
+                <label for="Subject" style="font-weight:bold;" i18n:translate="">Categories</label>
 
                 <div class="formHelp" i18n:translate="help_search_categories">
                 Return items matching some or all of these Categories.
@@ -113,31 +72,28 @@
                             >dummy</option>
                 </select>
                 <br />
+			</div>
 
-            <div class="formControls">
-                <input type="button"
-                       name="Subject_usage:ignore_empty" 
-                       onclick="window.dobusqueda()"
-                       id="Subject_or"
-                       value=""
-                       class="noborder"/>
-                    <label for="Subject_or" i18n:translate="description_subject_or1">
-                        Busca
-                    </label>
-                    <br />
-            </div>
+            <div class="visualClear" id="clear-space-before-submit"><!-- --></div>
 
-<!--
-                <input type="radio"
-                        name="Subject_usage:ignore_empty" onclick="dobusqueda();"
-                        id="Subject_and"
-                        value="operator:and"
-                        class="noborder"
-                        tal:attributes="checked python:0"/>
-                <label for="Subject_and" i18n:translate="description_subject_and">
-                    Match all
-                </label>
--->        
+<!-- BUSQUEDA DE SERVEIS -->
+
+            <div>
+
+
+                    <div class="formHelp" i18n:translate="help_search_title">
+                    Return items matching this title.
+                    </div>
+
+                    <input type="text" onclick="dobusqueda();"
+                           id="Title"
+                           name="Title"
+                           size="25"
+                           tal:attributes="value request/SearchableText|nothing"
+                           />
+
+                    <label for="Title" i18n:translate="search_title"> &nbsp; Cerca per nom del servei</label>                         
+                    
             </div>
 
             <div class="field">
@@ -148,44 +104,11 @@
                 />
             </div>
 
-
+		    </div>
 
             <div class="visualClear" id="clear-space-before-submit"><!-- --></div>
-<!--
-            <div class="formControls">
-                <input class="context"
-                       type="submit"
-                       name="submit"  
-                       value="Search"
-                       i18n:attributes="value label_search;"
-                       />
-            </div>
-
-
-		        <div style="float: right">
-		            <input class="experts_search_button"
-		                   type="submit" 
-		                   name="submit" onclick="dobusquedav1();"
-		                   value="Search"
-		                   tal:attributes="tabindex tabindex/next;"
-		                   i18n:attributes="value label_search;"
-		                   />		                   
-		        </div>
-
-
-		        <div class="formControls">
-		            <input type="button"
-		                   class="context"
-		                   name="Subject_usage:ignore_empty" onclick="dobusqueda();"
-		                   id="Subject_or"
-		                   value=""
-		                   class="noborder"
-		                   i18n:attributes="value label_search;"
-		                   />
-		        </div>
--->
-		     </div>
-             <div id="ajaxresults"></div> 
+             
+            <div id="ajaxresults"></div> 
 		</form>
 
 <div id="resultados"></div>

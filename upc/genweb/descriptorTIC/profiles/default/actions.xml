@@ -10,7 +10,7 @@
   <object name="cerca-serveis" meta_type="CMF Action" i18n:domain="plone">
    <property name="title" i18n:translate="">Cerca Serveis</property>
    <property name="description" i18n:translate=""></property>
-   <property name="url_expr">string:cerca-serveis</property>
+   <property name="url_expr">string:unitats/cerca-serveis</property>
    <property name="icon_expr"></property>
    <property name="available_expr"></property>
    <property name="permissions">
@@ -22,7 +22,7 @@
   <object name="cerca-familias" meta_type="CMF Action" i18n:domain="plone">
    <property name="title" i18n:translate="">Cerca Familias</property>
    <property name="description" i18n:translate=""></property>
-   <property name="url_expr">string:cerca-familias</property>
+   <property name="url_expr">string:unitats/cerca-familias</property>
    <property name="icon_expr"></property>
    <property name="available_expr"></property>
    <property name="permissions">

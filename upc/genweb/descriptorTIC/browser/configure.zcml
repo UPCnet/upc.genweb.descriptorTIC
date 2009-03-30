@@ -38,19 +38,35 @@
 
     <browser:page
         for="*"
-        name="vista-general"
-        class=".serveitic.vistaGeneral"
-        template="vista-general.pt"
+        name="cerca-serveis"
+        class=".serveitic.cercaServeis"
+        template="cerca-serveis.pt"
         permission="zope2.View"
         />
 
     <browser:page
         for="*"
-        name="searching"
-        class=".serveitic.buscadorView"
-        template="searching.pt"
+        name="searching_serveis"
+        class=".serveitic.searchServeis"
+        template="searching_serveis.pt"
         permission="zope2.View"
     	/>
+
+    <browser:page
+        for="*"
+        name="cerca-familias"
+        class=".serveitic.cercaFamilias"
+        template="cerca-familias.pt"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        for="*"
+        name="searching-familia"
+        class=".serveitic.searchfamilias"
+        template="searching_familias.pt"
+        permission="zope2.View"
+        />
 
 
 </configure>

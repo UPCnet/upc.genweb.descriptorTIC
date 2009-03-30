@@ -34,10 +34,20 @@ class ServeiTICView(BrowserView):
             new_cad.append(ii)
         return new_cad
 
-class vistaGeneral(BrowserView):
-    __call__ = ViewPageTemplateFile('vista-general.pt')
+
+# Buscador de servicios por categoria
+class cercaServeis(BrowserView):
+    __call__ = ViewPageTemplateFile('cerca-serveis.pt')
 
 
-class buscadorView(BrowserView):
-    __call__ = ViewPageTemplateFile('searching.pt')
+class searchServeis(BrowserView):
+    __call__ = ViewPageTemplateFile('searching_serveis.pt')
+
+# Buscador de servicios por familia
+class cercaFamilias(BrowserView):
+    __call__ = ViewPageTemplateFile('cerca-familias.pt')
+
+
+class searchfamilias(BrowserView):
+    __call__ = ViewPageTemplateFile('searching_familias.pt')
 

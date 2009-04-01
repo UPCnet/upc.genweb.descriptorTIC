@@ -33,16 +33,15 @@ from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import Reference
 faq_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
 
     atapi.LinesField('listaservei',
-                required=False,
-                vocabulary='listaServicios',
-                enforceVocabulary=True,
-                widget=atapi.InAndOutWidget(
-                    label="Serveis Relacionats",
-                    label_msgid="lista_servicios_faq",
-                    description="Aquí es llisten el serveis de la Unitat. Seleccioneu de quins serveis és aquesta FAQ. Es mostraran quan estigui marcat 'Mostra com a taula'.",
-                    description_msgid="lista_servicios_faq_description",
-                    i18n_domain = "plone"),
-         ),
+        required=False,
+        vocabulary='listaServicios',
+        enforceVocabulary=True,
+        widget=atapi.InAndOutWidget(
+            label_msgid="faqTIC_serveis_relacionats",
+            description_msgid="faqTIC_descrip_serveis_relacionats",
+            i18n_domain = "upc.genweb.descriptorTIC"
+        ),
+    ),
 
 ))
 

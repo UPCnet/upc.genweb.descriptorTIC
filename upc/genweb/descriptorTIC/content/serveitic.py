@@ -32,10 +32,10 @@ servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
     required = True,
     searchable = 1,
     widget = atapi.StringWidget(
-        label = _(u"Fitxa de Servei"),
-        label_msgid = "servei_tic_nom",
-        description = _(u"Indica el nom del servei"),
-        description_msgid="servei_tic_description",
+        #label = _(u"Fitxa de Servei"),
+        label_msgid="serveiTIC_nom",
+        #description = _(u"Indica el nom del servei"),
+        description_msgid="serveiTIC_descripcio_nom",
         i18n_domain = "upc.genweb.descriptorTIC")
     ),
 
@@ -44,8 +44,8 @@ servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
         validators = ('isTidyHtmlWithCleanup',),
         default_output_type = 'text/x-html-safe',
         widget = atapi.RichWidget(
-            label = _(u"A qui s'adreça"),
-            label_msgid = _(u"label_directedto_description"), 
+            #label = _(u"A qui s'adreça"),
+            label_msgid="serveiTIC_adreca", 
             rows  = 10,
             i18n_domain = "upc.genweb.descriptorTIC"), 
         schemata="default",
@@ -55,9 +55,10 @@ servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
         name='colectiu',
         required = False,
         widget=atapi.MultiSelectionWidget(
-            label = _(u'servei_tic_collectiu', default=u'Col·lectiu'),
+            #label = _(u'servei_tic_collectiu', default=u'Col·lectiu'),
+ 	    label_msgid="serveiTIC_collectiu",
             format = 'checkbox',
-            i18n_domain='upctv.media',
+            i18n_domain = "upc.genweb.descriptorTIC",
         ),
         languageindependent=True,
         vocabulary='getColectius',
@@ -69,8 +70,8 @@ servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
         validators = ('isTidyHtmlWithCleanup',),
         default_output_type = 'text/x-html-safe',
         widget = atapi.RichWidget(
-            label = _(u"Descripció curta"),
-            label_msgid = _(u"label_description_curta"),
+            #label = _(u"Descripció curta"),
+            label_msgid="serveiTIC_descrip_curta",
             rows  = 10,
             i18n_domain = "upc.genweb.descriptorTIC"),
         schemata="default",
@@ -81,8 +82,8 @@ servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
         validators = ('isTidyHtmlWithCleanup',),
         default_output_type = 'text/x-html-safe',
         widget = atapi.RichWidget(
-            label = _(u"Descripció llarga"),
-            label_msgid = _(u"label_description_llarga"),
+            #label = _(u"Descripció llarga"),
+            label_msgid="serveiTIC_descrip_llarga",
             rows  = 10,
             i18n_domain = "upc.genweb.descriptorTIC"),
         schemata="default",
@@ -93,8 +94,8 @@ servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
         validators = ('isTidyHtmlWithCleanup',),
         default_output_type = 'text/x-html-safe',
         widget = atapi.RichWidget(
-            label = _(u"Suport"),
-            label_msgid = _(u"label_suport"),
+            #label = _(u"Suport"),
+            label_msgid="serveiTIC_suport",
             rows  = 10,
             i18n_domain = "upc.genweb.descriptorTIC"),
         schemata="default",
@@ -105,8 +106,8 @@ servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
         validators = ('isTidyHtmlWithCleanup',),
         default_output_type = 'text/x-html-safe',
         widget = atapi.RichWidget(
-            label = _(u"Indicadors"),
-            label_msgid = _(u"label_indicadors"),
+            #label = _(u"Indicadors"),
+            label_msgid="serveiTIC_indicadors",
             rows  = 10,
             i18n_domain = "upc.genweb.descriptorTIC"),
         schemata="default",
@@ -124,10 +125,12 @@ servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
             allow_browse = True,
             show_indexes = False,
             force_close_on_insert = True,
-            label = _(u'label_normativa', default=u'Normativa'),
-            description = '',
+            #label = _(u'label_normativa', default=u'Normativa'),
+            label_msgid="serveiTIC_normativa",
+	    description = '',
+	    i18n_domain = "upc.genweb.descriptorTIC"
             ),
-        ),
+     ),
 
     atapi.ReferenceField('manuales_documentacio',
         relationship = 'man_doc_relatesTo',
@@ -140,10 +143,12 @@ servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
             allow_browse = True,
             show_indexes = False,
             force_close_on_insert = True,
-            label = _(u'label_manuals_documentacio', default=u'Manuals i documentacio'),
+            #label = _(u'label_manuals_documentacio', default=u'Manuals i documentacio'),
+	    label_msgid="serveiTIC_manuals",
             description = '',
-            ),
+            i18n_domain = "upc.genweb.descriptorTIC"
         ),
+     ),
 
 ))
 
@@ -163,4 +168,3 @@ class ServeiTIC(ATDocument):
         return ['EST','PAS','PDI']
 
 atapi.registerType(ServeiTIC, PROJECTNAME)
-

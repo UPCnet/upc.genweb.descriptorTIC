@@ -1,0 +1,74 @@
+# Gettext Message File for GenWeb.
+# Victor Fernandez de Alba (UPCnet)
+msgid ""
+msgstr ""
+"Project-Id-Version: GenWebUPC\n"
+"POT-Creation-Date: 2008-11-20 09:40\n"
+"PO-Revision-Date: 2008-11-20 10:00\n"
+"Last-Translator: Víctor Fernández de Alba <victor.fernandez@upcnet.es>\n"
+"Language-Team: Plone Team@UPCnet <plone.team@upcnet.es>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: es\n"
+"Language-Name: Spanish\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: upc.genweb.descriptorTIC\n"
+
+# Unitat
+msgid "serveiTIC_unitat"
+msgstr "Unidad:"
+
+# Familia
+msgid "serveiTIC_familia"
+msgstr "Familia:"
+
+# A qui s'adreça
+msgid "serveiTIC_adreca"
+msgstr "A quién está dirigido:"
+
+# Col·lectiu
+msgid "serveiTIC_collectiu"
+msgstr "Colectivo:"
+
+# Descripció curta
+msgid "serveiTIC_descrip_curta"
+msgstr "Descripción breve:"
+
+# Descripció llarga
+msgid "serveiTIC_descrip_llarga"
+msgstr "Descripción extensa:"
+
+# Suport 
+msgid "serveiTIC_suport"
+msgstr "Soporte:"
+
+# Indicadors
+msgid "serveiTIC_indicadors"
+msgstr "Indicadores:"
+
+# Normativa 
+msgid "serveiTIC_normativa"
+msgstr "Normativa:"
+
+# Manuals i documentació
+msgid "serveiTIC_manuals"
+msgstr "Manuales y documentación:"
+
+# Fitxa de Servei
+msgid "serveiTIC_nom"
+msgstr "Ficha de Servicio"
+
+# Descripció del servei
+msgid "serveiTIC_descripcio_nom"
+msgstr "Indica el nombre del Servicio"
+
+# Serveis relacionats
+msgid "faqTIC_serveis_relacionats"
+msgstr "Servicios Relacionados:"
+
+# Lista de los servicios relacionados
+msgid "faqTIC_descrip_serveis_relacionats"
+msgstr "Aquí se listan los servicios de la Unidad. Selecciona los servicios a los que pertenece esta FAQ. Se mostraran cuando esten marcados 'Muestra como una tabla'."
+

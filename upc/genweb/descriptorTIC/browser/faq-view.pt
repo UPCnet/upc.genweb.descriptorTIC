@@ -3,8 +3,9 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      metal:use-macro="here/main_template/macros/master">
-
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="upc.genweb.descriptorTIC">
+  
   <head><title></title></head>
 
   <body>
@@ -25,7 +26,7 @@
         <span tal:content="structure here/getText">Comment</span>
 
         <!-- SERVEIS RELACIONATS --> 
-        <h4 class="formQuestion">Serveis Relacionats:</h4>
+        <h4 class="formQuestion" i18n:translate="faqTIC_serveis_relacionats">Serveis Relacionats:</h4>
 
         <tal:block tal:repeat="obj python: view.eliminaUltimo(here.serviciosEnlace())">
         <a tal:attributes="href python: obj.getURL()" tal:content="obj/Title"></a>,

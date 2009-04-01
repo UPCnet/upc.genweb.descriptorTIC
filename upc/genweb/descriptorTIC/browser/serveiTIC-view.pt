@@ -3,7 +3,8 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      metal:use-macro="here/main_template/macros/master">
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="upc.genweb.descriptorTIC">
 
   <head><title></title></head>
 
@@ -21,44 +22,44 @@
       <h5 style="font-family: Arial,Helvetica,Verdana,sans-serif; font-size: 14px;" tal:content="here/Title"> Servei de Comunicació i Promoció</h5>
 
 
-		<div class="contacteSpan" i18n:translate="">Unitat:</div>
+		<div class="contacteSpan" i18n:translate="serveiTIC_unitat">Unitat:</div>
 		<div tal:content="view/getTICUnitat"/>
 
-		<div class="contacteSpan" i18n:translate="">Familia:</div>
+		<div class="contacteSpan" i18n:translate="serveiTIC_familia">Familia:</div>
 		<div tal:content="view/getTICFamily"/>
 		
       </div>
   
         <!-- A qui s'adreça:  -->
-        <h4 class="formQuestion">A qui s'adreça:</h4>
+        <h4 class="formQuestion" i18n:translate="serveiTIC_adreca">A qui s'adreça:</h4>
         <div tal:content="structure here/getDirectedto"/>
 
         <!-- Col·lectiu:    -->
-        <h4 class="formQuestion">Col·lectiu:</h4>
+        <h4 class="formQuestion" i18n:translate="serveiTIC_collectiu">Col·lectiu:</h4>
 
         <span tal:repeat="obj python: view.eliminaUltimo(here.getColectiu())" tal:content="python: obj+',  '"></span>
         <span tal:define="obj python: here.getColectiu()[-1]" tal:content="python: obj + '.'"></span>
 
         <!-- Descripció curta: -->
-        <h4 class="formQuestion">Descripció curta:</h4>
+        <h4 class="formQuestion" i18n:translate="serveiTIC_descrip_curta">Descripció curta:</h4>
         <span tal:content="structure here/getDescripcion_corta">Comment</span>
 
         <!-- Descripció larga: -->
-        <h4 class="formQuestion">Descripció llarga:</h4>
+        <h4 class="formQuestion" i18n:translate="serveiTIC_descrip_llarga">Descripció llarga:</h4>
         <span tal:content="structure here/getDescripcion_larga">Comment</span>
 
         <!-- Suport:   -->
-        <h4 class="formQuestion">Suport:</h4>
+        <h4 class="formQuestion" i18n:translate="serveiTIC_suport">Suport:</h4>
         <span tal:content="structure here/getSuport">Comment</span>
         
         <!-- Indicadors:   -->
-        <h4 class="formQuestion">Indicadors:</h4>
+        <h4 class="formQuestion" i18n:translate="serveiTIC_indicadors">Indicadors:</h4>
         <span tal:content="structure here/getIndicadors">Comment</span>
 
         
         <tal:n tal:condition="python: here.getNormativa()">
 		<!-- NORMATIVA -->
-        <h4 class="formQuestion">Normativa:</h4>
+        <h4 class="formQuestion" i18n:translate="serveiTIC_normativa">Normativa:</h4>
 
 
         <tal:block tal:repeat="obj python: view.eliminaUltimo(here.getNormativa())">
@@ -74,7 +75,7 @@
 
         <tal:m tal:condition="python: here.getManuales_documentacio()">
         <!-- MANUALS Y DOCUMENTACIO -->
-        <h4 class="formQuestion">Manuales y documentació:</h4>
+        <h4 class="formQuestion" i18n:translate="serveiTIC_manuals">Manuales y documentació:</h4>
         
         <tal:block tal:repeat="obj  python: view.eliminaUltimo(here.getManuales_documentacio())">
         <a tal:attributes="href python: portal_url + '/' + obj._getURL()" tal:content="obj/title_or_id">

@@ -31,29 +31,29 @@
       </div>
   
         <!-- A qui s'adreça:  -->
-        <h4 class="formQuestion" i18n:translate="serveiTIC_adreca">A qui s'adreça:</h4>
+        <h4 class="formQuestion" tal:condition="here/getDirectedto" i18n:translate="serveiTIC_adreca">A qui s'adreça:</h4>
         <div tal:content="structure here/getDirectedto"/>
 
         <!-- Col·lectiu:    -->
-        <h4 class="formQuestion" i18n:translate="serveiTIC_collectiu">Col·lectiu:</h4>
+        <h4 tal:condition="python: here.getColectiu()" class="formQuestion" i18n:translate="serveiTIC_collectiu">Col·lectiu:</h4>
 
-        <span tal:repeat="obj python: view.eliminaUltimo(here.getColectiu())" tal:content="python: obj+',  '"></span>
-        <span tal:define="obj python: here.getColectiu()[-1]" tal:content="python: obj + '.'"></span>
+        <span tal:condition="python: here.getColectiu()" tal:repeat="obj python: view.eliminaUltimo(here.getColectiu())" tal:content="python: obj+',  '"></span>
+        <span tal:condition="python: here.getColectiu()" tal:define="obj python: here.getColectiu()[-1]" tal:content="python: obj + '.'"></span>
 
         <!-- Descripció curta: -->
-        <h4 class="formQuestion" i18n:translate="serveiTIC_descrip_curta">Descripció curta:</h4>
+        <h4 tal:condition="here/getDescripcion_corta" class="formQuestion" i18n:translate="serveiTIC_descrip_curta">Descripció curta:</h4>
         <span tal:content="structure here/getDescripcion_corta">Comment</span>
 
         <!-- Descripció larga: -->
-        <h4 class="formQuestion" i18n:translate="serveiTIC_descrip_llarga">Descripció llarga:</h4>
+        <h4 tal:condition="here/getDescripcion_larga" class="formQuestion" i18n:translate="serveiTIC_descrip_llarga">Descripció llarga:</h4>
         <span tal:content="structure here/getDescripcion_larga">Comment</span>
 
         <!-- Suport:   -->
-        <h4 class="formQuestion" i18n:translate="serveiTIC_suport">Suport:</h4>
+        <h4 tal:condition="here/getSuport" class="formQuestion" i18n:translate="serveiTIC_suport">Suport:</h4>
         <span tal:content="structure here/getSuport">Comment</span>
         
         <!-- Indicadors:   -->
-        <h4 class="formQuestion" i18n:translate="serveiTIC_indicadors">Indicadors:</h4>
+        <h4 tal:condition="here/getIndicadors" class="formQuestion" i18n:translate="serveiTIC_indicadors">Indicadors:</h4>
         <span tal:content="structure here/getIndicadors">Comment</span>
 
         
@@ -62,12 +62,12 @@
         <h4 class="formQuestion" i18n:translate="serveiTIC_normativa">Normativa:</h4>
 
 
-        <tal:block tal:repeat="obj python: view.eliminaUltimo(here.getNormativa())">
+        <tal:block tal:condition="python: here.getNormativa()"  tal:repeat="obj python: view.eliminaUltimo(here.getNormativa())">
         <a tal:attributes="href python: portal_url + '/' + obj._getURL()" tal:content="obj/title_or_id">
         </a>,
         </tal:block>
 
-        <tal:block tal:define="obj python: here.getNormativa()[-1]">
+        <tal:block tal:condition="python: here.getNormativa()" tal:define="obj python: here.getNormativa()[-1]">
         <a tal:attributes="href python: portal_url + '/' + obj._getURL()" tal:content="obj/title_or_id">
         </a>.
         </tal:block>

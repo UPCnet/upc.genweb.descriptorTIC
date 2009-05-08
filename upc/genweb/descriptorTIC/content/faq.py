@@ -64,8 +64,8 @@ class Faq(ATDocument):
         portal_catalog = getToolByName(self, 'portal_catalog')
         mt = portal_catalog.searchResults(portal_type = 'ServeiTIC',
                                           path={"query": '/'.join(self.getParentNode().getParentNode().getPhysicalPath()),"depth":2},
-                                          sort_on='Date',
-                                          review_state='published')
+                                          review_state='published',
+                                          sort_on='Date')
         new_list=[]
         for f in mt:
             new_list.append(f.Title)
@@ -73,7 +73,7 @@ class Faq(ATDocument):
         return new_list
 
     def serviciosEnlace(self):
-        serveis = self.listaServicios()
+        serveis = self.getListaservei()
         new = []
         portal_catalog = getToolByName(self, 'portal_catalog')
         mt = portal_catalog.searchResults(portal_type = 'ServeiTIC',review_state='published')

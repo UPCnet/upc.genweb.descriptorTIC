@@ -38,7 +38,7 @@ msgstr "Short description:"
 
 # Descripció llarga
 msgid "serveiTIC_descrip_llarga"
-msgstr "Long description:"
+msgstr "Service properties:"
 
 # Suport 
 msgid "serveiTIC_suport"
@@ -47,6 +47,11 @@ msgstr "Support:"
 # Indicadors
 msgid "serveiTIC_indicadors"
 msgstr "Indicators:"
+
+# Faqs
+msgid "serveiTIC_faqs"
+msgstr "FAQ's related to this service:"
+
 
 # Normativa 
 msgid "serveiTIC_normativa"

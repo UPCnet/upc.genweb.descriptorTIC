@@ -38,11 +38,16 @@ msgstr "Descripció curta:"
 
 # Descripció llarga
 msgid "serveiTIC_descrip_llarga"
-msgstr "Descripció llarga:"
+msgstr "Característiques del servei:"
 
 # Suport 
 msgid "serveiTIC_suport"
 msgstr "Suport:"
+
+# Faqs
+msgid "serveiTIC_faqs"
+msgstr "FAQ's sobre aquest servei:"
+
 
 # Indicadors
 msgid "serveiTIC_indicadors"

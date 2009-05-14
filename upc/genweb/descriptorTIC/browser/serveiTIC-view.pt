@@ -56,6 +56,17 @@
         <h4 tal:condition="here/getIndicadors" class="formQuestion" i18n:translate="serveiTIC_indicadors">Indicadors:</h4>
         <span tal:content="structure here/getIndicadors">Comment</span>
 
+        <!-- FAQS:   -->
+        <tal:block define="faqs view/getFAQs">
+        <h4 condition="faqs" class="formQuestion" i18n:translate="serveiTIC_faqs">Faq's sobre aquest servei:</h4>
+        <tal:block repeat="faq faqs">
+           <a tal:attributes="href faq/href" 
+              tal:content="faq/title"></a>
+           <span tal:condition="not:repeat/faq/end" tal:omit-tag="">, </span>
+           <span tal:condition="repeat/faq/end" tal:omit-tag="">. </span>                 
+        </tal:block>   
+        </tal:block>
+        
         
         <tal:n tal:condition="python: here.getNormativa()">
 		<!-- NORMATIVA -->

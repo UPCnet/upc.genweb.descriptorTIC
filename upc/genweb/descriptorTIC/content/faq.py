@@ -83,6 +83,11 @@ class Faq(ATDocument):
                 if i==j.Title:
                     new.append(j)
         return new
+        
+    def serviciosPath(self):
+        serveis = self.serviciosEnlace()
+        return [s.getPath() for s in serveis]
+        
 
 atapi.registerType(Faq, PROJECTNAME)
 

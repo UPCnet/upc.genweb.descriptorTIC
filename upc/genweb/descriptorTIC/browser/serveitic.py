@@ -26,13 +26,18 @@ class ServeiTICView(BrowserView):
     def getTICUnitat(self):
         tools = getMultiAdapter((self.context, self.request),name=u'plone_context_state')
         return tools.parent().getParentNode().title
-
+ 
     def eliminaUltimo(self, cad):
         new_cad = []
         lon = len(cad)
         for ii in cad[:len(cad)-1]:
             new_cad.append(ii)
         return new_cad
+        
+    def getFAQs(self):
+        catalog = getToolByName(self.context,'portal_catalog')
+        faqs = catalog.searchResults(serviciosPath=self.context.absolute_url_path())
+        return [dict(title=f.Title,href=f.getURL()) for f in faqs]
 
 
 # Buscador de servicios por categoria

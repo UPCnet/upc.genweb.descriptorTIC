@@ -27,5 +27,11 @@
  </index>
  <column value="getManuales_documentacio"/>
 
+ <index name="serviciosPath" meta_type="KeywordIndex"> 
+ <indexed_attr value="serviciosPath"/>
+ </index>
+ <column value="serviciosPath"/>
+
+
 </object>
 

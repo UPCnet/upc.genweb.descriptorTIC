@@ -68,6 +68,22 @@
         permission="zope2.View"
         />
 
+    <browser:page
+        for="*"
+        name="cerca-colectivo"
+        class=".serveitic.cercaColectivos"
+        template="cerca-colectivos.pt"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        for="*"
+        name="searching-colectivo"
+        class=".serveitic.searchcolectivos"
+        template="searching_colectivos.pt"
+        permission="zope2.View"
+        />
+
 
 </configure>
 

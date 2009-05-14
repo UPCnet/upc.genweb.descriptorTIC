@@ -44,6 +44,11 @@ msgstr "Service properties:"
 msgid "serveiTIC_suport"
 msgstr "Support:"
 
+# Obtenció servei
+msgid "serveiTIC_obtencio"
+msgstr "Requesting the service how-to:"
+
+
 # Indicadors
 msgid "serveiTIC_indicadors"
 msgstr "Indicators:"

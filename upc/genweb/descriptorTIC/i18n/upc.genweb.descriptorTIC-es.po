@@ -44,9 +44,15 @@ msgstr "Características del servicio:"
 msgid "serveiTIC_suport"
 msgstr "Soporte:"
 
+# Obtenció servei
+msgid "serveiTIC_obtencio"
+msgstr "Como obtener el servicio:"
+
+
 # Indicadors
 msgid "serveiTIC_indicadors"
 msgstr "Indicadores:"
+
 
 # Faqs
 msgid "serveiTIC_faqs"

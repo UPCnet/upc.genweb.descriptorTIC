@@ -34,12 +34,13 @@
         <h4 class="formQuestion" tal:condition="here/getDirectedto" i18n:translate="serveiTIC_adreca">A qui s'adreça:</h4>
         <div tal:content="structure here/getDirectedto"/>
 
-        <!-- Col·lectiu:    -->
+        <!-- Col·lectiu:    
         <h4 tal:condition="python: here.getColectiu()" class="formQuestion" i18n:translate="serveiTIC_collectiu">Col·lectiu:</h4>
 
         <span tal:condition="python: here.getColectiu()" tal:repeat="obj python: view.eliminaUltimo(here.getColectiu())" tal:content="python: obj+',  '"></span>
         <span tal:condition="python: here.getColectiu()" tal:define="obj python: here.getColectiu()[-1]" tal:content="python: obj + '.'"></span>
-
+        -->
+        
         <!-- Descripció curta: -->
         <h4 tal:condition="here/getDescripcion_corta" class="formQuestion" i18n:translate="serveiTIC_descrip_curta">Descripció curta:</h4>
         <span tal:content="structure here/getDescripcion_corta">Comment</span>

@@ -65,18 +65,6 @@ servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
         schemata="default",
     ),
 
-    atapi.TextField('descripcion_corta',
-        required = False,
-        validators = ('isTidyHtmlWithCleanup',),
-        default_output_type = 'text/x-html-safe',
-        widget = atapi.RichWidget(
-            #label = _(u"Descripció curta"),
-            label_msgid="serveiTIC_descrip_curta",
-            rows  = 10,
-            i18n_domain = "upc.genweb.descriptorTIC"),
-        schemata="default",
-    ),
-
     atapi.TextField('descripcion_larga',
         required = False,
         validators = ('isTidyHtmlWithCleanup',),

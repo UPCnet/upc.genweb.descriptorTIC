@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<import-steps>
+
+ <import-step 
+    id="upc.genweb.descriptorTIC-postInstall" 
+    handler="upc.genweb.descriptorTIC.setuphandlers.postInstall"
+    title="manual coded post-install for descriptorTIC"
+    version="2009-05-14T15:38:00.319572">
+    <dependency step="upc.genweb.descriptorTIC-QI-dependencies"/>
+   manual coded post-install for descriptorTIC
+ </import-step>
+
+</import-steps>
+ 

@@ -58,7 +58,7 @@
                            tal:attributes="value request/SearchableText|nothing"
                            />
 
-                    <label for="Title" i18n:translate="search_title"> &nbsp; Cerca per nom de la Colectiu</label>                         
+                    <label for="Title" i18n:translate="search_title"> &nbsp; Cerca per nom del Colectiu</label>                         
                     
             </div>
 

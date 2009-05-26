@@ -13,10 +13,7 @@ def postInstall(context):
     site = context.getSite()
     
     # Crear ploneboard
-    forums_en = crearObjecte(site,'forums-en','Ploneboard','Forum space','',)
-    forums_es = crearObjecte(site,'forums-es','Ploneboard','Espacio de foros','',)
-    forums_ca = crearObjecte(site,'forums-ca','Ploneboard','Espai de fòrums','',)
-    setLanguageAndLink([(forums_ca,'ca'),(forums_es,'es'),(forums_en,'en')])
+    forums_ca = crearObjecte(site,'forums','Ploneboard','Espai de fòrums','',)
     
     
 def setLanguageAndLink(items):

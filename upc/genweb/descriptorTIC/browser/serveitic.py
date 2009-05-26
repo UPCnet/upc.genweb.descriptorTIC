@@ -36,7 +36,7 @@ class ServeiTICView(BrowserView):
         
     def getFAQs(self):
         catalog = getToolByName(self.context,'portal_catalog')
-        faqs = catalog.searchResults(serviciosPath=self.context.absolute_url_path())
+        faqs = catalog.searchResults(serviciosPath='/'.join(self.context.getPhysicalPath()))
         return [dict(title=f.Title,href=f.getURL()) for f in faqs]
 
 

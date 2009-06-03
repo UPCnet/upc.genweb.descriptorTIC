@@ -58,11 +58,4 @@ class cercaFamilias(BrowserView):
 class searchfamilias(BrowserView):
     __call__ = ViewPageTemplateFile('searching_familias.pt')
 
-# Buscador de servicios por colectivo
-class cercaFamilias(BrowserView):
-    __call__ = ViewPageTemplateFile('cerca-colectivos.pt')
-
-
-class searchfamilias(BrowserView):
-    __call__ = ViewPageTemplateFile('searching_colectivos.pt')
 

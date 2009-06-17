@@ -40,6 +40,28 @@ class ServeiTICView(BrowserView):
         return [dict(title=f.Title,href=f.getURL()) for f in faqs]
 
 
+class UnitatView(BrowserView):
+    """
+    """
+    def __init__(self,context, request):
+        self.context = context
+        self.request = request
+        self.tools = getMultiAdapter((self.context, self.request),name=u'plone_context_state')
+                
+    def getServeiUnitat(self,servei):
+        obj = servei.getObject().getParentNode().getParentNode()
+        return dict(title = obj.Title(),
+                    target = obj.absolute_url()
+                   )
+
+    def getFamilyUnitat(self,family):
+        obj = family.getObject().getParentNode()   
+        return dict(title = obj.Title(),
+                    target = obj.absolute_url()
+                   )
+
+
+
 # Buscador de servicios por categoria
 class cercaServeis(BrowserView):
     __call__ = ViewPageTemplateFile('cerca-serveis.pt')

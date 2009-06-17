@@ -54,6 +54,15 @@
 
     <browser:page
         for="*"
+        name="unitat_view"
+        class=".serveitic.UnitatView"
+        allowed_attributes="getFamilyUnitat getServeiUnitat"
+        permission="zope2.View"
+    	/>
+
+
+    <browser:page
+        for="*"
         name="cerca-familias"
         class=".serveitic.cercaFamilias"
         template="cerca-familias.pt"

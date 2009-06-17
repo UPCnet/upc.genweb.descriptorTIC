@@ -98,15 +98,15 @@
             <dt tal:define="item_wf_state_class string:state-${result/review_state};"
                 tal:attributes="class python:'contenttype-' + normalizeString(result.portal_type)">
               <img tal:replace="structure item_icon/html_tag" />
-              <a tal:define="link python:uview.getServeiUnitat(result)" 
-                 tal:attributes="href link/target" 
-                 tal:content="string:${link/title}"></a>
-                 <span>&nbsp;-&nbsp;</span>
                <a
                  href="#" 
                  tal:attributes="href url;
                                  class string:$item_wf_state_class">
                  <span tal:replace="structure result/pretty_title_or_id">Un resultat</span></a>
+                <a tal:define="link python:uview.getServeiUnitat(result)" 
+                   tal:attributes="href link/target" 
+                   tal:content="string:(${link/title})"></a>
+                 
             </dt>
             
             <dd>

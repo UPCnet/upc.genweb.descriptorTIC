@@ -64,7 +64,6 @@ class Faq(ATDocument):
         portal_catalog = getToolByName(self, 'portal_catalog')
         mt = portal_catalog.searchResults(portal_type = 'ServeiTIC',
                                           path={"query": '/'.join(self.getParentNode().getParentNode().getPhysicalPath()),"depth":2},
-                                          review_state='published',
                                           sort_on='Date')
         new_list=[]
         for f in mt:
@@ -76,7 +75,9 @@ class Faq(ATDocument):
         serveis = self.getListaservei()
         new = []
         portal_catalog = getToolByName(self, 'portal_catalog')
-        mt = portal_catalog.searchResults(portal_type = 'ServeiTIC',review_state='published')
+        mt = portal_catalog.searchResults(portal_type = 'ServeiTIC',
+                                          path={"query": '/'.join(self.getParentNode().getParentNode().getPhysicalPath()),"depth":2},
+                                          )
 
         for i in serveis:
             for j in mt:

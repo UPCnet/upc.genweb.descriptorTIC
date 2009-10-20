@@ -117,6 +117,7 @@
 
             <span class="documentByLine"
                   tal:condition="python:not isAnon or site_properties.allowAnonymousViewAbout">
+<!--
                 <span class="documentAuthor"
                     i18n:translate="label_by_author">
                 by
@@ -130,6 +131,7 @@
 
                 </span>
 
+
                 <span class="documentModified">
                   &mdash;
                     <span i18n:translate="box_last_modified">
@@ -139,6 +141,7 @@
                     August 16, 2001 at 23:35:59
                     </span>
                 </span>
+
 
 
                 <span tal:define="categories result/Subject|nothing"
@@ -166,6 +169,7 @@
                                i18n:name="percentage">23</span>%
                     </tal:relevance>
                 </span>
+-->
             </span>
 
             </dd>

@@ -116,6 +116,7 @@
 
             <span class="documentByLine"
                   tal:condition="python:not isAnon or site_properties.allowAnonymousViewAbout">
+<!--
                 <span class="documentAuthor"
                     i18n:translate="label_by_author">
                 by
@@ -165,6 +166,7 @@
                                i18n:name="percentage">23</span>%
                     </tal:relevance>
                 </span>
+-->
             </span>
 
             </dd>

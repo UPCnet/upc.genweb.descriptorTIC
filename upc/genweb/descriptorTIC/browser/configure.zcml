@@ -77,6 +77,12 @@
         permission="zope2.View"
         />
 
+    <browser:page
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        name="descriptor_homepage"
+        class=".homepage.pageView"
+        permission="zope2.View"
+        />
 
 </configure>
 

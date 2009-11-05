@@ -1,0 +1,53 @@
+#cercador {
+	float:left;
+	padding-right:5px;
+	width:565px;
+}
+#cercador h3 {
+	background-image:url(fons_titol.png);
+	background-repeat:  repeat-x;
+	background-position: 5px;
+	color: #FCA53C;
+	border-top:1px solid #eee;
+	padding-top:5px;
+	padding-left:5px;
+}
+#cercador fieldset {
+background-color:#FFFFFF;
+border:1px solid #FFAA01;
+height:30px;
+padding-top:20px;
+padding-left:30px;
+text-align:left;
+margin-top:65px;
+}
+#cercador select {
+margin-right:20px;
+}
+#banner {
+float:right;
+display:block;
+width:160px;
+margin-top:25px;
+}
+.granate {
+color: #941D01;
+}
+.lletra_gran {
+font-family:Arial, Helvetica, sans-serif;
+font-size:16px;
+font-weight:bold;
+color: #941D01;
+}
+#quisoc {
+	position:absolute;
+	float:left;
+	z-index:2;
+	margin-left:110px;
+}
+#onsoc {
+	position:absolute;
+	float:left;
+	z-index:2;
+	margin-left:310px;
+}

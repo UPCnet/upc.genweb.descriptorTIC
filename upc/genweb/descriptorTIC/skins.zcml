@@ -2,8 +2,9 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:cmf="http://namespaces.zope.org/cmf"
     i18n_domain="upc.genweb.descriptorTIC">
-   
 
+   <cmf:registerDirectory name="descriptorTIC_images" recursive="True" />
+   <cmf:registerDirectory name="descriptorTIC_styles"/>
    <cmf:registerDirectory name="skins" directory="skins" recursive="True" />
 
 </configure>

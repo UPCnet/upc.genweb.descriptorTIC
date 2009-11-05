@@ -1,0 +1,139 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<head><title></title>
+</head>
+
+<body>
+
+  <div metal:fill-slot="main">
+
+<style type="text/css">
+
+#cercador {
+	float:left;
+	padding-right:5px;
+	width:565px;
+}
+#cercador h3 {
+	background-image:url(fons_titol.png);
+	background-repeat:  repeat-x;
+	background-position: 5px;
+	color: #FCA53C;
+	border-top:1px solid #eee;
+	padding-top:5px;
+	padding-left:5px;
+}
+#cercador fieldset {
+background-color:#FFFFFF;
+border:1px solid #FFAA01;
+height:30px;
+padding-top:20px;
+padding-left:30px;
+text-align:left;
+margin-top:65px;
+}
+#cercador select {
+margin-right:20px;
+}
+#banner {
+float:right;
+display:block;
+width:160px;
+margin-top:25px;
+}
+.granate {
+color: #941D01;
+}
+.lletra_gran {
+font-family:Arial, Helvetica, sans-serif;
+font-size:16px;
+font-weight:bold;
+color: #941D01;
+}
+#quisoc {
+	position:absolute;
+	float:left;
+	z-index:2;
+	margin-left:110px;
+}
+#onsoc {
+	position:absolute;
+	float:left;
+	z-index:2;
+	margin-left:310px;
+}
+
+
+</style>
+
+      <metal:main_macro define-macro="main">
+      <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <h1 class="documentFirstHeading"> 
+		    <span class="" id="parent-fieldname-title">
+		        Benvingut al descriptor dels Serveis TIC 
+		    </span>
+        </h1>
+
+        <p class="documentDescription">            
+		    <span class="" id="parent-fieldname-description">
+		        Aquí pots trobar la descripció dels serveis TIC que es donen a la UPC organitzats per escoles, campus, departaments i instituts.
+		    </span>   
+        </p>
+
+		<div id="cercador">        
+		       <div>
+              <h3>Què és el Descriptor de Serveis TIC?</h3>
+			  <p>És un sistema d'informació de referència per als serveis TIC de la UPC. Aquest catàleg preten donar a conèixer els serveis prestats per cada unitat i millorar la relació amb l’usuari.</p><br />
+			  <p> Com a membre de la comuntiat universitaria, aqui trobaràs quins serveis tens al teu abast, qui te'ls presta i com accedir-hi.</p><br />
+			  <p>Per facilitar l’accés a la informació sobre els serveis TIC, s’han organitzat de maneres diferents: </p><br />
+			  <ul>
+			    <li><span class="granate"><strong>Per unitats:</strong></span> <br />
+			      Els serveis TIC es presten des de les escoles, campus, departaments, institutrs de la UPC. En l'arbre de l'esquerra trobareu la informació organitzada per unitats. </li>
+			    <li><strong class="granate">De forma personalitzada: <br />
+			    </strong>Segons col.lectiu i/o ubicació. Utilitzar les pestanyes </li>
+			    </ul>
+		       </div>
+            <h5>          
+        </div>
+
+		<div id="banner">
+		<img src="banner_forum.png" width="150" height="38" border="1" />
+		</div>
+
+    <div id="cercador">        
+		<div>
+        <h3>Cercador de serveis </h3>
+		<p>Pots localitzar els serveis TIC a la UPC mitjançant el menú lateral o fer una cerca avançada amb el següent formulari:</p>
+		<div id="quisoc"><img src="quisoc.png" alt="Qui sóc" width="82" height="86" /></div>
+		<div id="onsoc"><img src="onsoc.png" alt="On sóc" width="82" height="88" /></div>
+		<form name="form1" id="form1" method="post" action="">
+		<fieldset>
+		<span class="lletra_gran">Qui s&oacute;c:</span>	
+		<select name="select">
+		  <option>Tria una opció</option>
+		  <option>Estudiant</option>
+		  <option>PAS</option>
+		  <option>PDI</option>
+		  </select>	
+		<span class="lletra_gran">On S&oacute;c:</span> 
+		<select name="select">
+		  <option>Tria una opció</option>
+		  </select>
+        <input type="submit" name="Submit" value="Cercar serveis" />
+        </form>
+</div>
+  <br/>  
+
+  </metal:main_macro>
+ </div>
+</body>
+</html>
+
+

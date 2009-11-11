@@ -21,6 +21,12 @@ padding-left:30px;
 text-align:left;
 margin-top:65px;
 }
+#cercador getColectiu {
+margin-right:20px;
+}
+#cercador getUnitat {
+margin-right:20px;
+}
 #cercador select {
 margin-right:20px;
 }

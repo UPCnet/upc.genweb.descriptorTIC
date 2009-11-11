@@ -24,6 +24,8 @@ from upc.genweb.descriptorTIC.config import PROJECTNAME
 
 from Products.ATContentTypes.content.document import ATDocumentSchema, ATDocument
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
+from AccessControl import ClassSecurityInfo
+
 
 servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
 
@@ -62,6 +64,19 @@ servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
         ),
         languageindependent=True,
         vocabulary='getColectius',
+        schemata="default",
+    ),
+
+    atapi.StringField(
+        name = 'unitat',
+        required = False,
+        searchable = False,
+        default = "getUnitat",
+        widget = atapi.StringWidget(
+            label = _(u'label_servei', default=u'Unitat'),
+            i18n_domain='upc.genweb.descriptorTIC',
+            visible = {'view': 'hidden','edit': 'hidden'}
+        ),
         schemata="default",
     ),
 
@@ -165,7 +180,14 @@ class ServeiTIC(ATDocument):
 
     implements(IServeiTIC)
 
+    security = ClassSecurityInfo()
+
+    security.declarePublic('getColectius')
     def getColectius(self):
         return ['EST','PAS','PDI']
+
+    security.declarePublic('getUnitat')
+    def getUnitat(self):
+        return self.getParentNode().getParentNode().UID()
 
 atapi.registerType(ServeiTIC, PROJECTNAME)

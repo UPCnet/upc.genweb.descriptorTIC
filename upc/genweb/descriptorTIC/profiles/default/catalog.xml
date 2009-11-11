@@ -22,6 +22,11 @@
  </index>
  <column value="getNormativa"/>
 
+ <index name="getUnitat" meta_type="KeywordIndex"> 
+ <indexed_attr value="getUnitat"/>
+ </index>
+ <column value="getUnitat"/>
+
  <index name="getManuales_documentacio" meta_type="KeywordIndex"> 
  <indexed_attr value="getManuales_documentacio"/>
  </index>

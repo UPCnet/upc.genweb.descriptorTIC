@@ -54,6 +54,14 @@
 
     <browser:page
         for="*"
+        name="searching_servei"
+        class=".serveitic.searchServei"
+        template="searching_servei.pt"
+        permission="zope2.View"
+    	/>
+
+    <browser:page
+        for="*"
         name="unitat_view"
         class=".serveitic.UnitatView"
         allowed_attributes="getFamilyUnitat getServeiUnitat"

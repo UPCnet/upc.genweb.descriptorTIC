@@ -80,4 +80,7 @@ class cercaFamilias(BrowserView):
 class searchfamilias(BrowserView):
     __call__ = ViewPageTemplateFile('searching_familias.pt')
 
+# Buscador de servicios portada.
+class searchServei(BrowserView):
+    __call__ = ViewPageTemplateFile('searching_servei.pt')
 

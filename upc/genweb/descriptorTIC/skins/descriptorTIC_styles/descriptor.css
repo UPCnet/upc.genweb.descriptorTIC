@@ -57,3 +57,24 @@ color: #941D01;
 	z-index:2;
 	margin-left:310px;
 }
+#cercador1 {
+	float:left;
+	padding-right:5px;
+	width:610px;
+}
+
+#cercador1 fieldset {
+background-color:#FFFFFF;
+border:1px solid #FFAA01;
+height:30px;
+padding-top:20px;
+padding-left:30px;
+text-align:left;
+margin: 12px 0px 0px 0px;
+}
+#cercador1 getColectiu {
+margin-right:20px;
+}
+#cercador1 getUnitat {
+margin-right:20px;
+}

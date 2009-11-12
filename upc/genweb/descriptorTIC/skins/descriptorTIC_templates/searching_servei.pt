@@ -31,7 +31,7 @@
                  use_view_action site_properties/typesUseViewActionInListings|python:();
                  uview context/@@unitat_view">
 
-    <div id="cercador">        
+    <div id="cercador1">        
 
 		<form name="form1" 
 			  id="form1" 
@@ -46,7 +46,7 @@
                     id="getColectiu"
                     tal:define="colect python: ['EST','PAS','PDI']"
                     >
-                <option value="">Tria una opció</option>
+                <option value="">Tria una opci&oacute;</option>
                 <option value="#"
                         tal:repeat="s colect"
                         tal:content="s"
@@ -62,7 +62,7 @@
                     id="getUnitat"
                     tal:define="colect python: here.portal_catalog.searchResults(portal_type='UnitatTIC')"
                     >
-                <option value="">Tria una opció</option>
+                <option value="">Tria una opci&oacute;</option>
                 <option value="#"
                         tal:repeat="s colect"
                         tal:content="python: s.Title[:21]"

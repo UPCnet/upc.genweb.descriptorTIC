@@ -52,6 +52,7 @@
         permission="zope2.View"
     	/>
 
+<!--
     <browser:page
         for="*"
         name="searching_servei"
@@ -59,6 +60,7 @@
         template="searching_servei.pt"
         permission="zope2.View"
     	/>
+-->
 
     <browser:page
         for="*"

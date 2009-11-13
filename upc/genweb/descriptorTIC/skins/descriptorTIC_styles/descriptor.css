@@ -17,18 +17,18 @@ background-color:#FFFFFF;
 border:1px solid #FFAA01;
 height:30px;
 padding-top:20px;
-padding-left:30px;
+padding-left:20px;
 text-align:left;
 margin-top:65px;
 }
 #cercador getColectiu {
-margin-right:20px;
+margin-right:10px;
 }
 #cercador getUnitat {
-margin-right:20px;
+margin-right:10px;
 }
 #cercador select {
-margin-right:20px;
+margin-right:10px;
 }
 #banner {
 float:right;
@@ -70,7 +70,7 @@ height:30px;
 padding-top:20px;
 padding-left:30px;
 text-align:left;
-margin: 12px 0px 0px 0px;
+margin: 12px 0px 15px 0px;
 }
 #cercador1 getColectiu {
 margin-right:20px;

@@ -29,6 +29,8 @@
                  desc_ellipsis site_properties/ellipsis;
                  searchterm request/SearchableText|nothing;
                  use_view_action site_properties/typesUseViewActionInListings|python:();
+                 colectiu request/getColectiu;
+                 unitat python: here.portal_catalog.searchResults(portal_type='UnitatTIC',UID=request.getUnitat);
                  uview context/@@unitat_view">
 
     <div id="cercador1">        
@@ -46,7 +48,7 @@
                     id="getColectiu"
                     tal:define="colect python: ['EST','PAS','PDI']"
                     >
-                <option value="">Tria una opci&oacute;</option>
+                <option tal:content="colectiu" tal:attributes="value colectiu">Tria una opci&oacute;</option>
                 <option value="#"
                         tal:repeat="s colect"
                         tal:content="s"
@@ -62,7 +64,7 @@
                     id="getUnitat"
                     tal:define="colect python: here.portal_catalog.searchResults(portal_type='UnitatTIC')"
                     >
-                <option value="">Tria una opci&oacute;</option>
+                <option tal:repeat="u unitat" tal:content="python: u.Title[:21]" tal:attributes="value python: u.UID">Tria una opci&oacute;</option>
                 <option value="#"
                         tal:repeat="s colect"
                         tal:content="python: s.Title[:21]"
@@ -72,7 +74,7 @@
                         >dummy</option>
             </select>
 
-		    <input type="submit" name="Submit" value="Cercar serveis" />
+		    <input type="submit" name="Submit" value="Cerca serveis" />
         </form>
 	</div>
 

@@ -72,11 +72,11 @@
                         value="">Tria una opci&oacute;</option>
                 <option tal:condition="python: request.getUnitat != ''"
                         tal:repeat="u unitat" 
-                        tal:content="python: u.Title[:21]" 
+                        tal:content="python: u.Title[:60]" 
                         tal:attributes="value python: u.UID">Tria una opci&oacute;</option>
                 <option value="#"
                         tal:repeat="s colect"
-                        tal:content="python: s.Title[:21]"
+                        tal:content="python: s.Title[:60]"
                         tal:attributes="value s/UID"
                         i18n:domain="plone-metadata"
                         i18n:translate=""

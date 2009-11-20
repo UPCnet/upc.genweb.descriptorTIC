@@ -28,29 +28,16 @@
 		    </span>   
         </p>
 
-		<div id="cercador">        
-		       <div>
-              <h3>Què és el Descriptor de Serveis TIC?</h3>
-			  <p>És un sistema d'informació de referència per als serveis TIC de la UPC. Aquest catàleg preten donar a conèixer els serveis prestats per cada unitat i millorar la relació amb l’usuari.</p><br />
-			  <p> Com a membre de la comuntiat universitaria, aqui trobaràs quins serveis tens al teu abast, qui te'ls presta i com accedir-hi.</p><br />
-			  <p>Per facilitar l’accés a la informació sobre els serveis TIC, s’han organitzat de maneres diferents: </p><br />
-			  <ul>
-			    <li><span class="granate"><strong>Per unitats:</strong></span> <br />
-			      Els serveis TIC es presten des de les escoles, campus, departaments, institutrs de la UPC. En l'arbre de l'esquerra trobareu la informació organitzada per unitats. </li>
-			    <li><strong class="granate">De forma personalitzada: <br />
-			    </strong>Segons col.lectiu i/o ubicació. Utilitzar les pestanyes </li>
-			    </ul>
-		       </div>
-            <h5>          
-        </div>
 
 		<div id="banner">
 		<a tal:attributes="href string:forums-ca"><img src="banner_forum.png" width="150" height="38" border="1" /></a>
 		</div>
 
-<!--
- catalog.searchResults(portal_type="ServeiTIC",getColectiu='PAS',getUnitat="1cda7b84cadf081852abba61df310646")
--->
+		<div id="cercador">        
+		       <div>
+              <h3>Què és el Descriptor de Serveis TIC?</h3>
+			  <p>És un sistema d'informació de referència per als serveis TIC de la UPC. Aquest catàleg preten donar a conèixer els serveis prestats per cada unitat i millorar la relació amb l’usuari.</p><br />
+			  <p> Com a membre de la comuntiat universitaria, aqui trobaràs quins serveis tens al teu abast, qui te'ls presta i com accedir-hi.</p>
 
     <div id="cercador">        
 		<div>
@@ -98,9 +85,27 @@
                         >dummy</option>
             </select>
 
-		    <input type="submit" name="Submit" value="Cercar serveis" />
+		    <input type="submit" name="Submit" value="Cerca serveis" />
         </form>
 	</div>
+
+
+			  <p>Per facilitar l’accés a la informació sobre els serveis TIC, s’han organitzat de maneres diferents: </p><br />
+			  <ul>
+			    <li><span class="granate"><strong>Per unitats:</strong></span> <br />
+			      Els serveis TIC es presten des de les escoles, campus, departaments, institutrs de la UPC. En l'arbre de l'esquerra trobareu la informació organitzada per unitats. </li>
+			    <li><strong class="granate">De forma personalitzada: <br />
+			    </strong>Segons col.lectiu i/o ubicació. Utilitzar les pestanyes </li>
+			    </ul>
+		       </div>
+            <h5>          
+        </div>
+
+
+<!--
+ catalog.searchResults(portal_type="ServeiTIC",getColectiu='PAS',getUnitat="1cda7b84cadf081852abba61df310646")
+-->
+
 
   <br/>  
 

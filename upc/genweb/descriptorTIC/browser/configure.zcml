@@ -94,5 +94,12 @@
         permission="zope2.View"
         />
 
+    <browser:page
+        for="*"
+        name="export_data_csv"
+        class=".exportDataCSV.writeCSV"
+        permission="zope2.View"
+        />
+
 </configure>
 

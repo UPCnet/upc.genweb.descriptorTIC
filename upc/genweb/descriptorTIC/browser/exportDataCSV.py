@@ -33,8 +33,9 @@ class writeCSV(BrowserView):
                         tmp.append(servei_title)
                         tmp.append(servei_colectiu)               
                         dataWriter.writerow(tmp)
-        portal = getToolByName(self,'portal_url').getPortalObject()        
-        fichero_csv = self.crearObjecte(portal,'fichero csv','File',file_name,'')
+        portal = getToolByName(self,'portal_url').getPortalObject()
+        acomulat = portal['indicadors']
+        fichero_csv = self.crearObjecte(acomulat,'fichero_csv','File',file_name,'')
         f = open('/tmp/'+file_name, 'r+')
         fichero_csv.setFile(f.read())
         fichero_csv.setFilename(file_name)

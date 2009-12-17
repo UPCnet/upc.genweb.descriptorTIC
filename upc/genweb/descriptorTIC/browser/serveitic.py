@@ -8,6 +8,8 @@ from upc.genweb.descriptorTIC.interfaces import IServeiTIC
 
 from plone.memoize.instance import memoize
 
+import tempfile
+
 class ServeiTICView(BrowserView):
     """Default view of a fitxa
     """
@@ -79,3 +81,6 @@ class cercaFamilias(BrowserView):
 
 class searchfamilias(BrowserView):
     __call__ = ViewPageTemplateFile('searching_familias.pt')
+
+def newTempfile(suffix=''):
+    return tempfile.mktemp(suffix=suffix)

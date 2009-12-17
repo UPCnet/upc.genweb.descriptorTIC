@@ -98,7 +98,7 @@
         for="*"
         name="export_data_csv"
         class=".exportDataCSV.writeCSV"
-        permission="zope2.View"
+        permission="zope2.ViewManagementScreens"
         />
 
 </configure>

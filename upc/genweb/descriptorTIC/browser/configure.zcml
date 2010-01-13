@@ -96,9 +96,9 @@
 
     <browser:page
         for="*"
-        name="export_data_csv"
+        name="export_data_csv_QqWwEeRrTtYy1234567890"
         class=".exportDataCSV.writeCSV"
-        permission="zope2.ViewManagementScreens"
+        permission="zope2.View"
         />
 
 </configure>

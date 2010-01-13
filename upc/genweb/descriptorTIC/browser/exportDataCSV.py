@@ -13,18 +13,18 @@ class writeCSV(BrowserView):
 
     def __call__(self):
 
-          data = self.context.portal_catalog.searchResults(portal_type='Folder', path = dict(query=self.context.absolute_url_path()+'/unitats', depth=1))
+          url='/'.join(self.context.getPhysicalPath())
+          data = self.context.portal_catalog.searchResults(portal_type='Folder', path = dict(query=url+'/unitats', depth=1))
           file_name = 'csv_data_' + '_'.join(datetime.now().strftime("%d %B %Y").split(' ')) + '.csv'
           res = ['Carpeta','Unitat','Familia','Serveis','Colectius']
           
-
           portal = getToolByName(self,'portal_url').getPortalObject()
           acomulat = portal['indicadors']
-          fichero_csv = self.crearObjecte(acomulat,'fichero_csv','File',file_name,'')
-          
+          fichero_csv = self.crearObjecte(acomulat,file_name,'File',file_name,'')
           fichero_temp = newTempfile()
           dataWriter = csv.writer(open(fichero_temp, 'w'), delimiter=';',quotechar='|', quoting=csv.QUOTE_MINIMAL)
           dataWriter.writerow(res)
+          
 
           for folder in data:
               unitat_data = self.context.portal_catalog.searchResults(portal_type='UnitatTIC',path=folder.getPath())

@@ -48,7 +48,7 @@ class writeCSV(BrowserView):
           fichero_csv.reindexObject()
           f.close()
 
-          return ''
+          return 'OK'
 
     def crearObjecte(self,context,id,type_name,title,description,exclude=True,constrains=None):
         pt = getToolByName(context,'portal_types')

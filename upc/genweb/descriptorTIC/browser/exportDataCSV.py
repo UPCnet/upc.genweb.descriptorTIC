@@ -16,12 +16,14 @@ class writeCSV(BrowserView):
           data = self.context.portal_catalog.searchResults(portal_type='Folder', path = dict(query=url+'/unitats', depth=1))
           file_name = 'csv_data_' + '_'.join(datetime.now().strftime("%d %B %Y").split(' ')) + '.csv'
           res = ['Carpeta','Unitat','Familia','Serveis','Colectius']
+
           
           portal = getToolByName(self,'portal_url').getPortalObject()
           acomulat = portal['indicadors']
           fichero_csv = self.crearObjecte(acomulat,file_name,'File',file_name,'')
           fichero_temp = newTempfile()
-          dataWriter = csv.writer(open(fichero_temp, 'w'), delimiter=';',quotechar='|', quoting=csv.QUOTE_MINIMAL)
+          ft = open(fichero_temp, 'w')
+          dataWriter = csv.writer(ft, delimiter=';',quotechar='|', quoting=csv.QUOTE_MINIMAL)
           dataWriter.writerow(res)
           
 
@@ -42,6 +44,8 @@ class writeCSV(BrowserView):
                           tmp.append(servei_colectiu)               
                           dataWriter.writerow(tmp)
 
+
+          ft.close()
           f = open(fichero_temp, 'r+')
           fichero_csv.setFile(f.read())
           fichero_csv.setFilename(file_name)

@@ -16,6 +16,7 @@
 
       <div tal:replace="structure provider:plone.abovecontenttitle" />
 
+     <div class="visualClear"><!-- --></div>
 
       <div class="agendaContingut contacte" style="padding: 5px;">
 

@@ -19,7 +19,7 @@ class writeCSV(BrowserView):
 
           
           portal = getToolByName(self,'portal_url').getPortalObject()
-          acomulat = portal['indicadors']
+          acomulat = portal['documents']
           fichero_csv = self.crearObjecte(acomulat,file_name,'File',file_name,'')
           fichero_temp = newTempfile()
           ft = open(fichero_temp, 'w')

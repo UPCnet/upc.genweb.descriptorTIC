@@ -13,7 +13,7 @@ class writeCSV(BrowserView):
     def __call__(self):
 
           url='/'.join(self.context.getPhysicalPath())
-          data = self.context.portal_catalog.searchResults(portal_type='Folder', path = dict(query=url+'/unitats', depth=1))
+          data = self.context.portal_catalog.unrestrictedSearchResults(portal_type='Folder', path = dict(query=url+'/unitats', depth=1))
           file_name = 'csv_data_' + '_'.join(datetime.now().strftime("%d %B %Y").split(' ')) + '.csv'
           res = ['Carpeta','Unitat','Familia','Serveis','Colectius']
 
@@ -25,14 +25,15 @@ class writeCSV(BrowserView):
           ft = open(fichero_temp, 'w')
           dataWriter = csv.writer(ft, delimiter=';',quotechar='|', quoting=csv.QUOTE_MINIMAL)
           dataWriter.writerow(res)
-          
+
+          import ipdb; ipdb.set_trace()
 
           for folder in data:
-              unitat_data = self.context.portal_catalog.searchResults(portal_type='UnitatTIC',path=folder.getPath())
+              unitat_data = self.context.portal_catalog.unrestrictedSearchResults(portal_type='UnitatTIC',path=folder.getPath())
               for unitat in unitat_data:
-                  familia_data = self.context.portal_catalog.searchResults(portal_type='FamiliaTIC',path=unitat.getPath())
+                  familia_data = self.context.portal_catalog.unrestrictedSearchResults(portal_type='FamiliaTIC',path=unitat.getPath())
                   for familia in familia_data:
-                      servei_data = self.context.portal_catalog.searchResults(portal_type='ServeiTIC',path=familia.getPath()) 
+                      servei_data = self.context.portal_catalog.unrestrictedSearchResults(portal_type='ServeiTIC',path=familia.getPath()) 
                       for servei in servei_data:
                           tmp = []
                           servei_title = servei.Title

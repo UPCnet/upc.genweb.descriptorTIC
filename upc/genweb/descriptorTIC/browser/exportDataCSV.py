@@ -26,7 +26,6 @@ class writeCSV(BrowserView):
           dataWriter = csv.writer(ft, delimiter=';',quotechar='|', quoting=csv.QUOTE_MINIMAL)
           dataWriter.writerow(res)
 
-          import ipdb; ipdb.set_trace()
 
           for folder in data:
               unitat_data = self.context.portal_catalog.unrestrictedSearchResults(portal_type='UnitatTIC',path=folder.getPath())

@@ -1,3 +1,16 @@
+/************************************************************** unitatticview */
+.unitatticview a.summary                { background-image:none; padding-left:0; }
+div.subcarpeta_familiatic               { background:transparent url(caixa.png) no-repeat center center; width:208px; height:129px; float:left; margin:0 15px 15px 0; padding:10px; }
+div.subcarpeta_familiatic .capsalera    { height:55px; }
+div.subcarpeta_familiatic .cos          { height:50px; }
+div.subcarpeta_familiatic .tileFooter   { margin-right:5px; }
+img.icon_subcarpeta                     { float:left; margin:0 5px 5px 0; }
+p.titol_subcarpeta                      { font-family:Verdana Arial, Helvetica, sans-serif; font-size:18px; font-weight:bold; color:#97210b; }
+div.subcarpeta_familiatic .tileBody     { line-height:1.3em; }
+div.subcarpeta_familiatic .tileFooter   { float:right; margin-top:0; }
+
+
+/******************************************************************* cercador */
 #cercador {
 	float:left;
 	padding-right:5px;
@@ -13,37 +26,37 @@
 	padding-left:5px;
 }
 #cercador fieldset {
-background-color:#FFFFFF;
-border:1px solid #FFAA01;
-height:30px;
-padding-top:20px;
-padding-left:20px;
-text-align:left;
-margin-top:65px;
+    background-color:#FFFFFF;
+    border:1px solid #FFAA01;
+    height:30px;
+    padding-top:20px;
+    padding-left:20px;
+    text-align:left;
+    margin-top:65px;
 }
 #cercador getColectiu {
-margin-right:10px;
+    margin-right:10px;
 }
 #cercador getUnitat {
-margin-right:10px;
+    margin-right:10px;
 }
 #cercador select {
-margin-right:10px;
+    margin-right:10px;
 }
 #banner {
-float:right;
-display:block;
-width:160px;
-margin-top:25px;
+    float:right;
+    display:block;
+    width:160px;
+    margin-top:25px;
 }
 .granate {
-color: #941D01;
+    color: #941D01;
 }
 .lletra_gran {
-font-family:Arial, Helvetica, sans-serif;
-font-size:16px;
-font-weight:bold;
-color: #941D01;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:16px;
+    font-weight:bold;
+    color: #941D01;
 }
 #quisoc {
 	position:absolute;
@@ -64,17 +77,17 @@ color: #941D01;
 }
 
 #cercador1 fieldset {
-background-color:#FFFFFF;
-border:1px solid #FFAA01;
-height:30px;
-padding-top:20px;
-padding-left:30px;
-text-align:left;
-margin: 12px 0px 15px 0px;
+    background-color:#FFFFFF;
+    border:1px solid #FFAA01;
+    height:30px;
+    padding-top:20px;
+    padding-left:30px;
+    text-align:left;
+    margin: 12px 0px 15px 0px;
 }
 #cercador1 getColectiu {
-margin-right:20px;
+    margin-right:20px;
 }
 #cercador1 getUnitat {
-margin-right:20px;
+    margin-right:20px;
 }

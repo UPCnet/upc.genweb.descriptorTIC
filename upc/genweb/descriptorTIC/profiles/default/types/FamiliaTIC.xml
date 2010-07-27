@@ -16,6 +16,7 @@
   <element value="CarpetaTIC"/>
   <element value="ServeiTIC"/>
   <element value="Window"/>
+  <element value="Image"/>
  </property>
  <property name="allow_discussion">False</property>
  <property name="default_view">folder_listing</property>

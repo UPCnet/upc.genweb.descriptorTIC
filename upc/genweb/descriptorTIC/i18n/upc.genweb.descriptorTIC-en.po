@@ -82,3 +82,5 @@ msgstr "Related Services:"
 msgid "faqTIC_descrip_serveis_relacionats"
 msgstr "List of de services Unit. Select services of this FAQ. Will appear when it marked 'Show as a table'."
 
+msgid "mes_info"
+msgstr "more info"

@@ -1,0 +1,76 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+  <head><title></title></head>
+
+  <body>
+
+    <div metal:fill-slot="main" class="unitatticview">
+
+      <metal:main_macro define-macro="main">
+
+        <metal:header_macro define-macro="header"
+                            tal:define="kssClassesView context/@@kss_field_decorator_view;
+                       getKssClasses nocall:kssClassesView/getKssClassesInlineEditable">
+
+          <div tal:replace="structure provider:plone.abovecontenttitle" />
+          
+          <h1 metal:use-macro="here/kss_generic_macros/macros/generic_title_view">
+              Title or id
+          </h1>
+
+          <p class="documentDescription" tal:condition="here/Description" tal:content="here/Description">
+              Description
+          </p>
+    
+          <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        </metal:header_macro>
+
+        <tal:def tal:define="document view/getDocumentPrincipal;
+                             subcarpetes view/getSubcarpetes">
+            <tal:co tal:condition="document">
+                <div class="tileItem">
+                    <h2 class="tileHeadline">
+                        <a class="summary url" tal:attributes="href document/url" tal:content="document/titol"> </a>
+                    </h2>
+                    <div class="documentByLine"><!-- --></div>
+                    <p class="tileBody" tal:content="document/descripcio"></p>
+                    <p class="tileFooter">
+                        <a tal:attributes="href document/url" class="link_mes_info" i18n:translate="read_more">Llegir més...</a>
+                    </p>
+                    <div class="visualClear"><!-- --></div>
+                </div>
+            </tal:co>
+            <br/><br/>
+            <tal:rep tal:repeat="sub subcarpetes">
+                <div class="subcarpeta_familiatic">
+                    <div class="capsalera">
+                        <tal:co tal:condition="sub/icono">
+                            <img class="icon_subcarpeta" tal:attributes="src sub/icono" />
+                        </tal:co>
+                        <p class="titol_subcarpeta" tal:content="sub/titol"><!-- --></p>
+                    </div>
+                    <div class="visualClear"><!-- --></div>
+                    <div class="cos">
+                        <p class="tileBody" tal:content="sub/descripcio"><!-- --></p>
+                    </div>
+                    <p class="tileFooter">
+                        <a tal:attributes="href sub/url" class="link_mes_info" i18n:domain="upc.genweb.descriptorTIC" i18n:translate="mes_info">més info</a>
+                    </p>
+                </div>
+            </tal:rep>
+        </tal:def>
+
+      </metal:main_macro>
+
+    </div>
+
+  </body>
+
+</html>

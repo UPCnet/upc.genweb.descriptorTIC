@@ -82,3 +82,5 @@ msgstr "Serveis Relacionats:"
 msgid "faqTIC_descrip_serveis_relacionats"
 msgstr "Aquí es llisten el serveis de la Unitat. Seleccioneu de quins serveis és aquesta FAQ. Es mostraran quan estigui marcat 'Mostra com a taula'."
 
+msgid "mes_info"
+msgstr "més info"

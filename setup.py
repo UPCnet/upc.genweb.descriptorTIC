@@ -30,4 +30,6 @@ setup(name='upc.genweb.descriptorTIC',
       entry_points="""
       # -*- Entry points: -*-
       """,
+      setup_requires=["PasteScript"],
+      paster_plugins=["ZopeSkel"],  
       )

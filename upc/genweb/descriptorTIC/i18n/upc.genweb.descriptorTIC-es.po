@@ -74,6 +74,10 @@ msgstr "Ficha de Servicio"
 msgid "serveiTIC_descripcio_nom"
 msgstr "Indica el nombre del Servicio"
 
+# Codi GN6
+msgid "serveiTIC_codigenesis"
+msgstr "Código GN6"
+
 # Serveis relacionats
 msgid "faqTIC_serveis_relacionats"
 msgstr "Servicios Relacionados:"

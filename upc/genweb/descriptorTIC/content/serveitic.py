@@ -41,6 +41,14 @@ servei_tic_Schema = ATDocumentSchema.copy() + atapi.Schema((
         i18n_domain = "upc.genweb.descriptorTIC")
     ),
 
+    atapi.StringField('codigenesis',
+        required=False,
+        searchable=True,
+        widget=atapi.StringWidget(label_msgid="serveiTIC_codigenesis",
+                                  maxlength=20,
+                                  i18n_domain='upc.genweb.descriptorTIC'),
+        ),
+
     atapi.TextField('directedto',
         required = False,
         validators = ('isTidyHtmlWithCleanup',),

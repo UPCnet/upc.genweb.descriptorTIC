@@ -105,6 +105,12 @@
             </tal:block>
         </tal:block>
 
+        <!-- Codi GN6:  -->
+        <h4 class="formQuestion" tal:condition="here/getCodigenesis">
+            <span i18n:translate="serveiTIC_codigenesis">Codi génesis</span>:
+        </h4>
+        <div tal:content="here/getCodigenesis"/>
+
         
       </metal:main_macro>
 

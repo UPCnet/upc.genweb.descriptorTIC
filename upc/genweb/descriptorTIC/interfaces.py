@@ -4,6 +4,9 @@ from zope.interface import Interface
 from zope.app.container.constraints import contains
 from zope.app.container.constraints import containers
 
+from zope.app.publisher.interfaces.browser import IBrowserMenu
+from zope.app.publisher.interfaces.browser import IBrowserSubMenuItem
+
 from upc.genweb.descriptorTIC import descriptorticMessageFactory as _
 
 # -*- extra stuff goes here -*-
@@ -30,4 +33,13 @@ class IFaqContainerTIC(Interface):
 
 class ICarpetaTIC(Interface):
     """A faq Content Type
+    """
+
+
+class IConfigperiodeSubMenuItem(IBrowserSubMenuItem):
+    """The menu item linking to the Configperiode menu.
+    """
+
+class IConfigperiodeMenu(IBrowserMenu):
+    """The Configperiode menu.
     """

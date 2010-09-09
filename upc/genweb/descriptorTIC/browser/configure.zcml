@@ -6,6 +6,13 @@
     <include package="plone.app.contentmenu" /> 
 
     <!-- -*- extra stuff goes here -*- -->
+    
+    <browser:page
+        for="*"
+        name="configperiode"
+        class=".configperiode.configperiode"
+        permission="zope.Public" />
+
 
   <browser:page
       for="..interfaces.IUnitatTIC"
@@ -111,6 +118,26 @@
         name="export_data_csv_QqWwEeRrTtYy1234567890"
         class=".exportDataCSV.writeCSV"
         permission="zope2.View"
+        />
+
+    <browser:menu
+        id="plone_contentmenu_configperiode"
+        title="The 'configperiode' menu - allows the user to config a Periode"
+        class=".menu.ConfigperiodeMenu"
+        />
+
+    <adapter for="* *"
+        name="plone.contentmenu.configperiode"
+        factory=".menu.ConfigperiodeSubMenuItem"
+        provides="plone.app.contentmenu.interfaces.IContentMenuItem" 
+        />
+
+    <browser:page
+        for="*"
+        name="nouperiode_view"
+        class=".nouperiode.NouperiodeView"
+        allowed_interface=".nouperiode.INouperiodeView"
+        permission="zope.Public"
         />
 
 </configure>

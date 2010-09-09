@@ -89,7 +89,6 @@
         permission="zope2.View"
     	/>
 
-
     <browser:page
         for="*"
         name="cerca-familias"
@@ -137,8 +136,17 @@
         name="nouperiode_view"
         class=".nouperiode.NouperiodeView"
         allowed_interface=".nouperiode.INouperiodeView"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        for="..interfaces.IUnitatTIC"
+        name="periodesunitat_view"
+        class=".periodesunitatview.PeriodesunitatView"
+        allowed_interface=".periodesunitatview.IPeriodesunitatView"
         permission="zope.Public"
         />
+
 
 </configure>
 

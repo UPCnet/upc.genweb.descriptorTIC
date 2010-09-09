@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master">
+
+  <head><title></title></head>
+
+  <body>
+
+    <div metal:fill-slot="main">
+
+      <metal:main_macro define-macro="main">
+
+        <metal:body_macro metal:define-macro="body" tal:define="periodes view/retPeriodesUnitat">
+
+            <tal:rep tal:repeat="periode periodes">
+                <tal:rep tal:repeat="preguntes periode">
+                    <tal:rep tal:repeat="i preguntes">
+                        <tal:repl tal:replace="i" /><br/>
+                    </tal:rep>
+                </tal:rep>
+            </tal:rep>
+
+        </metal:body_macro>
+
+      </metal:main_macro>
+    </div>
+  </body>
+</html>

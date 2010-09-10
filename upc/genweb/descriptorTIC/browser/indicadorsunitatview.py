@@ -41,6 +41,21 @@ class IndicadorsunitatView(BrowserView):
         return {'dummy': dummy}
 
 
+    def retUsuari(self, periode):
+        """ retorna l'usuari de la unitat que ha respost el periode
+        """
+        questions = periode.getAllQuestionsInOrder()
+        for user in periode.getRespondents():
+            for question in questions:
+                answer = ""
+                if question.getInputType() in ['text', 'area'] and question.getId() == 'indica-la-teva-unitat':
+                    if question.getAnswerFor(user):
+                        answer = question.getAnswerFor(user)
+                        if answer.lower() == self.context.getId().lower():
+                            return user
+                        else:
+                            return False
+        return False
                     
 
     def getDadesPeriode(self, user, periode):
@@ -81,12 +96,12 @@ class IndicadorsunitatView(BrowserView):
         """ retorna una llista amb les dades dels periodes que ha contestat la unitat
         """
         id_periode = self.context.REQUEST.get('periode')
-        user = self.context.REQUEST.get('user')
         context = self.context
         periodes = context.portal_catalog.searchResults(portal_type='Periode', id = id_periode)
         for p in periodes:
             obj = p.getObject()
-            resp = self.getDadesPeriode(obj, user)
+            user = self.retUsuari(obj)
+            resp = self.getDadesPeriode(user, obj)
         return resp
 
 

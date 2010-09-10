@@ -1,0 +1,86 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master">
+
+  <head><title></title></head>
+
+  <body>
+    <div metal:fill-slot="main">
+      <metal:main_macro define-macro="main">
+        <metal:body_macro metal:define-macro="body" tal:define="indicadors view/retIndicadorsPeriode">
+
+<br/>===========================================================<br/>
+<tal:repl tal:replace="indicadors" />
+<br/>===========================================================<br/>
+
+<style type="text/css" media="screen">
+dl.dades_periode {
+    float: left;
+    width: 620px;
+}
+dt.dades_periode {
+    background-color: #333333;
+    padding:5px;
+    color:white;
+}
+
+dl.preg_resp {
+    float: left;
+    width: 620px;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #999;
+}
+dt.preg_resp, dd.preg_resp {
+    padding: 3px;
+    border-top: 1px solid #999;
+    margin: 0;
+    float: left;
+}
+dt.preg_resp {
+    clear: left;
+    width: 400px;
+    font-weight: bold;
+}
+
+dd.preg_resp { width: 208px; }
+</style>
+
+            <h1 i18n:translate="resum_indicadors_unitat">Resum del indicadors de la unitat per períodes</h1>
+
+<!--
+            <tal:rep tal:repeat="periode periodes">
+                <dl class="dades_periode">
+                    <tal:rep tal:repeat="dades periode">
+                        <tal:cond tal:condition="repeat/dades/start">
+                            <dt class="dades_periode" tal:content="dades" />
+                        </tal:cond>
+                        <tal:cond tal:condition="not: repeat/dades/start">
+                            <dd class="dades_periode">
+                                <dl class="preg_resp">
+                                    <tal:rep tal:repeat="preguntes dades">
+                                        <tal:rep tal:repeat="preg_resp preguntes">
+                                            <tal:co tal:condition="repeat/preg_resp/start">
+                                                <dt class="preg_resp" tal:content="preg_resp" />
+                                            </tal:co>
+                                            <tal:co tal:condition="repeat/preg_resp/end">
+                                                <dd class="preg_resp" tal:content="preg_resp" />
+                                            </tal:co>
+                                        </tal:rep>
+                                    </tal:rep>
+                                </dl>
+                            </dd>
+                        </tal:cond>
+                    </tal:rep>
+                </dl>
+            </tal:rep>
+-->
+
+        </metal:body_macro>
+      </metal:main_macro>
+    </div>
+  </body>
+</html>

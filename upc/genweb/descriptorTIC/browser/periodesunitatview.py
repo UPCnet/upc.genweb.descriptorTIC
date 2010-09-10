@@ -41,19 +41,6 @@ class PeriodesunitatView(BrowserView):
         return {'dummy': dummy}
 
 
-                    
-
-    def getDadesPeriode(self, user, periode):
-        """ retorna llistat [[preg1, resp1],[preg2, resp2],[preg3, resp3], ...]
-        """
-        llistat = []
-        questions = periode.getAllQuestionsInOrder()
-        for question in questions:
-            answer = question.getAnswerFor(user)
-            llistat.append([question.Title(), answer])
-        return llistat
-
-
     def teRespostaUnitat(self, periode):
         """ retorna True si la pregunta 'indica la teva unitat' conte la unitat on estem
         """
@@ -65,7 +52,7 @@ class PeriodesunitatView(BrowserView):
                     if question.getAnswerFor(user):
                         answer = question.getAnswerFor(user)
                         if answer.lower() == self.context.getId().lower():
-                            return self.getDadesPeriode(user, periode)
+                            return True
                         else:
                             return False
         return False
@@ -81,7 +68,7 @@ class PeriodesunitatView(BrowserView):
             obj = p.getObject()
             resp = self.teRespostaUnitat(obj)
             if resp != False:
-                resultats.append(resp)
+                resultats.append(obj)
             else:
                 continue
         return resultats

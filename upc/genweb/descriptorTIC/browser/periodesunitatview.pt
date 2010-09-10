@@ -8,23 +8,27 @@
   <head><title></title></head>
 
   <body>
-
     <div metal:fill-slot="main">
-
       <metal:main_macro define-macro="main">
+        <metal:body_macro metal:define-macro="body">
 
-        <metal:body_macro metal:define-macro="body" tal:define="periodes view/retPeriodesUnitat">
+<!--
+<br/>===========================================================<br/>
+<tal:repl tal:replace="periodes" />
+<br/>===========================================================<br/>
+-->
 
-            <tal:rep tal:repeat="periode periodes">
-                <tal:rep tal:repeat="preguntes periode">
-                    <tal:rep tal:repeat="i preguntes">
-                        <tal:repl tal:replace="i" /><br/>
-                    </tal:rep>
-                </tal:rep>
+<style type="text/css" media="screen">
+
+</style>
+
+            <h1 i18n:translate="resum_periodes_unitat">Resum dels períodes que ha respost la unitat</h1>
+
+            <tal:rep tal:repeat="periode view/retPeriodesUnitat">
+               <a tal:attributes="href string:${context/absolute_url}/indicadorsunitat_view?periode=${periode/getId}" tal:content="periode/Title"/><br/>
             </tal:rep>
 
         </metal:body_macro>
-
       </metal:main_macro>
     </div>
   </body>

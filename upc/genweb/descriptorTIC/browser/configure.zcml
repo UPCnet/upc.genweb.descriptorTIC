@@ -147,6 +147,13 @@
         permission="zope.Public"
         />
 
+    <browser:page
+        for="..interfaces.IUnitatTIC"
+        name="indicadorsunitat_view"
+        class=".indicadorsunitatview.IndicadorsunitatView"
+        allowed_interface=".indicadorsunitatview.IIndicadorsunitatView"
+        permission="zope.Public"
+        />
 
 </configure>
 

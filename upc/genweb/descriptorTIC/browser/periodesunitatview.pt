@@ -15,7 +15,7 @@
             <h1 i18n:translate="resum_periodes_unitat">Resum dels períodes que ha respost la unitat</h1>
             <ul id="llista_periodes_unitat">
                 <tal:rep tal:repeat="periode view/retPeriodesUnitat">
-                   <li><a tal:attributes="href string:${context/absolute_url}/indicadorsunitat_view?periode=${periode/getId}" tal:content="periode/Title"/></li>
+                    <li><a tal:attributes="href string:${context/absolute_url}/indicadorsunitat_view?periode=${periode/getId}" tal:content="periode/Title"/></li>
                 </tal:rep>
             </ul>
 

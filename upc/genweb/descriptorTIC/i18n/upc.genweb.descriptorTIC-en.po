@@ -88,3 +88,7 @@ msgstr "List of de services Unit. Select services of this FAQ. Will appear when 
 
 msgid "mes_info"
 msgstr "more info"
+
+# Llistat periodes i unitats
+msgid "tornar_llistat_periodes"
+msgstr "Back to list"

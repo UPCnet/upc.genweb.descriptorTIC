@@ -47,30 +47,32 @@ dd.preg_resp { width: 208px; }
 
             <h1 i18n:translate="resum_indicadors_unitat">Resum del indicadors de la unitat pel període triat</h1>
 
-                <dl class="dades_periode">
-                    <tal:rep tal:repeat="dades indicadors">
-                        <tal:cond tal:condition="repeat/dades/start">
-                            <dt class="dades_periode" tal:content="dades" />
-                        </tal:cond>
-                        <tal:cond tal:condition="not: repeat/dades/start">
-                            <dd class="dades_periode">
-                                <dl class="preg_resp">
-                                    <tal:rep tal:repeat="preguntes dades">
-                                        <tal:rep tal:repeat="preg_resp preguntes">
-                                            <tal:co tal:condition="repeat/preg_resp/start">
-                                                <dt class="preg_resp" tal:content="preg_resp" />
-                                            </tal:co>
-                                            <tal:co tal:condition="repeat/preg_resp/end">
-                                                <dd class="preg_resp" tal:content="preg_resp" />
-                                            </tal:co>
-                                        </tal:rep>
+            <dl class="dades_periode">
+                <tal:rep tal:repeat="dades indicadors">
+                    <tal:cond tal:condition="repeat/dades/start">
+                        <dt class="dades_periode" tal:content="dades" />
+                    </tal:cond>
+                    <tal:cond tal:condition="not: repeat/dades/start">
+                        <dd class="dades_periode">
+                            <dl class="preg_resp">
+                                <tal:rep tal:repeat="preguntes dades">
+                                    <tal:rep tal:repeat="preg_resp preguntes">
+                                        <tal:co tal:condition="repeat/preg_resp/start">
+                                            <dt class="preg_resp" tal:content="preg_resp" />
+                                        </tal:co>
+                                        <tal:co tal:condition="repeat/preg_resp/end">
+                                            <dd class="preg_resp" tal:content="preg_resp" />
+                                        </tal:co>
                                     </tal:rep>
-                                </dl>
-                            </dd>
-                        </tal:cond>
-                    </tal:rep>
-                </dl>
-
+                                </tal:rep>
+                            </dl>
+                        </dd>
+                    </tal:cond>
+                </tal:rep>
+            </dl>
+            <div class="visualClear"><!-- --></div>
+            <a id="link_periodes_unitat" tal:attributes="href string:${context/absolute_url}/periodesunitat_view" i18n:domain="upc.genweb.descriptorTIC" i18n:translate="tornar_llistat_periodes">Tornar</a>
+            
         </metal:body_macro>
       </metal:main_macro>
     </div>

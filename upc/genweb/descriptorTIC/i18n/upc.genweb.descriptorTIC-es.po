@@ -88,3 +88,7 @@ msgstr "Aquí se listan los servicios de la Unidad. Selecciona los servicios a l
 
 msgid "mes_info"
 msgstr "más info"
+
+# Llistat periodes i unitats
+msgid "tornar_llistat_periodes"
+msgstr "Volver al listado de periodos y unidades"

@@ -98,6 +98,7 @@ class IndicadorsunitatView(BrowserView):
         id_periode = self.context.REQUEST.get('periode')
         context = self.context
         periodes = context.portal_catalog.searchResults(portal_type='Periode', id = id_periode)
+        resp = None
         for p in periodes:
             obj = p.getObject()
             user = self.retUsuari(obj)

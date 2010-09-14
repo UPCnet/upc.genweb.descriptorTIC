@@ -5,6 +5,9 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from upc.genweb.descriptorTIC import descriptorticMessageFactory as _
+from upc.genweb.descriptorTIC.interfaces import IUnitatTIC
+
+from Acquisition import aq_inner, aq_parent
 
 class IPeriodesunitatView(Interface):
     """ Periodesunitat view interface
@@ -40,7 +43,18 @@ class PeriodesunitatView(BrowserView):
 
         return {'dummy': dummy}
 
-
+    def retUnitat(self):
+        """ retorna la unitat
+        """
+        context = aq_inner(self.context)
+        unitat = aq_parent(context)
+        if IUnitatTIC.providedBy(unitat):
+            return unitat
+        else:
+            return False
+        
+    
+    
     def teRespostaUnitat(self, periode):
         """ retorna True si la pregunta 'indica la teva unitat' conte la unitat on estem
         """
@@ -51,10 +65,12 @@ class PeriodesunitatView(BrowserView):
                 if question.getInputType() in ['text', 'area'] and question.getId() == 'indica-la-teva-unitat':
                     if question.getAnswerFor(user):
                         answer = question.getAnswerFor(user)
-                        if answer.lower() == self.context.getId().lower():
-                            return True
-                        else:
-                            return False
+                        unitat = self.retUnitat()
+                        if unitat:
+                            if answer.lower() == unitat.getId().lower():
+                                return True
+                            else:
+                                return False
         return False
 
 
@@ -63,7 +79,7 @@ class PeriodesunitatView(BrowserView):
         """
         resultats = []
         context = self.context
-        periodes = context.portal_catalog.searchResults(portal_type='Periode', sort_on='created', sort_order='reverse')
+        periodes = context.portal_catalog.searchResults(portal_type='Periode', review_state='published', sort_on='created', sort_order='reverse')
         for p in periodes:
             obj = p.getObject()
             resp = self.teRespostaUnitat(obj)

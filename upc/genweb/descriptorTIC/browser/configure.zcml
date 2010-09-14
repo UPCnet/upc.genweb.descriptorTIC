@@ -140,19 +140,19 @@
         />
 
     <browser:page
-        for="..interfaces.IUnitatTIC"
+        for="..interfaces.IFamiliaTIC"
         name="periodesunitat_view"
         class=".periodesunitatview.PeriodesunitatView"
         allowed_interface=".periodesunitatview.IPeriodesunitatView"
-        permission="zope.Public"
+        permission="zope2.View"
         />
 
     <browser:page
-        for="..interfaces.IUnitatTIC"
+        for="..interfaces.IFamiliaTIC"
         name="indicadorsunitat_view"
         class=".indicadorsunitatview.IndicadorsunitatView"
         allowed_interface=".indicadorsunitatview.IIndicadorsunitatView"
-        permission="zope.Public"
+        permission="zope2.View"
         />
 
 </configure>

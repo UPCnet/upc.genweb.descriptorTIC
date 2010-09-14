@@ -5,6 +5,9 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from upc.genweb.descriptorTIC import descriptorticMessageFactory as _
+from upc.genweb.descriptorTIC.interfaces import IUnitatTIC
+
+from Acquisition import aq_inner, aq_parent
 
 class IIndicadorsunitatView(Interface):
     """ Indicadorsunitat view interface
@@ -39,8 +42,17 @@ class IndicadorsunitatView(BrowserView):
         dummy = _(u'a dummy string')
 
         return {'dummy': dummy}
-
-
+        
+    def retUnitat(self):
+        """ retorna la unitat
+        """
+        context = aq_inner(self.context)
+        unitat = aq_parent(context)
+        if IUnitatTIC.providedBy(unitat):
+            return unitat
+        else:
+            return False
+       
     def retUsuari(self, periode):
         """ retorna l'usuari de la unitat que ha respost el periode
         """
@@ -51,10 +63,12 @@ class IndicadorsunitatView(BrowserView):
                 if question.getInputType() in ['text', 'area'] and question.getId() == 'indica-la-teva-unitat':
                     if question.getAnswerFor(user):
                         answer = question.getAnswerFor(user)
-                        if answer.lower() == self.context.getId().lower():
-                            return user
-                        else:
-                            return False
+                        unitat = self.retUnitat()
+                        if unitat:
+                            if answer.lower() == unitat.getId().lower():
+                                return user
+                            else:
+                                return False
         return False
                     
 

@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master">
+
+  <head><title></title></head>
+
+  <body>
+
+    <div metal:fill-slot="main"
+         tal:define="view context/@@nouperiode_view">
+
+      <metal:main_macro define-macro="main">
+
+        <metal:body_macro metal:define-macro="body">
+
+	        <tal:def tal:define="dades_projecte view/retPeriodeExemple;
+				     preguntes view/retPreguntes">
+
+			<form method="post" tal:attributes="action string:${here/absolute_url}/nouperiodeview;">
+                         <fieldset>   
+                          <h1>Configuraci&oacute; del per&iacute;ode</h1>
+
+                          <span style="font-weight:bold">T&iacute;tol:</span><br/>
+                          <input type="text" name="titol" id="titol" size="100"><br/><br/>
+
+                          <span style="font-weight:bold">Descripci&oacute;:</span><br/>
+			  <textarea rows="2" cols="20" name="descripcio" id="descripcio"></textarea><br/><br/>
+
+ 
+                          <span style="font-weight:bold">Data d'inici:</span><br/>
+                          <input type="text" name="inici" id="inici" size="10"><br/><br/>
+                          <span style="font-weight:bold">Data de fi:</span><br/>
+                          <input type="text" name="fi" id="fi" size="10"><br/><br/>
+                          <span style="font-weight:bold">Termini del per&iacute;ode:</span><br/>
+                          <input type="text" name="termini" id="termini" size="10"><br/><br/>
+
+                          <span style="font-weight:bold">Tria quines de les preguntes vols que s'incloguin dins d'aquest per&iacute;ode:</span><br/>    
+			  <tal:rep tal:repeat="pregunta preguntes">
+			    <input type="checkbox" name="#"  value="#" tal:attributes="name pregunta/getId; value pregunta/getId"> <span tal:content="pregunta/Title" /><br/>
+			  </tal:rep>
+
+			  <br/><br/>
+
+                          <input type="submit" value="Aceptar" />
+
+                          <input type="hidden" name="form.submitted" value="1" />
+                         </fieldset>
+			</form>
+		</tal:def>
+
+        </metal:body_macro>
+
+      </metal:main_macro>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+[default]
+title = Crea Període
+
+
+
+[actions]
+action.success = traverse_to:string:crea_periode
+action.failure = traverse_to:string:nouperiodeview

@@ -10,7 +10,7 @@
 
 from Products.CMFCore.utils import getToolByName
 from string import join
-
+from DateTime import DateTime
 
 #1. copiar periode exemple
 titol = context.REQUEST.get('titol')
@@ -55,13 +55,12 @@ except:
     return
 
 #5. modifiquem id (sino posa copy9_of_periode-dexemple)
-#nou_id_generat = nou_periode.pretty_title_or_id()
-nou_id_generat = nou_periode.generateNewId()
+nou_id_generat = nou_periode.pretty_title_or_id()
 try:
     nou_periode.setId(nou_id_generat)
 except:
-    continue
-
+    data_actual = DateTime(context.Date()).strftime('%d.%m.%Y')
+    nou_periode.setId(nou_id_generat + data_actual)
 
 context.plone_utils.addPortalMessage(("El nou periode ha estat creat correctament"))
 context.REQUEST.RESPONSE.redirect(nou_periode.absolute_url())

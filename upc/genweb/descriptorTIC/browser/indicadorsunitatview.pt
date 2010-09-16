@@ -10,69 +10,33 @@
   <body>
     <div metal:fill-slot="main">
       <metal:main_macro define-macro="main">
-        <metal:body_macro metal:define-macro="body" tal:define="indicadors view/retIndicadorsPeriode">
+        <metal:body_macro metal:define-macro="body">
 
-<style type="text/css" media="screen">
-dl.dades_periode {
-    float: left;
-    width: 620px;
-}
-dt.dades_periode {
-    background-color: #333333;
-    padding:5px;
-    color:white;
-}
-
-dl.preg_resp {
-    float: left;
-    width: 620px;
-    margin: 0;
-    padding: 0;
-    border-bottom: 1px solid #999;
-}
-dt.preg_resp, dd.preg_resp {
-    padding: 3px;
-    border-top: 1px solid #999;
-    margin: 0;
-    float: left;
-}
-dt.preg_resp {
-    clear: left;
-    width: 400px;
-    font-weight: bold;
-}
-
-dd.preg_resp { width: 208px; }
-</style>
-
-            <h1 i18n:translate="resum_indicadors_unitat">Resum del indicadors de la unitat pel període triat</h1>
-
-            <dl class="dades_periode">
-                <tal:rep tal:repeat="dades indicadors">
-                    <tal:cond tal:condition="repeat/dades/start">
-                        <dt class="dades_periode" tal:content="dades" />
-                    </tal:cond>
-                    <tal:cond tal:condition="not: repeat/dades/start">
-                        <dd class="dades_periode">
-                            <dl class="preg_resp">
-                                <tal:rep tal:repeat="preguntes dades">
-                                    <tal:rep tal:repeat="preg_resp preguntes">
-                                        <tal:co tal:condition="repeat/preg_resp/start">
-                                            <dt class="preg_resp" tal:content="preg_resp" />
-                                        </tal:co>
-                                        <tal:co tal:condition="repeat/preg_resp/end">
-                                            <dd class="preg_resp" tal:content="preg_resp" />
-                                        </tal:co>
-                                    </tal:rep>
+            <tal:def tal:define="dades view/retIndicadorsPeriode">
+                <h1 i18n:translate="resum_indicadors_unitat">Resum del indicadors de la unitat pel període triat</h1>
+                <dl class="dades_periode">
+                    <dt class="titol_periode" tal:content="dades/titol" />
+                    <span class="desc_periode" tal:content="dades/desc" />
+                    <span class="dates_periode" tal:content="structure dades/cos" /><br/>
+                    <dd class="dades_periode">
+                        <dl class="preg_resp">
+                            <tal:rep tal:repeat="preguntes dades/preg_resp">
+                                <tal:rep tal:repeat="pr preguntes">
+                                    <tal:co tal:condition="repeat/pr/start">
+                                        <dt class="preg_resp" tal:content="pr" />
+                                    </tal:co>
+                                    <tal:co tal:condition="repeat/pr/end">
+                                        <dd class="preg_resp" tal:content="pr" />
+                                    </tal:co>
                                 </tal:rep>
-                            </dl>
-                        </dd>
-                    </tal:cond>
-                </tal:rep>
-            </dl>
-            <div class="visualClear"><!-- --></div>
-            <a id="link_periodes_unitat" tal:attributes="href string:${context/absolute_url}/periodesunitat_view" i18n:domain="upc.genweb.descriptorTIC" i18n:translate="tornar_llistat_periodes">Tornar</a>
-            
+                            </tal:rep>
+                        </dl>
+                    </dd>
+                </dl>
+                <div class="visualClear"><!-- --></div>
+                <a id="link_periodes_unitat" tal:attributes="href string:${context/absolute_url}/periodesunitat_view" i18n:domain="upc.genweb.descriptorTIC" i18n:translate="tornar_llistat_periodes">Tornar</a>
+            </tal:def>
+
         </metal:body_macro>
       </metal:main_macro>
     </div>

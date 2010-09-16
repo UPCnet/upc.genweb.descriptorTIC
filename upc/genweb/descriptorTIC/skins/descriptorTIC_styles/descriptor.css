@@ -10,6 +10,39 @@ div.subcarpeta_familiatic .tileBody     { line-height:1.3em; }
 div.subcarpeta_familiatic .tileFooter   { float:right; margin-top:0; }
 
 
+/******************************************************* indicadorsunitatview */
+dl.dades_periode {
+    float: left;
+    width: 620px;
+}
+dt.titol_periode {
+    background-color: #333333;
+    padding:5px;
+    color:white;
+}
+
+dl.preg_resp {
+    float: left;
+    width: 620px;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #999;
+}
+dt.preg_resp, dd.preg_resp {
+    padding: 3px;
+    border-top: 1px solid #999;
+    margin: 0;
+    float: left;
+}
+dt.preg_resp {
+    clear: left;
+    width: 400px;
+    font-weight: bold;
+}
+
+dd.preg_resp { width: 208px; }
+
+
 /******************************************************************* cercador */
 #cercador {
 	float:left;

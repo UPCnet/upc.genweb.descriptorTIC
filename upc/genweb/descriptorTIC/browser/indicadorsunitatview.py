@@ -95,16 +95,18 @@ class IndicadorsunitatView(BrowserView):
 
 
         """
-        llistat = []
-        llistat.append(periode.Title())
+        llistat = {}
+        llistat['titol'] = periode.Title()
+        llistat['desc'] = periode.Description()
+        llistat['cos'] = periode.getBody()
         llistat_preg = []
         questions = periode.getAllQuestionsInOrder()
         for question in questions:
             answer = question.getAnswerFor(user)
             llistat_preg.append([question.Title(), answer])
-        llistat.append(llistat_preg)
+        llistat['preg_resp'] = llistat_preg
         return llistat
-    
+
 
     def retIndicadorsPeriode(self):
         """ retorna una llista amb les dades dels periodes que ha contestat la unitat

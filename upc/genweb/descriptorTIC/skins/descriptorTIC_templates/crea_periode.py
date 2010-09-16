@@ -55,7 +55,8 @@ except:
     return
 
 #5. modifiquem id (sino posa copy9_of_periode-dexemple)
-nou_id_generat = nou_periode.pretty_title_or_id()
+
+nou_id_generat = nou_periode.pretty_title_or_id().replace(' ', '_')
 try:
     nou_periode.setId(nou_id_generat)
 except:

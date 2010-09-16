@@ -7,13 +7,6 @@
 
     <!-- -*- extra stuff goes here -*- -->
     
-    <browser:page
-        for="*"
-        name="configperiode"
-        class=".configperiode.configperiode"
-        permission="zope.Public" />
-
-
   <browser:page
       for="..interfaces.IUnitatTIC"
       name="unitattic_view"

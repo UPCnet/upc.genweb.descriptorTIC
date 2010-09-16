@@ -9,17 +9,16 @@ from Products.CMFCore.utils import getToolByName
 from string import join
 
 class INouperiodeView(Interface):
-    """
-    Nouperiode view interface
+    """ Nouperiode view interface
     """
 
     def test():
-        """ test method"""
+        """ test method
+        """
 
 
 class NouperiodeView(BrowserView):
-    """
-    Nouperiode browser view
+    """ Nouperiode browser view
     """
 
     implements(INouperiodeView)
@@ -37,8 +36,7 @@ class NouperiodeView(BrowserView):
         return getToolByName(self.context, 'portal_url').getPortalObject()
 
     def test(self):
-        """
-        test method
+        """ test method
         """
         dummy = _(u'a dummy string')
 
@@ -47,25 +45,25 @@ class NouperiodeView(BrowserView):
     def retPeriodeExemple(self):
         """
         """
-	try:
-		context = self.context
-		urltool = getToolByName(context, 'portal_url')
-		portal = urltool.getPortalObject()
-		carpeta_periodes = getattr(portal, 'configuracio-periodes')      #carpeta on tenim base
-		periode_exemple = getattr(carpeta_periodes, 'periode-dexemple')
-		return periode_exemple
-	except:
-		context.plone_utils.addPortalMessage(_(u"El període d'exemple ha estat modificat, eliminat o mogut. Siusplau, assegura't que el període d'exemple existeix i està a la carpeta 'configuracio-periodes' de l'arrel del portal i el seu id és 'periode-dexemple'"), 'error')
-	return
+        try:
+            context = self.context
+            urltool = getToolByName(context, 'portal_url')
+            portal = urltool.getPortalObject()
+            carpeta_periodes = getattr(portal, 'configuracio-periodes')      #carpeta on tenim base
+            periode_exemple = getattr(carpeta_periodes, 'periode-dexemple')
+            return periode_exemple
+        except:
+            context.plone_utils.addPortalMessage(_(u"El període d'exemple ha estat modificat, eliminat o mogut. Siusplau, assegura't que el període d'exemple existeix i està a la carpeta 'configuracio-periodes' de l'arrel del portal i el seu id és 'periode-dexemple'"), 'error')
+            return
 
 
 
     def retPreguntes(self):
         """
         """
-	context = self.context
-	periode_exemple = self.retPeriodeExemple()
-	url = join(periode_exemple.getPhysicalPath(), '/')
-	preguntas = context.portal_catalog.searchResults(path=url, portal_type='SurveyTextQuestion')
-	return preguntas
+        context = self.context
+        periode_exemple = self.retPeriodeExemple()
+        url = join(periode_exemple.getPhysicalPath(), '/')
+        preguntas = context.portal_catalog.searchResults(path=url, portal_type='SurveyTextQuestion')
+        return preguntas
 

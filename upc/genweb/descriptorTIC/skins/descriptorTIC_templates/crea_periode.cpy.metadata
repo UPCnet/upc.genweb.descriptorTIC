@@ -1,5 +1,0 @@
-[default]
-title=Editar Periode
-
-[actions]
-action.success = redirect_to:string:view

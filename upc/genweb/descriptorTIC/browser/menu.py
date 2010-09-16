@@ -74,7 +74,7 @@ class ConfigperiodeMenu(BrowserMenu):
     def getMenuItems(self, context, request):
         """Return menu item entries in a TAL-friendly form."""
         results = []
-        accio = context.absolute_url() + '/configperiode'
+        accio = context.absolute_url() + '/nouperiodeview'
         results.append({ 'title'       : 'afegir i configurar nou Període',
                          'description' : 'Mostra un formulari per crear i configurar un nou Període',
                          'action'      : accio,

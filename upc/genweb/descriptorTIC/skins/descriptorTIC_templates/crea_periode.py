@@ -32,6 +32,7 @@ periode_paste = context.manage_pasteObjects(periode_copy)
 nou_id = periode_paste[0]['new_id']
 nou_periode = getattr(context, nou_id)
 
+
 #3. modifiquem dades
 nou_periode.edit(title = str(titol),
     description = descripcio,
@@ -52,6 +53,15 @@ try:
 except:
     context.plone_utils.addPortalMessage(("Alguns dels camps del període d'exemple han estat eliminats o modificat. Siusplau, assegura't que el període d'exemple conté els camps 'camp1', 'camp2' ... 'camp15'"), 'error')
     return
+
+#5. modifiquem id (sino posa copy9_of_periode-dexemple)
+#nou_id_generat = nou_periode.pretty_title_or_id()
+nou_id_generat = nou_periode.generateNewId()
+try:
+    nou_periode.setId(nou_id_generat)
+except:
+    continue
+
 
 context.plone_utils.addPortalMessage(("El nou periode ha estat creat correctament"))
 context.REQUEST.RESPONSE.redirect(nou_periode.absolute_url())

@@ -5,55 +5,86 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       metal:use-macro="here/main_template/macros/master">
 
-  <head><title></title></head>
+    <head><title></title></head>
 
-  <body>
+    <body>
+        <div metal:fill-slot="main" tal:define="view context/@@nouperiode_view">
+            <metal:main_macro define-macro="main">
+                <metal:body_macro metal:define-macro="body">
 
-    <div metal:fill-slot="main"
-         tal:define="view context/@@nouperiode_view">
+                    <div metal:use-macro="here/global_statusmessage/macros/portal_message">
+                        Portal status message
+                    </div>
 
-      <metal:main_macro define-macro="main">
+                    <tal:def tal:define="dades_projecte view/retPeriodeExemple;
+                                         preguntes view/retPreguntes">
 
-        <metal:body_macro metal:define-macro="body">
+                        <form method="post" tal:attributes="action string:${here/absolute_url}/nouperiodeview;"
+                                            tal:define="errors options/state/getErrors">
+                            <fieldset>   
+                                <h1>Configuraci&oacute; del per&iacute;ode</h1>
 
-	        <tal:def tal:define="dades_projecte view/retPeriodeExemple;
-				     preguntes view/retPreguntes">
+                                <div class="field" tal:define="error errors/titol|nothing;
+                                                                 titol request/titol | nothing;"
+                                                     tal:attributes="class python:test(error, 'field error', 'field')">
+                                    <label for="titol" i18n:translate="label_titol">T&iacute;tol</label>
+                                    <span class="fieldRequired" title="Required" i18n:attributes="title title_required;" i18n:translate="label_required">(Required)</span>
+                                    <div tal:content="error">Validation error output</div>
+                                    <input type="text" name="titol" id="titol" size="100" tal:attributes="value titol;"/>
+                                </div>
 
-			<form method="post" tal:attributes="action string:${here/absolute_url}/nouperiodeview;">
-                         <fieldset>   
-                          <h1>Configuraci&oacute; del per&iacute;ode</h1>
+                                <div class="field" tal:define="error errors/descripcio|nothing;
+                                                                 descripcio request/descripcio | nothing;"
+                                                     tal:attributes="class python:test(error, 'field error', 'field')">
+                                    <label for="descripcio" i18n:translate="label_descripcio">Descripci&oacute;</label>
+                                    <span class="fieldRequired" title="Required" i18n:attributes="title title_required;" i18n:translate="label_required">(Required)</span>
+                                    <div tal:content="error">Validation error output</div>
+                                    <input type="text" name="descripcio" id="descripcio" size="100" tal:attributes="value descripcio;"/>
+                                </div>
 
-                          <span style="font-weight:bold">T&iacute;tol:</span><br/>
-                          <input type="text" name="titol" id="titol" size="100"><br/><br/>
+                                <div class="field" tal:define="error errors/inici|nothing;
+                                                                 inici request/inici | nothing;"
+                                                     tal:attributes="class python:test(error, 'field error', 'field')">
+                                    <label for="inici" i18n:translate="label_inici">Data inicial:</label>
+                                    <!--<span class="fieldRequired" title="Required" i18n:attributes="title title_required;" i18n:translate="label_required">(Required)</span>-->
+                                    <div tal:content="error">Validation error output</div>
+                                    <input type="text" name="inici" id="inici" size="10" tal:attributes="value inici;"/>
+                                </div>
 
-                          <span style="font-weight:bold">Descripci&oacute;:</span><br/>
-			  <textarea rows="2" cols="20" name="descripcio" id="descripcio"></textarea><br/><br/>
+                                <div class="field" tal:define="error errors/fi|nothing;
+                                                                 fi request/fi | nothing;"
+                                                     tal:attributes="class python:test(error, 'field error', 'field')">
+                                    <label for="fi" i18n:translate="label_fi">Data final:</label>
+                                    <!--<span class="fieldRequired" title="Required" i18n:attributes="title title_required;" i18n:translate="label_required">(Required)</span>-->
+                                    <div tal:content="error">Validation error output</div>
+                                    <input type="text" name="fi" id="fi" size="10" tal:attributes="value fi;"/>
+                                </div>
 
- 
-                          <span style="font-weight:bold">Data d'inici:</span><br/>
-                          <input type="text" name="inici" id="inici" size="10"><br/><br/>
-                          <span style="font-weight:bold">Data de fi:</span><br/>
-                          <input type="text" name="fi" id="fi" size="10"><br/><br/>
-                          <span style="font-weight:bold">Termini del per&iacute;ode:</span><br/>
-                          <input type="text" name="termini" id="termini" size="10"><br/><br/>
+                                <div class="field" tal:define="error errors/termini|nothing;
+                                                                 termini request/termini | nothing;"
+                                                     tal:attributes="class python:test(error, 'field error', 'field')">
+                                    <label for="fi" i18n:translate="label_termini">Data final termini:</label>
+                                    <!--<span class="fieldRequired" title="Required" i18n:attributes="title title_required;" i18n:translate="label_required">(Required)</span>-->
+                                    <div tal:content="error">Validation error output</div>
+                                    <input type="text" name="termini" id="termini" size="10" tal:attributes="value termini;"/>
+                                </div>
 
-                          <span style="font-weight:bold">Tria quines de les preguntes vols que s'incloguin dins d'aquest per&iacute;ode:</span><br/>    
-			  <tal:rep tal:repeat="pregunta preguntes">
-			    <input type="checkbox" name="#"  value="#" tal:attributes="name pregunta/getId; value pregunta/getId"> <span tal:content="pregunta/Title" /><br/>
-			  </tal:rep>
+                                <div class="field">
+                                    <label for="indicadors" i18n:translate="label_indicadors">Marca els indicadors que vols estudiar per aquest per&iacute;ode:</label>
+                                    <tal:rep tal:repeat="pregunta preguntes">
+                                        <br/><input type="checkbox" tal:attributes="name pregunta/getId; value pregunta/getId; checked request/pregunta | nothing"> <span tal:content="pregunta/Title" />
+                                    </tal:rep>
+                                </div>
 
-			  <br/><br/>
+                                <br/><br/>
+                                <input type="submit" value="Crear" />
+                                <input type="hidden" name="form.submitted" value="1" />
+                            </fieldset>
+                        </form>
 
-                          <input type="submit" value="Aceptar" />
-
-                          <input type="hidden" name="form.submitted" value="1" />
-                         </fieldset>
-			</form>
-		</tal:def>
-
-        </metal:body_macro>
-
-      </metal:main_macro>
-    </div>
-  </body>
+                    </tal:def>
+                </metal:body_macro>
+            </metal:main_macro>
+        </div>
+    </body>
 </html>

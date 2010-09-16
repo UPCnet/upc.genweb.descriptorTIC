@@ -1,7 +1,8 @@
 [default]
 title = Crea Període
 
-
+[validators]
+validators = valida_crea_periode
 
 [actions]
 action.success = traverse_to:string:crea_periode

@@ -26,6 +26,7 @@
   <element value="atct_album_view"/>
   <element value="folder_listing"/>
   <element value="folder_extended"/>
+  <element value="periodesunitat_view"/>
  </property>
  <property name="default_view_fallback">False</property>
  <alias from="(Default)" to="(dynamic view)"/>

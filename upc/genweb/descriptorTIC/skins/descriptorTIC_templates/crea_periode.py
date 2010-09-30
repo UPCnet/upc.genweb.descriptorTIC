@@ -19,8 +19,10 @@ inici = context.REQUEST.get('inici')
 fi = context.REQUEST.get('fi')
 termini = context.REQUEST.get('termini')
 portal_types = getToolByName(context, 'portal_types')
+
 try:
-   carpeta_base = getattr(portal_types, 'configuracio-periodes')                #carpeta on tenim base
+   carpeta_unitats = getattr(portal_types, 'unitats')
+   carpeta_base = getattr(carpeta_unitats, 'osi')                               #carpeta on guardem periode exemple
    periode_copy = carpeta_base.manage_copyObjects(['periode-dexemple'])         #id objecte base
 except:
    context.plone_utils.addPortalMessage(("El període d'exemple ha estat modificat, eliminat o mogut. Siusplau, assegura't que el període d'exemple existeix i està a la carpeta 'configuracio-periodes' de l'arrel del portal i el seu id és 'periode-dexemple'"), 'error')

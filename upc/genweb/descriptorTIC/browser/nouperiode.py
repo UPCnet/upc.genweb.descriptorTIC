@@ -46,11 +46,10 @@ class NouperiodeView(BrowserView):
         """
         """
         try:
-            context = self.context
-            urltool = getToolByName(context, 'portal_url')
-            portal = urltool.getPortalObject()
-            carpeta_periodes = getattr(portal, 'configuracio-periodes')      #carpeta on tenim base
-            periode_exemple = getattr(carpeta_periodes, 'periode-dexemple')
+            portal_types = getToolByName(self.context, 'portal_types')
+            carpeta_unitats = getattr(portal_types, 'unitats')
+            carpeta_base = getattr(carpeta_unitats, 'osi')                               #carpeta on guardem periode exemple
+            periode_exemple = getattr(carpeta_base, 'periode-dexemple')
             return periode_exemple
         except:
             context.plone_utils.addPortalMessage(_(u"El període d'exemple ha estat modificat, eliminat o mogut. Siusplau, assegura't que el període d'exemple existeix i està a la carpeta 'configuracio-periodes' de l'arrel del portal i el seu id és 'periode-dexemple'"), 'error')

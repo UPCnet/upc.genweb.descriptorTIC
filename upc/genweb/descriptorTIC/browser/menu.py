@@ -21,7 +21,7 @@ from upc.genweb.descriptorTIC.interfaces import IConfigperiodeMenu
 class ConfigperiodeSubMenuItem(BrowserSubMenuItem):
     implements(IConfigperiodeSubMenuItem)
 
-    title = _(u'label_configperiode_menu', default=u'Configperiode')
+    title = _(u'label_configperiode_menu', default=u'Demanar indicadors')
     description = _(u'title_configperiode_menu', default=u'Configperiode for the current content item')
     submenuId = 'plone_contentmenu_configperiode'
 
@@ -75,7 +75,7 @@ class ConfigperiodeMenu(BrowserMenu):
         """Return menu item entries in a TAL-friendly form."""
         results = []
         accio = context.absolute_url() + '/nouperiodeview'
-        results.append({ 'title'       : 'afegir i configurar nou Període',
+        results.append({ 'title'       : "Afegir petició d'indicadors",
                          'description' : 'Mostra un formulari per crear i configurar un nou Període',
                          'action'      : accio,
                          'selected'    : False,

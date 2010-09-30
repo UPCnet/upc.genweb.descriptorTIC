@@ -64,6 +64,6 @@ class NouperiodeView(BrowserView):
         context = self.context
         periode_exemple = self.retPeriodeExemple()
         url = join(periode_exemple.getPhysicalPath(), '/')
-        preguntas = context.portal_catalog.searchResults(path=url, portal_type='SurveyTextQuestion')
+        preguntas = context.portal_catalog.searchResults(path=url, portal_type='SurveyTextQuestionGenweb', sort_on='getObjPositionInParent')
         return preguntas
 

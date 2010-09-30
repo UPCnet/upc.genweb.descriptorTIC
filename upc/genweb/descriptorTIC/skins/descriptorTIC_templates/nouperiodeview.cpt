@@ -22,7 +22,7 @@
                         <form method="post" tal:attributes="action string:${here/absolute_url}/nouperiodeview;"
                                             tal:define="errors options/state/getErrors">
                             <fieldset>   
-                                <h1>Configuraci&oacute; del per&iacute;ode</h1>
+                                <h1>Demanar indicadors</h1>
 
                                 <div class="field" tal:define="error errors/titol|nothing;
                                                                  titol request/titol | nothing;"

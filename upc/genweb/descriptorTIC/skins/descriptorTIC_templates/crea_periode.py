@@ -18,7 +18,6 @@ descripcio = context.REQUEST.get('descripcio')
 inici = context.REQUEST.get('inici')
 fi = context.REQUEST.get('fi')
 termini = context.REQUEST.get('termini')
-body = 'Data inicial: ' + inici + '<br/>Data final: ' + fi + '<br/>Data final termini: ' + termini
 portal_types = getToolByName(context, 'portal_types')
 try:
    carpeta_base = getattr(portal_types, 'configuracio-periodes')                #carpeta on tenim base
@@ -36,13 +35,15 @@ nou_periode = getattr(context, nou_id)
 #3. modifiquem dades
 nou_periode.edit(title = str(titol),
     description = descripcio,
-    body = body,
+    datainicial = inici,
+    datafinal = fi,
+    datalimit = termini,
     exitUrl = nou_periode.absolute_url()
     )
 
 #4. eliminem els subobjectes no marcats
 url = join(nou_periode.getPhysicalPath(), '/')
-preguntas = context.portal_catalog.searchResults(path=url, portal_type='SurveyTextQuestion')
+preguntas = context.portal_catalog.searchResults(path=url, portal_type='SurveyTextQuestionGenweb')
 camps_a_eliminar = []
 for camp in preguntas: #noms dels camps del formulari (camp = 'camp12')
     id_camp = camp.getId

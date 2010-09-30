@@ -58,7 +58,7 @@ class ConfigperiodeSubMenuItem(BrowserSubMenuItem):
                 allowedTypes = _allowedTypes(self.request, addContext)
                 for item in allowedTypes:
                     item_id = item.getId()
-                    if item_id == 'Periode':
+                    if item_id == 'SurveyGenweb':
                         return True
 
         return False

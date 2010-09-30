@@ -15,6 +15,5 @@
     <type portal_type="FamiliaTIC"/>
     <type portal_type="CarpetaTIC"/>
     <type portal_type="FaqContainertic"/>
-    <type portal_type="Periode"/>
   </factorytypes>
 </object>

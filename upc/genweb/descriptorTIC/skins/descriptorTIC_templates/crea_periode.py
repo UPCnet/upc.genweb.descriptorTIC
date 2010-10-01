@@ -40,7 +40,6 @@ nou_periode.edit(title = str(titol),
     datainicial = inici,
     datafinal = fi,
     datalimit = termini,
-    exitUrl = nou_periode.absolute_url()
     )
 
 #4. eliminem els subobjectes no marcats
@@ -65,6 +64,11 @@ try:
 except:
     data_actual = DateTime(context.Date()).strftime('%d.%m.%Y')
     nou_periode.setId(nou_id_generat + data_actual)
+
+#6. modifiquem url de sortida amb el nou id
+nou_periode.edit(
+    exitUrl = nou_periode.absolute_url()
+    )
 
 context.plone_utils.addPortalMessage(("El nou periode ha estat creat correctament"))
 context.REQUEST.RESPONSE.redirect(nou_periode.absolute_url())

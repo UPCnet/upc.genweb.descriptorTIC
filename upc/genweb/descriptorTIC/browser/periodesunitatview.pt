@@ -12,7 +12,7 @@
       <metal:main_macro define-macro="main">
         <metal:body_macro metal:define-macro="body">
 
-            <h1 i18n:translate="resum_periodes_unitat">Resum dels períodes que ha respost la unitat</h1>
+            <h1>Indicadors de <tal:repl tal:define="unitat view/retUnitat" tal:replace="unitat/Title" /></h1>
             <ul id="llista_periodes_unitat">
                 <tal:rep tal:repeat="periode view/retPeriodesUnitat">
                     <li><a tal:attributes="href string:${context/absolute_url}/indicadorsunitat_view?periode=${periode/getId}" tal:content="periode/Title"/></li>

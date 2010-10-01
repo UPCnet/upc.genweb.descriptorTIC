@@ -13,11 +13,16 @@
         <metal:body_macro metal:define-macro="body">
 
             <tal:def tal:define="dades view/retIndicadorsPeriode">
-                <h1 i18n:translate="resum_indicadors_unitat">Resum del indicadors de la unitat pel període triat</h1>
                 <dl class="dades_periode">
                     <dt class="titol_periode" tal:content="dades/titol" />
                     <span class="desc_periode" tal:content="dades/desc" />
-                    <span class="dates_periode" tal:content="structure dades/cos" /><br/>
+                    <div id="dates_periode">
+                        <b>Data inicial:</b> <tal:repl tal:replace="dades/datainici" />
+                        &nbsp;&nbsp;|&nbsp;&nbsp;
+                        <b>Data final:</b> <tal:repl tal:replace="dades/datafinal" />
+                        &nbsp;&nbsp;|&nbsp;&nbsp;
+                        <b>Data l&iacute;mit:</b> <tal:repl tal:replace="dades/datalimit" />
+                    </div><br/>
                     <dd class="dades_periode">
                         <dl class="preg_resp">
                             <tal:rep tal:repeat="preguntes dades/preg_resp">

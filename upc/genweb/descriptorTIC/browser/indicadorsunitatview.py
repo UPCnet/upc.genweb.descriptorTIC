@@ -98,7 +98,9 @@ class IndicadorsunitatView(BrowserView):
         llistat = {}
         llistat['titol'] = periode.Title()
         llistat['desc'] = periode.Description()
-        llistat['cos'] = periode.getBody()
+        llistat['datainici'] = periode.getDatainici()
+        llistat['datafinal'] = periode.getDatafinal()
+        llistat['datalimit'] = periode.getDatalimit()
         llistat_preg = []
         questions = periode.getAllQuestionsInOrder()
         for question in questions:

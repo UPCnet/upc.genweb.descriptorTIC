@@ -53,8 +53,6 @@ class PeriodesunitatView(BrowserView):
         else:
             return False
         
-    
-    
     def teRespostaUnitat(self, periode):
         """ retorna True si la pregunta 'indica la teva unitat' conte la unitat on estem
         """

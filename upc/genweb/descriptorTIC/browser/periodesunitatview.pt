@@ -12,10 +12,33 @@
       <metal:main_macro define-macro="main">
         <metal:body_macro metal:define-macro="body">
 
-            <h1>Indicadors de <tal:repl tal:define="unitat view/retUnitat" tal:replace="unitat/Title" /></h1>
+            <h1>Indicadors de <tal:re tal:define="unitat view/retUnitat" tal:replace="unitat/Title" /> </h1>
+
+            <h2 i18n:translate="resum_periodes_unitat">Qüestionaris tancats</h2>
+
             <ul id="llista_periodes_unitat">
-                <tal:rep tal:repeat="periode view/retPeriodesUnitat">
+                <tal:rep tal:repeat="periode view/retPeriodesTancats">
                     <li><a tal:attributes="href string:${context/absolute_url}/indicadorsunitat_view?periode=${periode/getId}" tal:content="periode/Title"/></li>
+                </tal:rep>
+            </ul>
+
+            <br/>
+
+            <h2 i18n:translate="resum_periodes_unitat">Qüestionaris pendents de revisió</h2>
+
+            <ul id="llista_periodes_unitat">
+                <tal:rep tal:repeat="periode view/retPeriodesPendentsRevisio">
+                    <li><a tal:attributes="href string:${context/absolute_url}/indicadorsunitat_view?periode=${periode/getId}" tal:content="periode/Title"/></li>
+                </tal:rep>
+            </ul>
+
+            <br/>
+
+            <h2 i18n:translate="resum_periodes_unitat">Qüestionaris pendents de respondre</h2>
+
+            <ul id="llista_periodes_unitat">
+                <tal:rep tal:repeat="periode view/retPeriodesPendentsResposta">
+                    <li><a tal:attributes="href periode/absolute_url" tal:content="periode/Title"/></li>
                 </tal:rep>
             </ul>
 

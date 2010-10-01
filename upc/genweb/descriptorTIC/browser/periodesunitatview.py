@@ -72,7 +72,7 @@ class PeriodesunitatView(BrowserView):
         return False
 
 
-    def retPeriodesUnitat(self):
+    def retPeriodesTancats(self):
         """ retorna una llista amb els periodes que ha contestat la unitat
         """
         resultats = []
@@ -82,6 +82,38 @@ class PeriodesunitatView(BrowserView):
             obj = p.getObject()
             resp = self.teRespostaUnitat(obj)
             if resp != False:
+                resultats.append(obj)
+            else:
+                continue
+        return resultats
+
+
+    def retPeriodesPendentsRevisio(self):
+        """ retorna una llista amb els periodes que ha contestat la unitat
+        """
+        resultats = []
+        context = self.context
+        periodes = context.portal_catalog.searchResults(portal_type='Periode', review_state='visible', sort_on='created', sort_order='reverse')
+        for p in periodes:
+            obj = p.getObject()
+            resp = self.teRespostaUnitat(obj)
+            if resp != False:
+                resultats.append(obj)
+            else:
+                continue
+        return resultats
+
+
+    def retPeriodesPendentsResposta(self):
+        """ retorna una llista amb els periodes que ha contestat la unitat
+        """
+        resultats = []
+        context = self.context
+        periodes = context.portal_catalog.searchResults(portal_type='Periode', review_state='visible', sort_on='created', sort_order='reverse')
+        for p in periodes:
+            obj = p.getObject()
+            resp = self.teRespostaUnitat(obj)
+            if resp == False:
                 resultats.append(obj)
             else:
                 continue

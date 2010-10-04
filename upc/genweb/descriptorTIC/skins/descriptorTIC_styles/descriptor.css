@@ -1,4 +1,4 @@
-/************************************************************** unitatticview */
+/******************************************************************************* unitatticview */
 .unitatticview a.summary                { background-image:none; padding-left:0; }
 div.subcarpeta_familiatic               { background:transparent url(caixa.png) no-repeat center center; width:208px; height:129px; float:left; margin:0 15px 15px 0; padding:10px; }
 div.subcarpeta_familiatic .capsalera    { height:55px; }
@@ -9,8 +9,11 @@ p.titol_subcarpeta                      { font-family:Verdana Arial, Helvetica, 
 div.subcarpeta_familiatic .tileBody     { line-height:1.3em; }
 div.subcarpeta_familiatic .tileFooter   { float:right; margin-top:0; }
 
+/******************************************************************************* survey_genweb_view.cpt */
+form#survey_genweb_view fieldset {margin-top:10px;}
+form#survey_genweb_view .fieldWrapper {margin-top:10px;}
 
-/******************************************************* indicadorsunitatview */
+/******************************************************************************* indicadorsunitatview */
 dl.dades_periode {
     float: left;
     width: 620px;

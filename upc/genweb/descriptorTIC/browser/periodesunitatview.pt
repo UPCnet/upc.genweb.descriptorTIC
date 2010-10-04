@@ -4,9 +4,7 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       metal:use-macro="here/main_template/macros/master">
-
   <head><title></title></head>
-
   <body>
     <div metal:fill-slot="main">
       <metal:main_macro define-macro="main">
@@ -14,33 +12,43 @@
 
             <h1>Indicadors de <tal:re tal:define="unitat view/retUnitat" tal:replace="unitat/Title" /> </h1>
 
-            <h2 i18n:translate="resum_periodes_unitat">Qüestionaris tancats</h2>
+            <tal:def tal:define="peticions_tancades  view/retPeriodesTancats;
+                                 peticions_pend_rev  view/retPeriodesPendentsRevisio;
+                                 peticions_pend_resp view/retPeriodesPendentsResposta">
 
-            <ul id="llista_periodes_unitat">
-                <tal:rep tal:repeat="periode view/retPeriodesTancats">
-                    <li><a tal:attributes="href string:${context/absolute_url}/indicadorsunitat_view?periode=${periode/getId}" tal:content="periode/Title"/></li>
-                </tal:rep>
-            </ul>
+                <!-- survey publicades -->
+                <tal:co tal:condition="peticions_tancades">
+                    <h2>Peticions d'indicadors tancades</h2>
+                    <ul id="llista_periodes_unitat">
+                        <tal:rep tal:repeat="periode peticions_tancades">
+                            <li><a tal:attributes="href string:${context/absolute_url}/indicadorsunitat_view?periode=${periode/getId}" tal:content="periode/Title"/></li>
+                        </tal:rep>
+                    </ul>
+                    <br/>
+                </tal:co>
 
-            <br/>
+                <!-- survey contestades i no publicades -->
+                <tal:co tal:condition="peticions_pend_rev">
+                    <h2 i18n:translate="resum_periodes_unitat">Peticions d'indicadors pendents de revisió</h2>
+                    <ul id="llista_periodes_unitat">
+                        <tal:rep tal:repeat="periode peticions_pend_rev">
+                            <li><a tal:attributes="href periode/absolute_url" tal:content="periode/Title"/></li>
+                        </tal:rep>
+                    </ul>
+                    <br/>
+                </tal:co>
 
-            <h2 i18n:translate="resum_periodes_unitat">Qüestionaris pendents de revisió</h2>
+                <!-- survey no contestades i no publicades -->
+                <tal:co tal:condition="peticions_pend_resp">
+                    <h2 i18n:translate="resum_periodes_unitat">Peticions d'indicadors pendents de respondre</h2>
+                    <ul id="llista_periodes_unitat">
+                        <tal:rep tal:repeat="periode peticions_pend_resp">
+                            <li><a tal:attributes="href periode/absolute_url" tal:content="periode/Title"/></li>
+                        </tal:rep>
+                    </ul>
+                </tal:co>
 
-            <ul id="llista_periodes_unitat">
-                <tal:rep tal:repeat="periode view/retPeriodesPendentsRevisio">
-                    <li><a tal:attributes="href string:${context/absolute_url}/indicadorsunitat_view?periode=${periode/getId}" tal:content="periode/Title"/></li>
-                </tal:rep>
-            </ul>
-
-            <br/>
-
-            <h2 i18n:translate="resum_periodes_unitat">Qüestionaris pendents de respondre</h2>
-
-            <ul id="llista_periodes_unitat">
-                <tal:rep tal:repeat="periode view/retPeriodesPendentsResposta">
-                    <li><a tal:attributes="href periode/absolute_url" tal:content="periode/Title"/></li>
-                </tal:rep>
-            </ul>
+            </tal:def>
 
         </metal:body_macro>
       </metal:main_macro>

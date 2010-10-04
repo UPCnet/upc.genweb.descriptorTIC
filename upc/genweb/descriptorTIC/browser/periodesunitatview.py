@@ -93,7 +93,7 @@ class PeriodesunitatView(BrowserView):
         """
         resultats = []
         context = self.context
-        periodes = context.portal_catalog.searchResults(portal_type='Periode', review_state='visible', sort_on='created', sort_order='reverse')
+        periodes = context.portal_catalog.searchResults(portal_type='SurveyGenweb', review_state='visible', sort_on='created', sort_order='reverse')
         for p in periodes:
             obj = p.getObject()
             resp = self.teRespostaUnitat(obj)
@@ -109,7 +109,7 @@ class PeriodesunitatView(BrowserView):
         """
         resultats = []
         context = self.context
-        periodes = context.portal_catalog.searchResults(portal_type='Periode', review_state='visible', sort_on='created', sort_order='reverse')
+        periodes = context.portal_catalog.searchResults(portal_type='SurveyGenweb', review_state='visible', sort_on='created', sort_order='reverse')
         for p in periodes:
             obj = p.getObject()
             resp = self.teRespostaUnitat(obj)

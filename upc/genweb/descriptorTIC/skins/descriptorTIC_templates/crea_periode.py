@@ -47,9 +47,12 @@ url = join(nou_periode.getPhysicalPath(), '/')
 preguntas = context.portal_catalog.searchResults(path=url, portal_type='SurveyTextQuestionGenweb')
 camps_a_eliminar = []
 for camp in preguntas: #noms dels camps del formulari (camp = 'camp12')
+    object_camp = camp.getObject()
+    context.portal_workflow.doActionFor(object_camp,'publish',comment='publised programmatically')
     id_camp = camp.getId
     if context.REQUEST.get(id_camp) is None:
     	camps_a_eliminar.append(id_camp)
+    	
 try:
     nou_periode.manage_delObjects(camps_a_eliminar)
 except:
@@ -69,6 +72,8 @@ except:
 nou_periode.edit(
     exitUrl = nou_periode.absolute_url()
     )
+
+
 
 context.plone_utils.addPortalMessage(("El nou periode ha estat creat correctament"))
 context.REQUEST.RESPONSE.redirect(nou_periode.absolute_url())

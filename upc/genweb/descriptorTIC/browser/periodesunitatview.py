@@ -80,11 +80,12 @@ class PeriodesunitatView(BrowserView):
         periodes = context.portal_catalog.searchResults(portal_type='SurveyGenweb', review_state='published', sort_on='created', sort_order='reverse', Language=['ca', 'es', 'en', ''])
         for p in periodes:
             obj = p.getObject()
-            resp = self.teRespostaUnitat(obj)
-            if resp != False:
-                resultats.append(obj)
-            else:
-                continue
+            if obj.getId() != 'periode-dexemple':
+                resp = self.teRespostaUnitat(obj)
+                if resp != False:
+                    resultats.append(obj)
+                else:
+                    continue
         return resultats
 
 
@@ -93,14 +94,15 @@ class PeriodesunitatView(BrowserView):
         """
         resultats = []
         context = self.context
-        periodes = context.portal_catalog.searchResults(portal_type='SurveyGenweb', review_state='visible', sort_on='created', sort_order='reverse', Language=['ca', 'es', 'en', ''])
+        periodes = context.portal_catalog.searchResults(portal_type='SurveyGenweb', review_state='enproces', sort_on='created', sort_order='reverse', Language=['ca', 'es', 'en', ''])
         for p in periodes:
             obj = p.getObject()
-            resp = self.teRespostaUnitat(obj)
-            if resp != False:
-                resultats.append(obj)
-            else:
-                continue
+            if obj.getId() != 'periode-dexemple':
+                resp = self.teRespostaUnitat(obj)
+                if resp != False:
+                    resultats.append(obj)
+                else:
+                    continue
         return resultats
 
 
@@ -109,14 +111,15 @@ class PeriodesunitatView(BrowserView):
         """
         resultats = []
         context = self.context
-        periodes = context.portal_catalog.searchResults(portal_type='SurveyGenweb', review_state='visible', sort_on='created', sort_order='reverse', Language=['ca', 'es', 'en', ''])
+        periodes = context.portal_catalog.searchResults(portal_type='SurveyGenweb', review_state='enproces', sort_on='created', sort_order='reverse', Language=['ca', 'es', 'en', ''])
         for p in periodes:
             obj = p.getObject()
-            resp = self.teRespostaUnitat(obj)
-            if resp == False:
-                resultats.append(obj)
-            else:
-                continue
+            if obj.getId() != 'periode-dexemple':
+                resp = self.teRespostaUnitat(obj)
+                if resp == False:
+                    resultats.append(obj)
+                else:
+                    continue
         return resultats
 
 

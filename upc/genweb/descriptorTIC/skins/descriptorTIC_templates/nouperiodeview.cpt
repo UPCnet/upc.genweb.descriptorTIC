@@ -72,12 +72,15 @@
                                 <div class="field">
                                     <label for="indicadors" i18n:translate="label_indicadors">Marca els indicadors que vols estudiar per aquest per&iacute;ode:</label>
                                     <tal:rep tal:repeat="pregunta preguntes">
-                                        <tal:co tal:condition="python: pregunta.getId != 'indica-la-teva-unitat'">
-                                            <br/><input type="checkbox" tal:attributes="name pregunta/getId; value pregunta/getId; checked request/pregunta | nothing"> <span tal:content="pregunta/Title" />
-                                        </tal:co>
-                                        <tal:co tal:condition="python: pregunta.getId == 'indica-la-teva-unitat'">
-                                            <input type="hidden" tal:attributes="name pregunta/getId; value pregunta/getId;" checked="True">
-                                        </tal:co>
+                                        <tal:def tal:define="preg_obj pregunta/getObject">
+                                            <tal:co tal:condition="python: pregunta.getId != 'indica-la-teva-unitat'">
+                                                <br/><input type="checkbox" tal:attributes="name pregunta/getId; value pregunta/getId;" checked> <span tal:content="pregunta/Title" /> 
+                                                <tal:co tal:condition="preg_obj/getCodiindicador">(<span tal:content="preg_obj/getCodiindicador" />)</tal:co>
+                                            </tal:co>
+                                            <tal:co tal:condition="python: pregunta.getId == 'indica-la-teva-unitat'">
+                                                <input type="hidden" tal:attributes="name pregunta/getId; value pregunta/getId;" checked="True">
+                                            </tal:co>
+                                        </tal:def>
                                     </tal:rep>
                                 </div>
 

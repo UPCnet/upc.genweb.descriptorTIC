@@ -20,16 +20,7 @@
 
           <div tal:replace="structure provider:plone.abovecontenttitle" />
           
-          <h1 metal:use-macro="here/kss_generic_macros/macros/generic_title_view">
-              Title or id
-          </h1>
-
-          <p class="documentDescription" tal:condition="here/Description" tal:content="here/Description">
-              Description
-          </p>
-    
-          <div tal:replace="structure provider:plone.belowcontenttitle" />
-
+          <h1 metal:use-macro="here/kss_generic_macros/macros/generic_title_view">Title or id</h1>
         </metal:header_macro>
 
         <tal:def tal:define="document view/getDocumentPrincipal;
@@ -52,9 +43,14 @@
                 <div class="subcarpeta_familiatic">
                     <div class="capsalera">
                         <tal:co tal:condition="sub/icono">
-                            <img class="icon_subcarpeta" tal:attributes="src sub/icono" />
+                            <a tal:attributes="href sub/url">
+                                <img class="icon_subcarpeta" tal:attributes="src sub/icono" />
+                            </a>
                         </tal:co>
-                        <p class="titol_subcarpeta" tal:content="sub/titol"><!-- --></p>
+                        <!--<p class="titol_subcarpeta" tal:content="sub/titol">< ! - - - - ></p>-->
+                        <p class="titol_subcarpeta">
+                            <a tal:attributes="href sub/url" tal:content="sub/titol"><!-- --></a>
+                        </p>
                     </div>
                     <div class="visualClear"><!-- --></div>
                     <div class="cos">

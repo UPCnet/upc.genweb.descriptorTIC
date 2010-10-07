@@ -5,7 +5,7 @@ div.subcarpeta_familiatic .capsalera    { height:55px; }
 div.subcarpeta_familiatic .cos          { height:50px; }
 div.subcarpeta_familiatic .tileFooter   { margin-right:5px; }
 img.icon_subcarpeta                     { float:left; margin:0 5px 5px 0; }
-p.titol_subcarpeta                      { font-family:Verdana Arial, Helvetica, sans-serif; font-size:18px; font-weight:bold; color:#97210b; }
+p.titol_subcarpeta, p.titol_subcarpeta a { font-family:Verdana Arial, Helvetica, sans-serif; font-size:18px; font-weight:bold; color:#97210b !important; }
 div.subcarpeta_familiatic .tileBody     { line-height:1.3em; }
 div.subcarpeta_familiatic .tileFooter   { float:right; margin-top:0; }
 

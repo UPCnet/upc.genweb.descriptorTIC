@@ -16,12 +16,12 @@
                                  peticions_pend_rev  view/retPeriodesPendentsRevisio;
                                  peticions_pend_resp view/retPeriodesPendentsResposta">
 
-                <!-- survey publicades -->
-                <tal:co tal:condition="peticions_tancades">
-                    <h2>Peticions d'indicadors tancades</h2>
+                <!-- survey no contestades i no publicades -->
+                <tal:co tal:condition="peticions_pend_resp">
+                    <h2 i18n:translate="resum_periodes_unitat">Peticions d'indicadors pendents de respondre</h2>
                     <ul id="llista_periodes_unitat">
-                        <tal:rep tal:repeat="periode peticions_tancades">
-                            <li><a tal:attributes="href string:${context/absolute_url}/indicadorsunitat_view?periode=${periode/getId}" tal:content="periode/Title"/></li>
+                        <tal:rep tal:repeat="periode peticions_pend_resp">
+                            <li><a tal:attributes="href periode/absolute_url" tal:content="periode/Title"/></li>
                         </tal:rep>
                     </ul>
                     <br/>
@@ -38,12 +38,12 @@
                     <br/>
                 </tal:co>
 
-                <!-- survey no contestades i no publicades -->
-                <tal:co tal:condition="peticions_pend_resp">
-                    <h2 i18n:translate="resum_periodes_unitat">Peticions d'indicadors pendents de respondre</h2>
+                <!-- survey publicades -->
+                <tal:co tal:condition="peticions_tancades">
+                    <h2>Peticions d'indicadors tancades</h2>
                     <ul id="llista_periodes_unitat">
-                        <tal:rep tal:repeat="periode peticions_pend_resp">
-                            <li><a tal:attributes="href periode/absolute_url" tal:content="periode/Title"/></li>
+                        <tal:rep tal:repeat="periode peticions_tancades">
+                            <li><a tal:attributes="href string:${context/absolute_url}/indicadorsunitat_view?periode=${periode/getId}" tal:content="periode/Title"/></li>
                         </tal:rep>
                     </ul>
                 </tal:co>

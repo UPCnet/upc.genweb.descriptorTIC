@@ -61,7 +61,7 @@ class UnitatticView(BrowserView):
         context = self.context
         path = join(context.getPhysicalPath(), '/')
         subcarpetes = []
-        resultats = self.portal_catalog.searchResults(portal_type='FamiliaTIC',
+        resultats = self.portal_catalog.searchResults(is_folderish=True,
                                                       path={'query':path},
                                                       sort_on='getObjPositionInParent')
         for brain in resultats:

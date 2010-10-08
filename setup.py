@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.1.10'
+version = '1.1.12'
 
 setup(name='upc.genweb.descriptorTIC',
       version=version,

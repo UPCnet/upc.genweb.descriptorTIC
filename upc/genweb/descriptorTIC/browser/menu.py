@@ -45,31 +45,32 @@ class ConfigperiodeSubMenuItem(BrowserSubMenuItem):
 
     @memoize
     def available(self):
+        try:
+            context = self.context
+            usuari = context.portal_membership.getAuthenticatedMember()                                #mirem si lusuari te permis per afegir periodes
+            rols = usuari.getRoles()
+            if 'Manager' in rols or 'WebMaster' in rols:
+            
+                context_state = getMultiAdapter((context, self.request), name=u'plone_context_state')  #mirem si estem a carpeta 'osi'
+                estem_a_osi = context.getPortalTypeName() == 'Folder' and context.getId() == 'osi'
+                portal_types = getToolByName(context, 'portal_types')
+                carpeta_unitats = getattr(portal_types, 'unitats')
+                carpeta_base = getattr(carpeta_unitats, 'osi')
+                vista_per_defecte = carpeta_base.getDefaultPage()
+                estem_a_vista_per_defecte_osi = vista_per_defecte == context.getId()
+                if estem_a_osi or estem_a_vista_per_defecte_osi:
 
-        context = self.context
-        usuari = context.portal_membership.getAuthenticatedMember()                                #mirem si lusuari te permis per afegir periodes
-        rols = usuari.getRoles()
-        if 'Manager' in rols or 'WebMaster' in rols:
-        
-            #import ipdb; ipdb.set_trace()
-            context_state = getMultiAdapter((context, self.request), name=u'plone_context_state')  #mirem si estem a carpeta 'osi'
-            estem_a_osi = context.getPortalTypeName() == 'Folder' and context.getId() == 'osi'
-            portal_types = getToolByName(context, 'portal_types')
-            carpeta_unitats = getattr(portal_types, 'unitats')
-            carpeta_base = getattr(carpeta_unitats, 'osi')
-            vista_per_defecte = carpeta_base.getDefaultPage()
-            estem_a_vista_per_defecte_osi = vista_per_defecte == context.getId()
-            if estem_a_osi or estem_a_vista_per_defecte_osi:
+                    factories_view = getMultiAdapter((context, self.request), name='folder_factories') #mirem si podem afegir periodes
+                    addContext = factories_view.add_context()
+                    allowedTypes = _allowedTypes(self.request, addContext)
+                    for item in allowedTypes:
+                        item_id = item.getId()
+                        if item_id == 'SurveyGenweb':
+                            return True
 
-                factories_view = getMultiAdapter((context, self.request), name='folder_factories') #mirem si podem afegir periodes
-                addContext = factories_view.add_context()
-                allowedTypes = _allowedTypes(self.request, addContext)
-                for item in allowedTypes:
-                    item_id = item.getId()
-                    if item_id == 'SurveyGenweb':
-                        return True
-
-        return False
+            return False
+        except:
+            return False
 
 
     def selected(self):

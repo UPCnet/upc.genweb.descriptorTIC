@@ -46,7 +46,7 @@ class UnitatticView(BrowserView):
         context = self.context
         path = join(context.getPhysicalPath(), '/')
         resultats = self.portal_catalog.searchResults(portal_type='Document',
-                                                      path={'query':path},
+                                                      path={'query':path, 'depth':1},
                                                       sort_on='getObjPositionInParent')[:1]
         for brain in resultats:
             obj = brain.getObject()
@@ -61,15 +61,15 @@ class UnitatticView(BrowserView):
         context = self.context
         path = join(context.getPhysicalPath(), '/')
         subcarpetes = []
-        resultats = self.portal_catalog.searchResults(is_folderish=True,
-                                                      path={'query':path},
+        resultats = self.portal_catalog.searchResults(portal_type=['FamiliaTIC','FaqContainertic'],
+                                                      path={'query':path, 'depth':1},
                                                       sort_on='getObjPositionInParent')
         for brain in resultats:
             obj = brain.getObject()
             imatge = None
             path = join(obj.getPhysicalPath(), '/')
             icono = self.portal_catalog.searchResults(portal_type='Image',
-                                                      path={'query':path},
+                                                      path={'query':path, 'depth':1},
                                                       id='icono')[:1]
             for i in icono:
                 i_obj = i.getObject()

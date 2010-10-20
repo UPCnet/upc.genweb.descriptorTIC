@@ -66,20 +66,13 @@ class UnitatticView(BrowserView):
                                                       sort_on='getObjPositionInParent')
         for brain in resultats:
             obj = brain.getObject()
-            imatge = None
-            path = join(obj.getPhysicalPath(), '/')
-            icono = self.portal_catalog.searchResults(portal_type='Image',
-                                                      path={'query':path, 'depth':1},
-                                                      id='icono')[:1]
-            for i in icono:
-                i_obj = i.getObject()
-                imatge = i_obj.absolute_url() + '/image'
             desc = obj.Description()[:110]
+            icono = obj.getIcono()
             if len(obj.Description())>110:
                 desc = desc + '...'
             dades_obj = {'titol':obj.Title(),
                          'descripcio':desc,
-                         'icono':imatge,
+                         'icono':icono,
                          'url':obj.absolute_url()}
             subcarpetes.append(dades_obj)
         return subcarpetes

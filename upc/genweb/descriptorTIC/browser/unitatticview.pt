@@ -43,8 +43,8 @@
                 <div class="subcarpeta_familiatic">
                     <div class="capsalera">
                         <tal:co tal:condition="sub/icono">
-                            <a tal:attributes="href sub/url">
-                                <img class="icon_subcarpeta" tal:attributes="src sub/icono" />
+                            <a class="icon_subcarpeta" tal:attributes="href sub/url">
+                                <tal:repl tal:replace="structure sub/icono" />
                             </a>
                         </tal:co>
                         <!--<p class="titol_subcarpeta" tal:content="sub/titol">< ! - - - - ></p>-->

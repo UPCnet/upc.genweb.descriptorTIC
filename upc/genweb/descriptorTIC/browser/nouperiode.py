@@ -45,15 +45,14 @@ class NouperiodeView(BrowserView):
     def retPeriodeExemple(self):
         """
         """
-        try:
-            portal_types = getToolByName(self.context, 'portal_types')
-            carpeta_unitats = getattr(portal_types, 'unitats')
-            carpeta_base = getattr(carpeta_unitats, 'osi')                               #carpeta on guardem periode exemple
-            periode_exemple = getattr(carpeta_base, 'periode-dexemple')
+        portal_types = getToolByName(self.context, 'portal_types')
+        carpeta_unitats = getattr(portal_types, 'unitats', False)
+        carpeta_base = getattr(carpeta_unitats, 'osi', False)                   #carpeta on guardem periode exemple
+        periode_exemple = getattr(carpeta_base, 'periode-dexemple', False)
+        if carpeta_unitats and carpeta_base and periode_exemple:
             return periode_exemple
-        except:
-            context.plone_utils.addPortalMessage(_(u"El període d'exemple ha estat modificat, eliminat o mogut. Siusplau, assegura't que el període d'exemple existeix i està a la carpeta 'configuracio-periodes' de l'arrel del portal i el seu id és 'periode-dexemple'"), 'error')
-            return
+        else:
+            return False
 
 
 
@@ -62,7 +61,11 @@ class NouperiodeView(BrowserView):
         """
         context = self.context
         periode_exemple = self.retPeriodeExemple()
-        url = join(periode_exemple.getPhysicalPath(), '/')
-        preguntas = context.portal_catalog.searchResults(path=url, portal_type='SurveyTextQuestionGenweb', sort_on='getObjPositionInParent')
-        return preguntas
+        if periode_exemple:
+            url = join(periode_exemple.getPhysicalPath(), '/')
+            preguntas = context.portal_catalog.searchResults(path=url, portal_type='SurveyTextQuestionGenweb', sort_on='getObjPositionInParent')
+            return preguntas
+        else:
+            self.context.plone_utils.addPortalMessage(_(u"El període d'exemple ha estat modificat, eliminat o mogut. Siusplau, assegura't que el període d'exemple existeix i està a la carpeta 'configuracio-periodes' de l'arrel del portal i el seu id és 'periode-dexemple'"), 'error')
+            self.context.REQUEST.RESPONSE.redirect(self.context.absolute_url())
 

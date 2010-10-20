@@ -20,13 +20,12 @@ fi = context.REQUEST.get('fi')
 termini = context.REQUEST.get('termini')
 portal_types = getToolByName(context, 'portal_types')
 
-try:
-   carpeta_unitats = getattr(portal_types, 'unitats')
-   carpeta_base = getattr(carpeta_unitats, 'osi')                               #carpeta on guardem periode exemple
-   periode_copy = carpeta_base.manage_copyObjects(['periode-dexemple'])         #id objecte base
-except:
+carpeta_unitats = getattr(portal_types, 'unitats', False)
+carpeta_base = getattr(carpeta_unitats, 'osi', False)                           #carpeta on guardem periode exemple
+periode_copy = carpeta_base.manage_copyObjects(['periode-dexemple'])            #id objecte base
+if not carpeta_unitats or not carpeta_base:
    context.plone_utils.addPortalMessage(("El període d'exemple ha estat modificat, eliminat o mogut. Siusplau, assegura't que el període d'exemple existeix i està a la carpeta 'configuracio-periodes' de l'arrel del portal i el seu id és 'periode-dexemple'"), 'error')
-   return
+   self.context.REQUEST.RESPONSE.redirect(self.context.absolute_url())
 
 #2. guardar nou periode
 periode_paste = context.manage_pasteObjects(periode_copy)    
@@ -57,7 +56,7 @@ try:
     nou_periode.manage_delObjects(camps_a_eliminar)
 except:
     context.plone_utils.addPortalMessage(("Alguns dels camps del període d'exemple han estat eliminats o modificat. Siusplau, assegura't que el període d'exemple conté els camps 'camp1', 'camp2' ... 'camp15'"), 'error')
-    return
+    self.context.REQUEST.RESPONSE.redirect(self.context.absolute_url())
 
 #5. modifiquem id (sino posa copy9_of_periode-dexemple)
 

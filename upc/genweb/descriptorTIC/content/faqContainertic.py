@@ -20,7 +20,16 @@ from upc.genweb.descriptorTIC.config import PROJECTNAME
 from Products.CMFCore.permissions import ModifyPortalContent
 
 schema = Schema((
-
+    ImageField(
+        name='icono',
+        widget=ImageField._properties['widget'](
+            label='Imatge',
+            label_msgid="familiatic_icono",
+            description_msgid="familiatic_descrip_icono",
+            i18n_domain = "upc.genweb.descriptorTIC"
+        ),
+        storage=AttributeStorage(),
+    ),
 ),
 )
 

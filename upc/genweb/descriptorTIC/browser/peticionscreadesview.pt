@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xml:lang="en" lang="en"
+      i18n:domain="plone"
+      metal:use-macro="here/main_template/macros/master">
+
+    <body>
+        <div metal:fill-slot="main">
+            <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+            <h1 class="documentFirstHeading">Peticions d'indicadors creades</h1>
+
+            <table cellspacing="0" cellspadding="0" border="0" id="taula_peticions">
+                <tr tal:repeat="peticio view/retPeticionsCreades">
+                    <td class="peticio_titol"><a tal:attributes="href peticio/url" tal:content="peticio/titol" /></td>
+                    <td class="peticio_data" tal:content="peticio/data_creacio" />
+                    <td class="peticio_estat" tal:content="peticio/estat" />
+                </tr>
+            </table>
+
+        </div>
+    </body>
+</html>

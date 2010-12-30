@@ -22,12 +22,12 @@
                         <form method="post" tal:attributes="action string:${here/absolute_url}/nouperiodeview;"
                                             tal:define="errors options/state/getErrors">
                             <fieldset>   
-                                <h1>Demanar indicadors</h1>
+                                <h1>Nou recull d'indicadors</h1><br/>
 
                                 <div class="field" tal:define="error errors/titol|nothing;
-                                                                 titol request/titol | nothing;"
-                                                     tal:attributes="class python:test(error, 'field error', 'field')">
-                                    <label for="titol" i18n:translate="label_titol">T&iacute;tol</label>
+                                                               titol request/titol | nothing;"
+                                                   tal:attributes="class python:test(error, 'field error', 'field')">
+                                    <label for="titol" i18n:translate="label_titol">T&iacute;tol a mostrar a la web</label>
                                     <span class="fieldRequired" title="Required" i18n:attributes="title title_required;" i18n:translate="label_required">(Required)</span>
                                     <div tal:content="error">Validation error output</div>
                                     <input type="text" name="titol" id="titol" size="100" tal:attributes="value titol;"/>
@@ -55,6 +55,9 @@
                                                                  fi request/fi | nothing;"
                                                      tal:attributes="class python:test(error, 'field error', 'field')">
                                     <label for="fi" i18n:translate="label_fi">Data final:</label>
+                                    <div class="formHelp">
+                                        Data informativa, els formularis no es tanquen automàticament en assolir aquesta data.
+                                    </div>
                                     <!--<span class="fieldRequired" title="Required" i18n:attributes="title title_required;" i18n:translate="label_required">(Required)</span>-->
                                     <div tal:content="error">Validation error output</div>
                                     <input type="text" name="fi" id="fi" size="10" tal:attributes="value fi;"/>
@@ -71,6 +74,9 @@
 
                                 <div class="field">
                                     <label for="indicadors" i18n:translate="label_indicadors">Marca els indicadors que vols estudiar per aquest per&iacute;ode:</label>
+                                    <div class="formHelp">
+                                        Si vols, pots <a target="_blank" tal:attributes="href string:${here/portal_url}/unitats/osi/periode-dexemple/portal_factory/SurveyTextQuestionGenweb/surveytextquestiongenweb.2010-12-29.0401749864/edit">afegir nous indicadors mestres</a>. Recorda que per veure'l, cal recarregar la plana.
+                                    </div>
                                     <tal:rep tal:repeat="pregunta preguntes">
                                         <tal:def tal:define="preg_obj pregunta/getObject">
                                             <tal:co tal:condition="python: pregunta.getId != 'indica-la-teva-unitat'">

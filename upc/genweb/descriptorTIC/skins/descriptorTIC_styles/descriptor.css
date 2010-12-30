@@ -1,3 +1,6 @@
+/******************************************************************************* peticionscreadesview.pt */
+td.peticio_titol, td.peticio_data {padding-right:30px;}
+
 /******************************************************************************* unitatticview */
 .unitatticview a.summary                 { background-image:none; padding-left:0; }
 div.subcarpeta_familiatic                { background:transparent url(caixa.png) no-repeat center center; width:208px; height:129px; float:left; margin:0 15px 15px 0; padding:10px; }
@@ -12,6 +15,11 @@ div.subcarpeta_familiatic .tileFooter    { float:right; margin-top:0; }
 /******************************************************************************* survey_genweb_view.cpt */
 form#survey_genweb_view fieldset {margin-top:10px;}
 form#survey_genweb_view .fieldWrapper {margin-top:10px;}
+form#survey_genweb_view .div_comentaris { padding-left:40px; }
+form#survey_genweb_view .div_comentaris label { font-weight:normal; }
+form#survey_genweb_view .div_comentaris .codi_indicador {display:none;}
+form#survey_genweb_view .div_comentaris textarea { border-color:#DDD }
+form#survey_genweb_view input { border-color:#666 #DDD #DDD #666 }
 
 /******************************************************************************* indicadorsunitatview */
 dl.dades_periode {
@@ -44,6 +52,8 @@ dt.preg_resp {
 }
 
 dd.preg_resp { width: 208px; }
+
+
 
 
 /******************************************************************* cercador */

@@ -1,5 +1,9 @@
+/******************************************************************************* nouperiodeview.cpt */
+form#nouperiodeview fieldset { margin-top:0; }
+form#nouperiodeview div.field { padding-top:10px; }
+
 /******************************************************************************* peticionscreadesview.pt */
-td.peticio_titol, td.peticio_data {padding-right:30px;}
+td.peticio_titol, td.peticio_data { padding-right:30px; }
 
 /******************************************************************************* unitatticview */
 .unitatticview a.summary                 { background-image:none; padding-left:0; }

@@ -19,10 +19,10 @@
                     <tal:def tal:define="dades_projecte view/retPeriodeExemple;
                                          preguntes view/retPreguntes">
 
-                        <form method="post" tal:attributes="action string:${here/absolute_url}/nouperiodeview;"
-                                            tal:define="errors options/state/getErrors">
+                        <form id="nouperiodeview" method="post" tal:attributes="action string:${here/absolute_url}/nouperiodeview;"
+                                                                tal:define="errors options/state/getErrors">
                             <fieldset>   
-                                <h1>Nou recull d'indicadors</h1><br/>
+                                <h1>Nou recull d'indicadors</h1>
 
                                 <div class="field" tal:define="error errors/titol|nothing;
                                                                titol request/titol | nothing;"
@@ -75,7 +75,7 @@
                                 <div class="field">
                                     <label for="indicadors" i18n:translate="label_indicadors">Marca els indicadors que vols estudiar per aquest per&iacute;ode:</label>
                                     <div class="formHelp">
-                                        Si vols, pots <a target="_blank" tal:attributes="href string:${here/portal_url}/unitats/osi/periode-dexemple/portal_factory/SurveyTextQuestionGenweb/surveytextquestiongenweb.2010-12-29.0401749864/edit">afegir nous indicadors mestres</a>. Recorda que per veure'l, cal recarregar la plana.
+                                        Si vols, en el seg&uuml;ent enlla&ccedil; pots <a target="_blank" tal:attributes="href string:${here/portal_url}/unitats/osi/periode-dexemple/portal_factory/SurveyTextQuestionGenweb/surveytextquestiongenweb.2010-12-29.0401749864/edit">afegir nous indicadors mestres</a>. Atenci&oacute;, sortir&agrave;s d'aquesta p&agrave;gina i es perdran les dades que hagis introdu&iuml;t.
                                     </div>
                                     <tal:rep tal:repeat="pregunta preguntes">
                                         <tal:def tal:define="preg_obj pregunta/getObject">

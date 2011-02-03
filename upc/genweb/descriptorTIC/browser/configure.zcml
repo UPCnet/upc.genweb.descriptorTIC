@@ -114,7 +114,6 @@
 
 
     <!-- ####################################################################### GESTIONAR ELS INDICADORS -->
-    <!--
     <browser:menu
         id="plone_contentmenu_configperiode"
         title="The 'configperiode' menu - allows the user to config a Periode"
@@ -157,7 +156,6 @@
         class=".peticionscreadesview.PeticionscreadesView"
         permission="zope2.View"
         />
-    -->
 
 
 </configure>

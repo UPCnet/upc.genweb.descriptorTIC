@@ -27,6 +27,7 @@ if not carpeta_unitats or not carpeta_base:
    context.plone_utils.addPortalMessage(("El període d'exemple ha estat modificat, eliminat o mogut. Siusplau, assegura't que el període d'exemple existeix i està a la carpeta 'configuracio-periodes' de l'arrel del portal i el seu id és 'periode-dexemple'"), 'error')
    self.context.REQUEST.RESPONSE.redirect(self.context.absolute_url())
 
+
 #2. guardar nou periode
 periode_paste = context.manage_pasteObjects(periode_copy)    
 nou_id = periode_paste[0]['new_id']
@@ -41,6 +42,7 @@ nou_periode.edit(title = str(titol),
     datalimit = termini,
     )
 
+
 #4. eliminem els subobjectes no marcats
 url = join(nou_periode.getPhysicalPath(), '/')
 preguntas = context.portal_catalog.searchResults(path=url, portal_type='SurveyTextQuestionGenweb')
@@ -51,7 +53,7 @@ for camp in preguntas: #noms dels camps del formulari (camp = 'camp12')
     id_camp = camp.getId
     if context.REQUEST.get(id_camp) is None:
     	camps_a_eliminar.append(id_camp)
-    	
+
 try:
     nou_periode.manage_delObjects(camps_a_eliminar)
 except:
@@ -60,7 +62,9 @@ except:
 
 #5. modifiquem id (sino posa copy9_of_periode-dexemple)
 
-nou_id_generat = nou_periode.pretty_title_or_id().replace(' ', '_')
+plone_tool = getToolByName(context, 'plone_utils', None)
+nou_id_generat = plone_tool.normalizeString(titol)
+
 try:
     nou_periode.setId(nou_id_generat)
 except:
@@ -72,7 +76,6 @@ nou_periode.edit(
     exitUrl = nou_periode.absolute_url()
     )
 
-
-
 context.plone_utils.addPortalMessage(("El nou periode ha estat creat correctament"))
 context.REQUEST.RESPONSE.redirect(nou_periode.absolute_url())
+

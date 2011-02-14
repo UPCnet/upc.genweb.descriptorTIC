@@ -24,7 +24,7 @@ carpeta_unitats = getattr(portal_types, 'unitats', False)
 carpeta_base = getattr(carpeta_unitats, 'osi', False)                           #carpeta on guardem periode exemple
 periode_copy = carpeta_base.manage_copyObjects(['periode-dexemple'])            #id objecte base
 if not carpeta_unitats or not carpeta_base:
-   context.plone_utils.addPortalMessage(("El període d'exemple ha estat modificat, eliminat o mogut. Siusplau, assegura't que el període d'exemple existeix i està a la carpeta 'configuracio-periodes' de l'arrel del portal i el seu id és 'periode-dexemple'"), 'error')
+   context.plone_utils.addPortalMessage(("El recull d'exemple ha estat modificat, eliminat o mogut. Siusplau, assegura't que el recull d'exemple existeix i està a la carpeta 'configuracio-periodes' de l'arrel del portal i el seu id és 'periode-dexemple'"), 'error')
    self.context.REQUEST.RESPONSE.redirect(self.context.absolute_url())
 
 
@@ -57,7 +57,7 @@ for camp in preguntas: #noms dels camps del formulari (camp = 'camp12')
 try:
     nou_periode.manage_delObjects(camps_a_eliminar)
 except:
-    context.plone_utils.addPortalMessage(("Alguns dels camps del període d'exemple han estat eliminats o modificat. Siusplau, assegura't que el període d'exemple conté els camps 'camp1', 'camp2' ... 'camp15'"), 'error')
+    context.plone_utils.addPortalMessage(("Alguns dels camps del recull d'exemple han estat eliminats o modificat. Siusplau, assegura't que el recull d'exemple conté els camps 'camp1', 'camp2' ... 'camp15'"), 'error')
     self.context.REQUEST.RESPONSE.redirect(self.context.absolute_url())
 
 #5. modifiquem id (sino posa copy9_of_periode-dexemple)
@@ -76,6 +76,6 @@ nou_periode.edit(
     exitUrl = nou_periode.absolute_url()
     )
 
-context.plone_utils.addPortalMessage(("El nou periode ha estat creat correctament"))
+context.plone_utils.addPortalMessage(("El nou recull ha estat creat correctament"))
 context.REQUEST.RESPONSE.redirect(nou_periode.absolute_url())
 

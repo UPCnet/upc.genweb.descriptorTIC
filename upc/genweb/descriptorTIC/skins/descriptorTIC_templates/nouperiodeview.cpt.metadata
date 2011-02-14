@@ -1,5 +1,5 @@
 [default]
-title = Crea Període
+title = Crea recull
 
 [validators]
 validators = valida_crea_periode

@@ -91,5 +91,5 @@ msgstr "més info"
 
 # Llistat periodes i unitats
 msgid "tornar_llistat_periodes"
-msgstr "Tornar al llistat de períodes de la unitat"
+msgstr "Tornar al llistat de reculls de la unitat"
 

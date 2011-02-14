@@ -82,8 +82,8 @@ class ConfigperiodeMenu(BrowserMenu):
         """Return menu item entries in a TAL-friendly form."""
         results = []
         accio = context.absolute_url() + '/nouperiodeview'
-        results.append({ 'title'       : "Afegir petició d'indicadors",
-                         'description' : 'Mostra un formulari per crear i configurar un nou Període',
+        results.append({ 'title'       : "Afegir recull d'indicadors",
+                         'description' : 'Mostra un formulari per crear i configurar un nou recull',
                          'action'      : accio,
                          'selected'    : False,
                          'icon'        : None,

@@ -18,7 +18,7 @@
 
                 <!-- survey no contestades i no publicades -->
                 <tal:co tal:condition="peticions_pend_resp">
-                    <h2 i18n:translate="resum_periodes_unitat">Peticions d'indicadors pendents de respondre</h2>
+                    <h2 i18n:translate="resum_periodes_unitat">Reculls d'indicadors pendents de respondre</h2>
                     <ul id="llista_periodes_unitat">
                         <tal:rep tal:repeat="periode peticions_pend_resp">
                             <li><a tal:attributes="href periode/absolute_url" tal:content="periode/Title"/></li>
@@ -29,7 +29,7 @@
 
                 <!-- survey contestades i no publicades -->
                 <tal:co tal:condition="peticions_pend_rev">
-                    <h2 i18n:translate="resum_periodes_unitat">Peticions d'indicadors pendents de revisió</h2>
+                    <h2 i18n:translate="resum_periodes_unitat">Reculls d'indicadors pendents de revisió</h2>
                     <ul id="llista_periodes_unitat">
                         <tal:rep tal:repeat="periode peticions_pend_rev">
                             <li><a tal:attributes="href periode/absolute_url" tal:content="periode/Title"/></li>
@@ -40,7 +40,7 @@
 
                 <!-- survey publicades -->
                 <tal:co tal:condition="peticions_tancades">
-                    <h2>Peticions d'indicadors tancades</h2>
+                    <h2>Reculls d'indicadors tancats</h2>
                     <ul id="llista_periodes_unitat">
                         <tal:rep tal:repeat="periode peticions_tancades">
                             <li><a tal:attributes="href string:${context/absolute_url}/indicadorsunitat_view?periode=${periode/getId}" tal:content="periode/Title"/></li>

@@ -42,31 +42,37 @@
                                     <input type="text" name="descripcio" id="descripcio" size="100" tal:attributes="value descripcio;"/>
                                 </div>
 
-                                <div class="field" tal:define="error errors/inici|nothing;
-                                                                 inici request/inici | nothing;"
-                                                     tal:attributes="class python:test(error, 'field error', 'field')">
-                                    <label for="inici" i18n:translate="label_inici">Data inicial:</label>
-                                    <!--<span class="fieldRequired" title="Required" i18n:attributes="title title_required;" i18n:translate="label_required">(Required)</span>-->
-                                    <div tal:content="error">Validation error output</div>
-                                    <input type="text" name="inici" id="inici" size="10" tal:attributes="value inici;"/>
-                                </div>
-
-                                <div class="field" tal:define="error errors/fi|nothing;
-                                                                 fi request/fi | nothing;"
-                                                     tal:attributes="class python:test(error, 'field error', 'field')">
-                                    <label for="fi" i18n:translate="label_fi">Data final:</label>
-                                    <div class="formHelp">
-                                        Data informativa, els formularis no es tanquen automàticament en assolir aquesta data.
+                                <br/><label>Per&iacute;ode al que fa refer&egrave;ncia l&acute;indicador:</label>
+                                <div style="padding-left:30px;">
+                                    <div class="field" tal:define="error errors/inici|nothing;
+                                                                     inici request/inici | nothing;"
+                                                         tal:attributes="class python:test(error, 'field error', 'field')">
+                                        <label for="inici" i18n:translate="label_inici">Data inicial:</label>
+                                        <!--<span class="fieldRequired" title="Required" i18n:attributes="title title_required;" i18n:translate="label_required">(Required)</span>-->
+                                        <div class="formHelp">Per exemple: 1 d'octubre 2010</div>
+                                        <div tal:content="error">Validation error output</div>
+                                        <input type="text" name="inici" id="inici" size="10" tal:attributes="value inici;"/>
                                     </div>
-                                    <!--<span class="fieldRequired" title="Required" i18n:attributes="title title_required;" i18n:translate="label_required">(Required)</span>-->
-                                    <div tal:content="error">Validation error output</div>
-                                    <input type="text" name="fi" id="fi" size="10" tal:attributes="value fi;"/>
+
+                                    <div class="field" tal:define="error errors/fi|nothing;
+                                                                     fi request/fi | nothing;"
+                                                         tal:attributes="class python:test(error, 'field error', 'field')">
+                                        <label for="fi" i18n:translate="label_fi">Data final:</label>
+                                        <div class="formHelp">Per exemple: 11 de desembre 2010</div>
+                                        <!--<span class="fieldRequired" title="Required" i18n:attributes="title title_required;" i18n:translate="label_required">(Required)</span>-->
+                                        <div tal:content="error">Validation error output</div>
+                                        <input type="text" name="fi" id="fi" size="10" tal:attributes="value fi;"/>
+                                    </div>
                                 </div>
 
                                 <div class="field" tal:define="error errors/termini|nothing;
                                                                  termini request/termini | nothing;"
                                                      tal:attributes="class python:test(error, 'field error', 'field')">
                                     <label for="fi" i18n:translate="label_termini">Data final termini:</label>
+                                    <div class="formHelp">
+                                        Data fins la qual es poden introduir/modificar valors. Per exemple: 31 de desembre 2010 <br/>
+                                        Aquesta data &eacute;s informativa, els formularis no es tanquen autom&agrave;ticament en assolir aquesta data.
+                                    </div>
                                     <!--<span class="fieldRequired" title="Required" i18n:attributes="title title_required;" i18n:translate="label_required">(Required)</span>-->
                                     <div tal:content="error">Validation error output</div>
                                     <input type="text" name="termini" id="termini" size="10" tal:attributes="value termini;"/>

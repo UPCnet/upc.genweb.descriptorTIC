@@ -66,6 +66,6 @@ class NouperiodeView(BrowserView):
             preguntas = context.portal_catalog.searchResults(path=url, portal_type='SurveyTextQuestionGenweb', sort_on='getObjPositionInParent')
             return preguntas
         else:
-            self.context.plone_utils.addPortalMessage(_(u"El període d'exemple ha estat modificat, eliminat o mogut. Siusplau, assegura't que el període d'exemple existeix i està a la carpeta 'configuracio-periodes' de l'arrel del portal i el seu id és 'periode-dexemple'"), 'error')
+            self.context.plone_utils.addPortalMessage(_(u"El recull d'exemple ha estat modificat, eliminat o mogut. Siusplau, assegura't que el recull d'exemple existeix i està a la carpeta 'configuracio-periodes' de l'arrel del portal i el seu id és 'periode-dexemple'"), 'error')
             self.context.REQUEST.RESPONSE.redirect(self.context.absolute_url())
 

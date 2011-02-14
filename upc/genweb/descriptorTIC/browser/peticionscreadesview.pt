@@ -10,7 +10,7 @@
         <div metal:fill-slot="main">
             <div tal:replace="structure provider:plone.abovecontenttitle" />
 
-            <h1 class="documentFirstHeading">Peticions d'indicadors creades</h1>
+            <h1 class="documentFirstHeading">Reculls d'indicadors creats</h1>
 
             <table cellspacing="0" cellspadding="0" border="0" id="taula_peticions">
                 <tr tal:repeat="peticio view/retPeticionsCreades">

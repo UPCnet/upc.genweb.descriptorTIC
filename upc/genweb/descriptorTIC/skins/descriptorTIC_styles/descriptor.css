@@ -17,13 +17,16 @@ div.subcarpeta_familiatic .tileBody      { line-height:1.3em; }
 div.subcarpeta_familiatic .tileFooter    { float:right; margin-top:0; }
 
 /******************************************************************************* survey_genweb_view.cpt */
-form#survey_genweb_view fieldset {margin-top:10px;}
+/*form#survey_genweb_view fieldset {margin-top:10px;}*/
 form#survey_genweb_view .fieldWrapper {margin-top:10px;}
 form#survey_genweb_view .div_comentaris { padding-left:40px; }
 form#survey_genweb_view .div_comentaris label { font-weight:normal; }
 form#survey_genweb_view .div_comentaris .codi_indicador {display:none;}
 form#survey_genweb_view .div_comentaris textarea { border-color:#DDD }
 form#survey_genweb_view input { border-color:#666 #DDD #DDD #666 }
+
+.legend_recull_enviat { font-size:1em; color:green; padding:0 5px; font-weight:bold; margin-left:-5px; }
+.legend_recull_pendent { font-size:1em; color:red; padding:0 5px; font-weight:bold; margin-left:-5px; }
 
 /******************************************************************************* indicadorsunitatview */
 dl.dades_periode {

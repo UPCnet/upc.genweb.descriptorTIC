@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.3'
+version = '1.4'
 
 setup(name='upc.genweb.descriptorTIC',
       version=version,
@@ -29,7 +29,7 @@ setup(name='upc.genweb.descriptorTIC',
       ],
       entry_points="""
       # -*- Entry points: -*-
+      [z3c.autoinclude.plugin]
+      target = plone
       """,
-      setup_requires=["PasteScript"],
-      paster_plugins=["ZopeSkel"],  
       )

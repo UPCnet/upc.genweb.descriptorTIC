@@ -2,7 +2,11 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-    i18n_domain="upc.genweb.descriptorTIC">
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="upc.genweb.descriptorTIC"
+    >
+
+    <i18n:registerTranslations directory="locales" />
 
     <five:registerPackage package="." initialize=".initialize" />
 

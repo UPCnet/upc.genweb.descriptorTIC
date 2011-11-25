@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Definition of the AT Unitat content type.
 """
 __author__ = """José Luis Vivanco C <jose.luis.vivanco@upcnet.es>"""

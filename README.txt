@@ -1,4 +1,4 @@
-Introduction
+Introducció
 ============
 
-
+Paquet descriptorTIC.

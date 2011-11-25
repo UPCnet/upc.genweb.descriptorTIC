@@ -1,16 +1,16 @@
 Changelog
 =========
 
+1.3 (2011-11-25)
+----------------
+* GenwebUPC 4 ready.
+
 1.2.0 (2010-10-20)
 ------------------
-
 * nova funcionalitat: gestió d'indicadors (desactivada: línies comentades a /browser/configure.zcml) [lpm]
 * nou camp 'icono' per vista 'unitattic_view' als arquetips 'FamiliaTIC' i 'FaqContainertic' [lpm]
 * vista unitattic_view corregida [lpm]
 
-
 0.1 - Unreleased
 ----------------
-
 * Initial release
-

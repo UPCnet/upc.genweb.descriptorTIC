@@ -4,7 +4,9 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="here/main_template/macros/master"
-      i18n:domain="plone">
+      i18n:domain="plone"
+      tal:define="here_url context/@@plone_context_state/object_url;
+                  isAnon context/@@plone_portal_state/anonymous;">
 <head>
     <metal:block metal:fill-slot="head_slot">
         <link rel="alternate" title="RSS 1.0" type="application/rss+xml"
@@ -111,6 +113,8 @@
         <tal:entry define="result_url result/getURL;
                            result_type result/portal_type;
                            item_icon python:plone_view.getIcon(result);
+                           normalizeString nocall:context/@@plone/normalizeString;
+                           isAnon context/@@plone_portal_state/anonymous;
                            url python:'%s?searchterm=%s'%(result_type in use_view_action and result_url+'/view' or result_url+'/', searchterm);">
             <dt tal:define="item_wf_state_class string:state-${result/review_state};"
                 tal:attributes="class python:'contenttype-' + normalizeString(result.portal_type)">

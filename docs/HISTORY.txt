@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.5 (2011-12-12)
+----------------
+* Traduccions i templates
+
 1.4 (2011-11-25)
 ----------------
 * GenwebUPC 4 ready.

@@ -8,6 +8,5 @@
 *.fs
 *.fs.*
 *.log
-*.mo
 passwd
 data

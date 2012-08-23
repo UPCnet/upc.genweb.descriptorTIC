@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.6 (unreleased)
+----------------
+* ZCML cleansing
+
 1.5 (2011-12-12)
 ----------------
 * Traduccions i templates

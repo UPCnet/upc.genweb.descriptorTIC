@@ -3,19 +3,11 @@
     xmlns:five="http://namespaces.zope.org/five"
     i18n_domain="upc.genweb.descriptorTIC">
 
-    <!-- configure your content components here -->
-
-    <!-- -*- extra stuff goes here -*- -->
     <class class=".serveitic.ServeiTIC">
 
         <require
             permission="zope2.View"
             interface="..interfaces.IServeiTIC"
-            />
-
-        <require
-            permission="cmf.ModifyPortalContent"
-            set_schema="..interfaces.IServeiTIC"
             />
 
     </class>
@@ -28,11 +20,6 @@
             interface="..interfaces.IFaq"
             />
 
-        <require
-            permission="cmf.ModifyPortalContent"
-            set_schema="..interfaces.IFaq"
-            />
-
     </class>
 
     <class class=".unitattic.UnitatTIC">
@@ -42,11 +29,6 @@
             interface="..interfaces.IUnitatTIC"
             />
 
-        <require
-            permission="cmf.ModifyPortalContent"
-            set_schema="..interfaces.IUnitatTIC"
-            />
-
     </class>
 
     <class class=".familiatic.FamiliaTIC">
@@ -54,11 +36,6 @@
         <require
             permission="zope2.View"
             interface="..interfaces.IFamiliaTIC"
-            />
-
-        <require
-            permission="cmf.ModifyPortalContent"
-            set_schema="..interfaces.IFamiliaTIC"
             />
 
     </class>
@@ -71,11 +48,6 @@
             interface="..interfaces.ICarpetaTIC"
             />
 
-        <require
-            permission="cmf.ModifyPortalContent"
-            set_schema="..interfaces.ICarpetaTIC"
-            />
-
     </class>
 
 
@@ -86,14 +58,6 @@
             interface="..interfaces.IFaqContainerTIC"
             />
 
-        <require
-            permission="cmf.ModifyPortalContent"
-            set_schema="..interfaces.IFaqContainerTIC"
-            />
-
     </class>
 
-
-
 </configure>
-

@@ -1,10 +1,8 @@
-from Acquisition import aq_inner
-
 from zope.interface import implements
 from zope.component import getMultiAdapter
-from zope.app.component.hooks import getSite
-from zope.app.publisher.browser.menu import BrowserMenu
-from zope.app.publisher.browser.menu import BrowserSubMenuItem
+from zope.component.hooks import getSite
+from zope.browsermenu.menu import BrowserMenu
+from zope.browsermenu.menu import BrowserSubMenuItem
 
 from plone.memoize.instance import memoize
 from plone.app.content.browser.folderfactories import _allowedTypes
@@ -15,7 +13,6 @@ from Products.CMFCore.utils import getToolByName
 
 from upc.genweb.descriptorTIC.interfaces import IConfigperiodeSubMenuItem
 from upc.genweb.descriptorTIC.interfaces import IConfigperiodeMenu
-
 
 
 class ConfigperiodeSubMenuItem(BrowserSubMenuItem):
@@ -42,14 +39,12 @@ class ConfigperiodeSubMenuItem(BrowserSubMenuItem):
             folder = utils.parent(self.context)
         return folder.absolute_url() + '/folder_contents'
 
-
     @memoize
     def available(self):
         context = self.context
-        usuari = context.portal_membership.getAuthenticatedMember()                                #mirem si lusuari te permis per afegir periodes
+        usuari = context.portal_membership.getAuthenticatedMember()  #mirem si lusuari te permis per afegir periodes
         rols = usuari.getRoles()
         if 'Manager' in rols or 'WebMaster' in rols:
-        
             context_state = getMultiAdapter((context, self.request), name=u'plone_context_state')  #mirem si estem a carpeta 'osi'
             estem_a_osi = context.getPortalTypeName() == 'Folder' and context.getId() == 'osi'
             portal_types = getToolByName(context, 'portal_types')
@@ -69,7 +64,6 @@ class ConfigperiodeSubMenuItem(BrowserSubMenuItem):
                             return True
 
         return False
-
 
     def selected(self):
         return False
